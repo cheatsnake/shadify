@@ -13,6 +13,8 @@ func NewCore() *Core {
 
 func (sc *Core) Start() {
 	sc.Layout, sc.FreeCards = startGame()
+	sc.PossibleSets = [][]Card{}
+	sc.WonCards = []Card{}
 	sc.State = updateState(sc.Layout, sc.WonCards)
 }
 
@@ -96,6 +98,7 @@ func (sc *Core) LoadState(state string) error {
 	sc.FreeCards = freeCards
 	sc.WonCards = wonCards
 	sc.State = state
+	sc.PossibleSets = [][]Card{}
 
 	return nil
 }
