@@ -1,10 +1,10 @@
 package set
 
 const (
-	deckSize        int    = 81
-	startLayoutSize int    = 12
-	setSize         int    = 3
-	maxLayerSize    int    = 21
+	DeckSize        int    = 81
+	StartLayoutSize int    = 12
+	SetSize         int    = 3
+	MaxLayerSize    int    = 21
 	idSeparator     string = "-"
 	stateSeparator  string = "@"
 )

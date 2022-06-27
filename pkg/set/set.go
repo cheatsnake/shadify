@@ -6,7 +6,7 @@ import (
 
 func findSets(cards []Card) [][]Card {
 	cardsId := make([]int, len(cards))
-	sets := make([][]Card, 0, deckSize)
+	sets := make([][]Card, 0, DeckSize)
 
 	for i, card := range cards {
 		cardsId[i] = card.Id
@@ -15,7 +15,7 @@ func findSets(cards []Card) [][]Card {
 	length := uint(len(cardsId))
 
 	for subsetBits := 1; subsetBits < (1 << length); subsetBits++ {
-		if setSize > 0 && bits.OnesCount(uint(subsetBits)) != setSize {
+		if SetSize > 0 && bits.OnesCount(uint(subsetBits)) != SetSize {
 			continue
 		}
 
@@ -28,7 +28,7 @@ func findSets(cards []Card) [][]Card {
 		}
 
 		if validateSet(setId) {
-			set := make([]Card, setSize)
+			set := make([]Card, SetSize)
 			for i, id := range setId {
 				set[i] = Deck[id]
 			}

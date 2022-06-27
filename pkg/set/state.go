@@ -9,8 +9,8 @@ import (
 )
 
 func updateState(layout []Card, wonCards[]Card) string {
-	layoutId := make([]string, 0, deckSize)
-	wonCardsId := make([]string, 0, deckSize)
+	layoutId := make([]string, 0, DeckSize)
+	wonCardsId := make([]string, 0, DeckSize)
 
 	for _, card := range(layout) {
 		layoutId = append(layoutId, strconv.Itoa(card.Id))
@@ -33,25 +33,25 @@ func loadState(state string) ([]Card, []Card, []Card, error) {
 		return nil, nil, nil, err 
 	}
 
-	if len(layoutId) + len(wonCardsId) < startLayoutSize {
+	if len(layoutId) + len(wonCardsId) < StartLayoutSize {
 		return nil, nil, nil, errors.New("the size of the layout and the number of won cards in total must have at least 12 cards")
 	}
 
-	if len(layoutId) > maxLayerSize {
+	if len(layoutId) > MaxLayerSize {
 		return nil, nil, nil, errors.New("layout is too big (the maximum size of the layout is 21 cards)")
 	}
 
-	if len(layoutId) % setSize != 0 || len(wonCardsId) % setSize != 0 {
+	if len(layoutId) % SetSize != 0 || len(wonCardsId) % SetSize != 0 {
 		return nil, nil, nil, errors.New("the layout size and the number of won cards must be a multiple of 3")
 	}
 
-	if len(layoutId) + len(wonCardsId) > deckSize {
+	if len(layoutId) + len(wonCardsId) > DeckSize {
 		return nil, nil, nil, errors.New("cannot be more than 81 cards in the game")
 	}
 
-	layout := make([]Card, 0, deckSize)
-	freeCards := make([]Card, 0, deckSize - startLayoutSize)
-	wonCards := make([]Card, 0, deckSize)
+	layout := make([]Card, 0, DeckSize)
+	freeCards := make([]Card, 0, DeckSize - StartLayoutSize)
+	wonCards := make([]Card, 0, DeckSize)
 	
 	for j := range layoutId {
 		layout= append(layout, Deck[layoutId[j]])
@@ -83,7 +83,7 @@ func parseStateString(state string) ([]int, []int, error) {
 	} 
 
 	for _, id := range layoutId {
-		if (id >= deckSize) {
+		if (id >= DeckSize) {
 			return nil, nil, errors.New("entered not exist id: " + strconv.Itoa(id))
 		}
 	}
@@ -99,7 +99,7 @@ func parseStateString(state string) ([]int, []int, error) {
 	} 
 
 	for _, id := range wonCardsId {
-		if (id >= deckSize) {
+		if (id >= DeckSize) {
 			return nil, nil, errors.New("entered not exist id: " + strconv.Itoa(id))
 		}
 		if assists.SliceContains(layoutId, id) {

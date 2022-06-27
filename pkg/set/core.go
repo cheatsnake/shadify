@@ -42,7 +42,7 @@ func (sc *Core) RemoveSet(set []int) error {
 		layoutId = assists.RemoveElement(layoutId, index)
 	}
 
-	if len(sc.Layout) < startLayoutSize && len(sc.FreeCards) >= setSize {
+	if len(sc.Layout) < StartLayoutSize && len(sc.FreeCards) >= SetSize {
 		sc.AddCards()
 	}
 
@@ -54,14 +54,14 @@ func (sc *Core) RemoveSet(set []int) error {
 
 func (sc *Core) AddCards() error {
 	if len(sc.Layout) > 20 {
-		return errors.New("in a layout the size of more then 20 cards is guaranteed to be a set")
+		return errors.New("the operation of adding cards has been canceled (in the layout with size of more then 20 cards is guaranteed to be a set)")
 	}
 
-	if len(sc.FreeCards) < setSize {
+	if len(sc.FreeCards) < SetSize {
 		return errors.New("there are no more free cards left")
 	}
 
-	for i := 0; i < setSize; i++ {
+	for i := 0; i < SetSize; i++ {
 		index := assists.GetRandomInteger(0, len(sc.FreeCards) - 1)
 		sc.Layout = append(sc.Layout, sc.FreeCards[index])
 		sc.FreeCards = assists.RemoveElement(sc.FreeCards, index)
@@ -75,7 +75,7 @@ func (sc *Core) AddCards() error {
 
 func (sc *Core) FindSets() string {
 	sc.PossibleSets = findSets(sc.Layout)	
-	if len(sc.FreeCards) < setSize && len(sc.PossibleSets) < 1 {
+	if len(sc.FreeCards) < SetSize && len(sc.PossibleSets) < 1 {
 		return "the game is over there are no more sets"
 	} else {
 		if (len(sc.PossibleSets) > 1) {

@@ -7,9 +7,9 @@ import (
 )
 
 func startGame() ([]Card, []Card) {
-	cardIndexes := assists.GetNumbers(deckSize, 0)
-	layout := make([]Card, startLayoutSize)
-	freeCards := make([]Card, 0, deckSize - startLayoutSize)
+	cardIndexes := assists.GetNumbers(DeckSize, 0)
+	layout := make([]Card, StartLayoutSize)
+	freeCards := make([]Card, 0, DeckSize - StartLayoutSize)
 
 	for j := range layout {
 		cardIndex := assists.GetRandomInteger(0, len(cardIndexes) - 1)
@@ -29,7 +29,7 @@ func startGame() ([]Card, []Card) {
 }
 
 func generateCards() ([]Card) {
-	cards := make([]Card, 0, deckSize)
+	cards := make([]Card, 0, DeckSize)
 
 	for i := 0; i < len(numbers); i++ {
 		for j := 0; j < len(shapes); j++ {
