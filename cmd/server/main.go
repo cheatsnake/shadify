@@ -27,6 +27,7 @@ func main() {
 	routes.TakuzuRouter(app)
 	routes.SudokuRouter(app)
 	routes.SchulteRouter(app)
+	routes.SetRouter(app)
 
 	log.Fatal(app.Listen(":" + port))
 }
