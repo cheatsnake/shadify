@@ -2,6 +2,7 @@ package helpers
 
 import (
 	"strconv"
+	"strings"
 
 	"github.com/gofiber/fiber/v2"
 )
@@ -23,4 +24,17 @@ func GetQueryString(c *fiber.Ctx, param string, def string) string {
 	}
 
 	return value
+}
+
+func GetQueryIntSlice(c *fiber.Ctx, param string, size int) []int {
+	value := c.Query(param)
+	res := make([]int, size)
+	for i, v := range strings.Split(value, "-") {
+		num, err := strconv.Atoi(v)
+		if err != nil || i == size {
+			return []int{}
+		}
+		res[i] = num
+	}
+	return res
 }
