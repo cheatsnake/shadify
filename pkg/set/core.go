@@ -32,7 +32,7 @@ func (sc *Core) RemoveSet(set []int) error {
 	}
 
 	if !validateSet(set) {
-		return errors.New("this combination is not a set")
+		return errors.New(setIsNotValid)
 	}
 
 	for _, id := range set {
@@ -53,12 +53,12 @@ func (sc *Core) RemoveSet(set []int) error {
 }
 
 func (sc *Core) AddCards() error {
-	if len(sc.Layout) > 20 {
-		return errors.New("the operation of adding cards has been canceled (in the layout with size of more then 20 cards is guaranteed to be a set)")
+	if len(sc.Layout) >= MaxLayerSize {
+		return errors.New(peakMaxLayoutSize)
 	}
 
 	if len(sc.FreeCards) < SetSize {
-		return errors.New("there are no more free cards left")
+		return errors.New(freeCardsOver)
 	}
 
 	for i := 0; i < SetSize; i++ {
@@ -76,14 +76,14 @@ func (sc *Core) AddCards() error {
 func (sc *Core) FindSets() string {
 	sc.PossibleSets = findSets(sc.Layout)	
 	if len(sc.FreeCards) < SetSize && len(sc.PossibleSets) < 1 {
-		return "the game is over there are no more sets"
+		return gameOver
 	} else {
 		if (len(sc.PossibleSets) > 1) {
 			return "found " + strconv.Itoa(len(sc.PossibleSets)) + " sets"
 		} else if (len(sc.PossibleSets) == 1) {
 			return "found 1 set"
 		} else {
-			return "sets not found"
+			return setsNotFound
 		} 
 	}
 }
