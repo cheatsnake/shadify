@@ -34,19 +34,19 @@ func loadState(state string) ([]Card, []Card, []Card, error) {
 	}
 
 	if len(layoutId) + len(wonCardsId) < StartLayoutSize {
-		return nil, nil, nil, errors.New("the size of the layout and the number of won cards in total must have at least 12 cards")
+		return nil, nil, nil, errors.New(notEnoughCards)
 	}
 
 	if len(layoutId) > MaxLayerSize {
-		return nil, nil, nil, errors.New("layout is too big (the maximum size of the layout is 21 cards)")
+		return nil, nil, nil, errors.New(layoutIsTooBig)
 	}
 
 	if len(layoutId) % SetSize != 0 || len(wonCardsId) % SetSize != 0 {
-		return nil, nil, nil, errors.New("the layout size and the number of won cards must be a multiple of 3")
+		return nil, nil, nil, errors.New(incorrectCardsAmount)
 	}
 
 	if len(layoutId) + len(wonCardsId) > DeckSize {
-		return nil, nil, nil, errors.New("cannot be more than 81 cards in the game")
+		return nil, nil, nil, errors.New(tooMuchCards)
 	}
 
 	layout := make([]Card, 0, DeckSize)
