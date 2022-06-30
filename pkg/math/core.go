@@ -1,6 +1,7 @@
 package math
 
 import (
+	"math"
 	"strconv"
 
 	"github.com/cheatsnake/shadify/pkg/assists"
@@ -67,5 +68,27 @@ func (mc *Core) Division(minFirst, maxFirst int) BasicExpression {
 
 	return BasicExpression{
 		first, second, operation, expression, answer,
+	}
+}
+
+func (mc* Core) Quadratic(minA, maxA, minB, maxB, minC, maxC int) QuadraticEquation {
+	a := assists.GetRandomInteger(minA, maxA)
+	b := assists.GetRandomInteger(minB, maxB)
+	c := assists.GetRandomInteger(minC, maxC)
+
+	equation := strconv.Itoa(a) + "x^2 + " + strconv.Itoa(b) + "x + " + strconv.Itoa(c) + " = 0"
+
+	discriminant := (b * b) - 4 * a * c
+	if discriminant < 0 {
+		return QuadraticEquation{equation, a, b, c, discriminant, "none", "none"}
+	}
+
+	x1 := (-float64(b) - (math.Sqrt(float64(discriminant)))) / (2 * float64(a))
+	x2 := (-float64(b) + (math.Sqrt(float64(discriminant)))) / (2 * float64(a))
+
+	return QuadraticEquation{
+		equation, a, b, c, discriminant, 
+		strconv.FormatFloat(x1, 'f', 3, 64), 
+		strconv.FormatFloat(x2, 'f', 3, 64),
 	}
 }
