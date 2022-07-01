@@ -10,6 +10,8 @@ const (
 	mathMin int = 1
 	mathMax int = 99
 	mathNegative int = 0
+	mathQuadMin int = 1
+	mathQuadMax int = 20 
 )
 
 var mathCore *math.Core	
@@ -61,3 +63,16 @@ func MathDivision(c *fiber.Ctx) error {
 
 	return c.JSON(result)
 }
+
+func MathQuadratic(c *fiber.Ctx) error {
+	minA := helpers.GetQueryInt(c, "minA", mathQuadMin)
+	minB := helpers.GetQueryInt(c, "minB", mathQuadMin)
+	minC := helpers.GetQueryInt(c, "minC", mathQuadMin)
+	maxA := helpers.GetQueryInt(c, "maxA", mathQuadMax)
+	maxB := helpers.GetQueryInt(c, "maxB", mathQuadMax)
+	maxC := helpers.GetQueryInt(c, "maxC", mathQuadMax)
+
+	result := mathCore.Quadratic(minA, minB, minC, maxA, maxB, maxC)
+
+	return c.JSON(result)
+} 

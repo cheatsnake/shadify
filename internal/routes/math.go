@@ -12,4 +12,5 @@ func MathRouter(app fiber.Router) {
 	app.Get(prefix + "/sub", handlers.MathSubtraction)
 	app.Get(prefix + "/mul", handlers.MathMultiplication)
 	app.Get(prefix + "/div", handlers.MathDivision)
+	app.Get(prefix + "/quad", handlers.MathQuadratic)
 }
