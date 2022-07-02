@@ -69,10 +69,10 @@ func MathQuadratic(c *fiber.Ctx) error {
 	minB := helpers.GetQueryInt(c, "minB", mathQuadMin)
 	minC := helpers.GetQueryInt(c, "minC", mathQuadMin)
 	maxA := helpers.GetQueryInt(c, "maxA", mathQuadMax)
-	maxB := helpers.GetQueryInt(c, "maxB", mathQuadMax)
+	maxB := helpers.GetQueryInt(c, "maxB", mathQuadMax * 2)
 	maxC := helpers.GetQueryInt(c, "maxC", mathQuadMax)
 
-	result := mathCore.Quadratic(minA, minB, minC, maxA, maxB, maxC)
+	result := mathCore.Quadratic(minA, maxA, minB, maxB, minC, maxC)
 
 	return c.JSON(result)
 } 
