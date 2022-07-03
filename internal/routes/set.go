@@ -10,5 +10,5 @@ func SetRouter(app fiber.Router) {
 
 	app.Get(prefix + "/start", handlers.SetGameStart)
 	app.Get(prefix + "/cards", handlers.SetGameAllCards)
-	app.Get(prefix + "/state/:state", handlers.SetGameLoadState)
+	app.Get(prefix + "/:state", handlers.SetGameLoadState)
 }
