@@ -39,12 +39,7 @@ func SetGameAllCards(c *fiber.Ctx) error {
 
 func SetGameLoadState(c *fiber.Ctx) error {
 	state := c.Params("state")
-	rSet := helpers.GetQueryIntSlice(c, "removeSet", set.SetSize)
-	add, err := strconv.ParseBool(c.Query("addCards"))
-	if err != nil {
-		add = false
-	}
-
+	action := c.Query("action")
 	posSets, err := strconv.ParseBool(c.Query("possibleSets"))
 	if err != nil {
 		posSets = possibleSets
@@ -56,36 +51,27 @@ func SetGameLoadState(c *fiber.Ctx) error {
 		return c.Status(code).JSON(fiber.NewError(code, err.Error()))
 	}
 
-	if posSets {
-		setCore.FindSets()
-	}
-
-	if len(rSet) == set.SetSize {
-		err := setCore.RemoveSet(rSet)
-		if err != nil {
-			code := fiber.StatusBadRequest
-			return c.Status(code).JSON(fiber.NewError(code, err.Error()))
-		} else {
-			if posSets {
-				setCore.FindSets()
-			}
-			return c.JSON(setCore)
-		}
-	}
-
-	if add {
+	switch action {
+	case "add":
 		err := setCore.AddCards()
 		if err != nil {
 			code := fiber.StatusBadRequest
 			return c.Status(code).JSON(fiber.NewError(code, err.Error()))
-		} else {
-			if posSets {
-				setCore.FindSets()
-			}
-			return c.JSON(setCore)
 		}
+	case "remove":
+		cards := helpers.GetQueryIntSlice(c, "cards", set.SetSize)
+		if len(cards) == set.SetSize {
+			err := setCore.RemoveSet(cards)
+			if err != nil {
+				code := fiber.StatusBadRequest
+				return c.Status(code).JSON(fiber.NewError(code, err.Error()))
+			}
+		}
+	}
+
+	if posSets {
+		setCore.FindSets()
 	}
 
 	return c.JSON(setCore)
 }
-
