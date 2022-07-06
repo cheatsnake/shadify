@@ -28,6 +28,7 @@ func main() {
 	routes.SudokuRouter(app)
 	routes.SchulteRouter(app)
 	routes.SetRouter(app)
+	routes.MinesweeperRouter(app)
 
 	log.Fatal(app.Listen(":" + port))
 }
