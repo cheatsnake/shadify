@@ -9,6 +9,6 @@ func TakuzuRouter(app fiber.Router) {
 	prefix := "/takuzu"
 
 	app.Get(prefix + "/generator", handlers.TakuzuGenerator)
-	app.Get(prefix + "/verify", handlers.TakuzuVerificationGet)
-	app.Post(prefix + "/verify", handlers.TakuzuVerificationPost)
+	app.Get(prefix + "/verifier", handlers.TakuzuVerificationGet)
+	app.Post(prefix + "/verifier", handlers.TakuzuVerificationPost)
 }
