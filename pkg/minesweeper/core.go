@@ -8,8 +8,16 @@ func NewCore() *Core {
 
 func (sc *Core) Generate(sp string, w, h, mines int) (Board, error) {
 
-	if mines >= (w * h) {
-		return Board{}, errors.New("the field is too small for so many mines")
+	if (w * h < minFieldCells) {
+		return Board{}, errors.New(tooSmallField)
+	}
+
+	if (w * h > maxFieldCells) {
+		return Board{}, errors.New(tooBigField)
+	}
+
+	if float64(mines) > float64(w * h) * (maxMinesPercent) {
+		return Board{}, errors.New(tooManyMines)
 	}
 
 	startX, startY, err := parseStartPosition(sp, w, h)
