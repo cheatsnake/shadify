@@ -1,10 +1,17 @@
 package takuzu
 
+import "errors"
+
 // Creating a new instance of Takuzu Core with given size
-func NewCore(size int) *Core {
+func NewCore(size int) (*Core, error) {
+
+	if (size < 4 || size > 12) {
+		return &Core{}, errors.New(incorrectSize)
+	}
+
 	return &Core{
 		Size: size,
-	}
+	}, nil
 }
 
 // Generating a new Takuzu field
