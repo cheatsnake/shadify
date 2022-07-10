@@ -34,7 +34,8 @@ func SudokuVerificationPost(c *fiber.Ctx) error {
 	tBody := new(sudokuTaskBody)
 
 	if err := c.BodyParser(tBody); err != nil {
-		return fiber.NewError(fiber.StatusBadRequest, err.Error())
+		code := fiber.StatusBadRequest
+		return c.Status(code).JSON(fiber.NewError(code, err.Error()))
 	}
 
 	sudokuCore = sudoku.NewCore()
@@ -49,7 +50,8 @@ func SudokuVerificationGet(c *fiber.Ctx) error {
 	matched, _ := regexp.MatchString(`[1-9-]`, taskStr)
 
 	if taskStr == "" || !strings.Contains(taskStr, "-") || !matched {
-		return fiber.NewError(fiber.StatusBadRequest, "invalid 'task' parameter value")
+		code := fiber.StatusBadRequest
+		return c.Status(code).JSON(fiber.NewError(code, "invalid 'task' parameter value"))
 	}
 
 	sudokuCore = sudoku.NewCore()
@@ -68,7 +70,8 @@ func SudokuVerificationGet(c *fiber.Ctx) error {
 			task[i] = sudokuRow
 			copy(sudokuCore.Task[i][:], task[i][0:9])
 		} else {
-			return fiber.NewError(fiber.StatusBadRequest, "each row must be 9 digits long")
+			code := fiber.StatusBadRequest
+			return c.Status(code).JSON(fiber.NewError(code, "each row must be 9 digits long"))
 		}
 	}
 
