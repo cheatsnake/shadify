@@ -6,7 +6,7 @@ import (
 )
 
 func SetRouter(app fiber.Router) {
-	prefix := "/set"
+	prefix := "/api/set"
 
 	app.Get(prefix + "/start", handlers.SetGameStart)
 	app.Get(prefix + "/cards", handlers.SetGameAllCards)

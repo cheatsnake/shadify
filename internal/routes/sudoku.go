@@ -6,7 +6,7 @@ import (
 )
 
 func SudokuRouter(app fiber.Router) {
-	prefix := "/sudoku"
+	prefix := "/api/sudoku"
 
 	app.Get(prefix + "/generator", handlers.SudokuGenerator)
 	app.Get(prefix + "/verifier", handlers.SudokuVerificationGet)

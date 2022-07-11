@@ -6,7 +6,7 @@ import (
 )
 
 func MinesweeperRouter(app fiber.Router) {
-	prefix := "/minesweeper"
+	prefix := "/api/minesweeper"
 
 	app.Get(prefix + "/generator", handlers.MinesweeperGenerator)
 }

@@ -6,7 +6,7 @@ import (
 )
 
 func TakuzuRouter(app fiber.Router) {
-	prefix := "/takuzu"
+	prefix := "/api/takuzu"
 
 	app.Get(prefix + "/generator", handlers.TakuzuGenerator)
 	app.Get(prefix + "/verifier", handlers.TakuzuVerificationGet)

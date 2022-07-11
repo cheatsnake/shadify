@@ -6,7 +6,7 @@ import (
 )
 
 func MathRouter(app fiber.Router) {
-	prefix := "/math"
+	prefix := "/api/math"
 
 	app.Get(prefix + "/add", handlers.MathAddition)
 	app.Get(prefix + "/sub", handlers.MathSubtraction)

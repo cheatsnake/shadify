@@ -6,7 +6,7 @@ import (
 )
 
 func SchulteRouter(app fiber.Router) {
-	prefix := "/schulte"
+	prefix := "/api/schulte"
 
 	app.Get(prefix + "/generator", handlers.SchulteGenerator)
 }
