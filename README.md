@@ -249,9 +249,9 @@ Returned response:
 
 ```json
 {
-	"freeCards": [<69 карт>],
-	"layout": [<12 карт>],
-	"possibleSets": [[<3 карты>]],
+	"freeCards": [<69 cards>],
+	"layout": [<12 cards>],
+	"possibleSets": [[<3 cards>]],
 	"wonCards": [],
 	"state": "20-4-11-10-12-46-70-62-41-23-3-8"
 }
