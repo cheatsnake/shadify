@@ -62,7 +62,7 @@ Returned response:
 }
 ```
 
-> `grid` - fully solved Sudoku. <br> > `task` - the task, which must be solved by filling in the zeros with the correct numbers.
+> `grid` - fully solved Sudoku. <br> `task` - the task, which must be solved by filling in the zeros with the correct numbers.
 
 -   Checking Sudoku
 
@@ -172,9 +172,9 @@ To check Takuzu, you can use a GET-request with the required query parameter:
 GET https://shadify.dev/api/takuzu/verifier
 ```
 
-| Parameter | Description                                                                                                                                                                                                                                               |
-| --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `task`    | _Обязательный_ <br> A string of the form `1010-1100-0011-0101`, which corresponds to the Takuzu field, where each line (row) is separated by a dash. It can only contain 0 and 1, the number of rows must be equal to the number of elements in each row. |
+| Parameter | Description                                                                                                                                                                                                                                           |
+| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `task`    | _Required_ <br> A string of the form `1010-1100-0011-0101`, which corresponds to the Takuzu field, where each line (row) is separated by a dash. It can only contain 0 and 1, the number of rows must be equal to the number of elements in each row. |
 
 An example of a GET-request:
 
@@ -233,7 +233,7 @@ Always returns the same array of 81 objects. Each object corresponds to one of t
 }
 ```
 
-> `_id` - a unique identifier for each card <br> > `number` – number of figures: 1 | 2 | 3 <br> > `shape` – body shape: "diamond" | "squiggle" | "oval" <br> > `blee` – figure color: "red" | "green" | "purple" <br> > `shading` – figure shading: "solid" | "striped" | "open"
+> `_id` - a unique identifier for each card <br> `number` – number of figures: 1 | 2 | 3 <br> `shape` – body shape: "diamond" | "squiggle" | "oval" <br> `blee` – figure color: "red" | "green" | "purple" <br> `shading` – figure shading: "solid" | "striped" | "open"
 
 -   Generating a new game
 
@@ -257,7 +257,7 @@ Returned response:
 }
 ```
 
-> `freeCards` – an array of objects corresponding to free maps that have not yet been used in the game. <br> > `layout` – an array of objects corresponding to the maps that are available to play, i.e. to search for sets. <br> > `possibleSets` – array containing arrays that include exactly 3 objects each. Each 3 object corresponds to a combination of three cards forming a set, which can be assembled from the cards available on the current `layout`. <br> > `wonCards` – an array of objects corresponding to the won cards, which will no longer participate in the game. <br> > `state` – A unique identifier for the current game state. It is needed to perform actions on deleting sets, adding additional cards or just to load the current game state. It has the following form _1-2-3@4-5-6_, where the numbers to the left of the sign _@_ correspond to the unique identifiers of those cards that are in `layout`, and the numbers on the right are in `wonCards`.
+> `freeCards` – an array of objects corresponding to free maps that have not yet been used in the game. <br> `layout` – an array of objects corresponding to the maps that are available to play, i.e. to search for sets. <br> `possibleSets` – array containing arrays that include exactly 3 objects each. Each 3 object corresponds to a combination of three cards forming a set, which can be assembled from the cards available on the current `layout`. <br> `wonCards` – an array of objects corresponding to the won cards, which will no longer participate in the game. <br> `state` – A unique identifier for the current game state. It is needed to perform actions on deleting sets, adding additional cards or just to load the current game state. It has the following form _1-2-3@4-5-6_, where the numbers to the left of the sign _@_ correspond to the unique identifiers of those cards that are in `layout`, and the numbers on the right are in `wonCards`.
 
 -   Load state
 
@@ -269,7 +269,7 @@ GET https://shadify.dev/api/set/<:state>
 | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `possibleSets` | _Optional_ <br> A _true_/_false_ string that enables/disables the search for possible sets in the current `layout`. <br> Default value is _true_.                                                                                                                                                                                                                                                                                                                                   |
 | `action`       | _Optional_ <br> The _add_/_remove_ string, which allows you to perform the appropriate action with the current game state. <br> The _add_ string adds 3 random cards from the current `freeCards` array to the current `layout` (available only if the `layout` size does not exceed 20 cards). <br> The _remove_ string removes the specified combination of three cards from the current `layout`. To do this you must use the `cards` parameter. <br> There is no default value. |
-| `cards`        | _Обязательный при `action=remove`_ <br> A string of the form _1-2-3_, where each number corresponds to the unique identifier of one of the cards that make up the set. <br> There is no default value.                                                                                                                                                                                                                                                                              |
+| `cards`        | _Required for `action=remove`_ <br> A string of the form _1-2-3_, where each number corresponds to the unique identifier of one of the cards that make up the set. <br> There is no default value.                                                                                                                                                                                                                                                                                  |
 
 Examples of requests with state loading:
 
@@ -399,12 +399,12 @@ Returned response:
 GET https://shadify.dev/api/minesweeper/generator
 ```
 
-| Parameter | Description                                                                                                                                                                                                                                                                                                                                                       |
-| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `start`   | _Обязательный_ <br> A string of the form _1-2_, which sets the starting position of the player. There will never be mines in and around this position. The first number is the X coordinate (from 1 to the value of the `widht` parameter), the second number is the Y coordinate (from 1 to the value of the `height` parameter) <br> There is no default value. |
-| `width`   | _Optional_ <br> The number that sets the width of the generated field. The total number of cells in the field must not exceed 1000. <br> The default value is 9.                                                                                                                                                                                                  |
-| `height`  | _Optional_ <br> The number that sets the height of the generated field. The total number of cells in the field must not exceed 1000. <br> The default value is 9.                                                                                                                                                                                                 |
-| `mines`   | _Optional_ <br> The number that sets the number of mines on the field. The number of mines must not exceed 25% of the total number of cells on the field. <br> The default value is 12.                                                                                                                                                                           |
+| Parameter | Description                                                                                                                                                                                                                                                                                                                                                   |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `start`   | _Required_ <br> A string of the form _1-2_, which sets the starting position of the player. There will never be mines in and around this position. The first number is the X coordinate (from 1 to the value of the `widht` parameter), the second number is the Y coordinate (from 1 to the value of the `height` parameter) <br> There is no default value. |
+| `width`   | _Optional_ <br> The number that sets the width of the generated field. The total number of cells in the field must not exceed 1000. <br> The default value is 9.                                                                                                                                                                                              |
+| `height`  | _Optional_ <br> The number that sets the height of the generated field. The total number of cells in the field must not exceed 1000. <br> The default value is 9.                                                                                                                                                                                             |
+| `mines`   | _Optional_ <br> The number that sets the number of mines on the field. The number of mines must not exceed 25% of the total number of cells on the field. <br> The default value is 12.                                                                                                                                                                       |
 
 Returned response:
 
