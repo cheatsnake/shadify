@@ -2,7 +2,6 @@ package wordsearch
 
 import (
 	"math/rand"
-	"time"
 )
 
 var words [25]string = [25]string{"parish", "paucity", "prim", "plasm", "hogan", "under", "ate", "butt", "why", "fay", "tar", "max", "mph", "gangster", "guaranty", "huckster", "fancy", "nolo", "chatham", "nun", "hawk", "ryan", "much", "elm", "pup"}
@@ -18,10 +17,6 @@ func Generate(w, h, wc int) [][]string {
 		grid[i] = row
 	}
 
-
-	// for _, w := range words {
-	// 	pasteWord(grid, w)
-	// }
 	pasteWords(grid, words[:])
 
 	for i := range grid {
@@ -38,7 +33,6 @@ func Generate(w, h, wc int) [][]string {
 }
 
 func pasteWords(grid [][]string, words []string) {
-	rand.Seed(time.Now().UnixNano())
 	var x, y, d int
 
 	for _, word := range words {
@@ -48,8 +42,8 @@ func pasteWords(grid [][]string, words []string) {
 		y = rand.Intn(len(grid))
 		d = rand.Intn(len(directions))
 	
-		if isPossibleToPaste(grid, x, y, d, word) {
-			println(x, y)
+		if isPossibleToPaste(grid, x, y, &d, word) {
+			// println(x, y)
 			for _, letter := range word {
 				grid[y][x] = string(letter)
 				x += directions[d][0]
@@ -61,21 +55,39 @@ func pasteWords(grid [][]string, words []string) {
 	}
 }
 
-func isPossibleToPaste(grid [][]string, x, y, d int, word string) bool {
+func isPossibleToPaste(grid [][]string, x, y int, d *int, word string) bool {
 	gg++
-	isPossible := true
-	// println(x, y)
+	copyX, copyY := x, y
+	isPossible, checkAllDirs := true, false
+	initDir, lastDir := *d,  *d - 1
+	if initDir - 1 < 0 {
+		lastDir = len(directions) - 1
+	}
+	again:
+	if *d == lastDir {
+		checkAllDirs = true
+	}
 	for _, letter := range word {
-		if (x < len(grid[0]) && 
-			x >= 0 &&
-			y < len(grid) && 
-			y >= 0 &&
-			((grid[y][x] == string(letter) || grid[y][x] == ""))) {
-			x += directions[d][0]
-			y += directions[d][1]
+		if (copyX < len(grid[0]) && 
+			copyX >= 0 &&
+			copyY < len(grid) && 
+			copyY >= 0 &&
+			((grid[copyY][copyX] == string(letter) || grid[copyY][copyX] == ""))) {
+			copyX += directions[*d][0]
+			copyY += directions[*d][1]
 		} else {
-			isPossible = false
-			break;
+			if *d == len(directions) - 1 {
+				*d = 0
+			} else {
+				*d++
+			}
+
+			if checkAllDirs { 
+				isPossible = false
+				break;
+			} 
+			copyX, copyY = x, y
+			goto again
 		}
 	}
 	// println(x, y)
