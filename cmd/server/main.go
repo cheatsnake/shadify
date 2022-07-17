@@ -3,11 +3,11 @@ package main
 import (
 	"log"
 	"os"
-	_ "time"
+	"time"
 
 	"github.com/cheatsnake/shadify/internal/routes"
 	"github.com/gofiber/fiber/v2"
-	_ "github.com/gofiber/fiber/v2/middleware/limiter"
+	"github.com/gofiber/fiber/v2/middleware/limiter"
 )
 
 func main() {
@@ -18,10 +18,14 @@ func main() {
 		port = "5000"
 	}
 
-	// app.Use(limiter.New(limiter.Config{
-	// 	Expiration: 10 * time.Second,
-	// 	Max: 5,
-	// }))
+	app.Use(limiter.New(limiter.Config{
+		Expiration: 10 * time.Second,
+		Max: 5,
+	}))
+
+	app.Get("/", func(c *fiber.Ctx) error {
+		return c.Redirect("https://github.com/cheatsnake/shadify/blob/master/README.md#documentation")
+	})
 
 	routes.MathRouter(app)
 	routes.TakuzuRouter(app)
