@@ -2,6 +2,7 @@ package wordsearch
 
 import (
 	"errors"
+	"fmt"
 	"math/rand"
 	"path/filepath"
 
@@ -11,7 +12,12 @@ import (
 var wordsDB []string
 
 func init() {
-	wordsDB, _ = assists.ReadFileLineByLine(filepath.Join("data", "nouns.txt"))
+	nouns, err := assists.ReadFileLineByLine(filepath.Join("..", "..", "data", "nouns.txt"))
+	if err != nil {
+		fmt.Println(err)
+	}
+	fmt.Println(len(nouns))
+	wordsDB = nouns
 }
 
 func NewCore() *Core {
