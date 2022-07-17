@@ -12,11 +12,10 @@ import (
 var wordsDB []string
 
 func init() {
-	nouns, err := assists.ReadFileLineByLine(filepath.Join("..", "..", "data", "nouns.txt"))
+	nouns, err := assists.ReadFileLineByLine(filepath.Join("data", "nouns.txt"))
 	if err != nil {
 		fmt.Println(err)
 	}
-	fmt.Println(len(nouns))
 	wordsDB = nouns
 }
 
