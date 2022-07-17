@@ -7,6 +7,7 @@ import (
 
 	"github.com/cheatsnake/shadify/internal/routes"
 	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/gofiber/fiber/v2/middleware/limiter"
 )
 
@@ -17,7 +18,8 @@ func main() {
 	if os.Getenv("PORT") == "" {
 		port = "5000"
 	}
-
+	
+	app.Use(cors.New())
 	app.Use(limiter.New(limiter.Config{
 		Expiration: 10 * time.Second,
 		Max: 5,
