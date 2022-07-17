@@ -4,7 +4,7 @@ Focus on creating incredible and beautiful applications without worrying about c
 
 ## Quick overview
 
-Shadify is a powerful service for generating data and executing various server-side logic to create different applications and games. It uses HTTP requests to interact with the service and returns convenient JSON responses. Shadify can be very useful for developers who do Frontend-development. With the modules already available, you can focus entirely on creating beautiful UIs for applications that will enrich your portfolio.
+Shadify is a powerful service for generating data and executing various logic on the server to create various applications and games. It uses HTTP requests to interact with the service and returns convenient JSON responses. Shadify can be very useful for developers who do Frontend-development. With the modules already available, you can focus entirely on creating beautiful UIs for applications that will enrich your portfolio.
 
 The codebase is written in the Go programming language, which is great for creating server-side applications, as well as providing high computational power.
 
@@ -18,6 +18,7 @@ The service is divided into independent modules. Each module starts with a brief
 -   [Math](#math)
 -   [Schulte](#schulte)
 -   [Minesweeper](#minesweeper)
+-   [Wordsearch](#wordsearch)
 
 ### Sudoku
 
@@ -117,7 +118,7 @@ Returned response:
 
 ### Takuzu
 
-[Takuzu](https://en.wikipedia.org/wiki/Takuzu), a.k.a. Binairo is an entertaining puzzle game with simple rules. All you have to do is to fill a square field of a certain size with two digits (or colors) while following three simple rules:
+[Takuzu](https://en.wikipedia.org/wiki/Takuzu) (a.k.a. Binairo) is an entertaining puzzle game with simple rules. All you have to do is to fill a square field of a certain size with two digits (or colors) while following three simple rules:
 
 1. Each column and each row must be unique
 2. Each row and each column must have an equal number of tiles of each digit
@@ -213,7 +214,9 @@ Returned response:
 
 ### Set
 
-[Set (card game)](<https://en.wikipedia.org/wiki/Set_(card_game)>) – a fascinating card game. The game deck consists of 81 cards, each with one, two, or three of the same symbol (rhombus, oval, or wave) of the same color (red, green, or purple) and texture (shaded, shaded, or outline only). The essence of the game is to find a set - a set of three cards that meets certain conditions. To understand the rules, read Wikipedia or watch [this interesting video](https://youtu.be/NzXDfSFQ1c0).
+[Set (card game)](<https://en.wikipedia.org/wiki/Set_(card_game)>) – a fascinating card game. The game deck consists of 81 cards, each with one, two, or three of the same symbol (rhombus, oval, or wave) of the same color (red, green, or purple) and texture (shaded, shaded, or outline only). The essence of the game is to find a set - a set of three cards that meets certain conditions.
+
+To understand the rules, read Wikipedia or watch [this interesting video](https://youtu.be/NzXDfSFQ1c0).
 
 -   Get all cards
 
@@ -287,7 +290,7 @@ https://shadify.dev/api/set/0-27-53-10-46-15-16-64-32-23-29-6?action=remove&card
 
 ### Math
 
-A module for generating random mathematical expressions. Great for creating various simulators, where you'll have to wiggle your brain. By the way, you can see my application as an example [Mind math](https://cheatsnake.github.io/MindMath/).
+A module for generating random mathematical expressions. Great for creating various simulators, where you'll have to wiggle your brain. You can see [my application](https://cheatsnake.github.io/MindMath/) as an example.
 
 -   Generating an expression with addition
 
@@ -334,7 +337,8 @@ Returned response:
 ```
 
 -   Generating a quadratic equation
-    [Quadratic equation](https://en.wikipedia.org/wiki/Quadratic_equation) is an equation of the form ax2 + bx + c = 0, where the coefficients a, b and c are arbitrary numbers.
+
+[Quadratic equation](https://en.wikipedia.org/wiki/Quadratic_equation) is an equation of the form ax2 + bx + c = 0, where the coefficients a, b and c are arbitrary numbers.
 
 ```rust
 GET https://shadify.dev/api/math/quad
@@ -425,6 +429,54 @@ Returned response:
         ["1", "2", "1", "1", "o", "o", "o", "1", "1"]
     ],
     "mines": 12
+}
+```
+
+### Wordsearch
+
+[Word search](https://en.wikipedia.org/wiki/Word_search) is a puzzle consisting of letters of words placed in a square or rectangular grid. The aim of the puzzle is to find and mark all the words hidden in the grid. The words can be placed horizontally, vertically or diagonally.
+
+-   Generating a random grid
+
+```rust
+GET https://shadify.dev/api/wordsearch/generator
+```
+
+| Parameter | Description                                                                                                                                                          |
+| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `width`   | _Optional_ <br> A number from 5 to 20 that specifies the width of the grid. The total number of cells in the field must not exceed 256. <br> The default value is 9. |
+| `height`  | _Optional_ <br> A number from 5 to 20 that specifies the width of the grid. The total number of cells in the field must not exceed 256. <br> The default value is 9. |
+
+Returned response:
+
+```json
+{
+    "width": 9,
+    "height": 9,
+    "wordsCount": 10,
+    "grid": [
+        ["e", "n", "r", "w", "r", "o", "l", "o", "c"],
+        ["t", "o", "o", "o", "a", "l", "n", "b", "p"],
+        ["e", "o", "o", "l", "z", "a", "w", "r", "a"],
+        ["l", "n", "s", "p", "r", "e", "o", "u", "n"],
+        ["h", "r", "t", "w", "e", "m", "t", "g", "t"],
+        ["t", "e", "e", "o", "l", "t", "n", "b", "s"],
+        ["a", "t", "r", "n", "l", "a", "w", "y", "t"],
+        ["v", "f", "s", "s", "e", "o", "o", "f", "j"],
+        ["i", "a", "b", "d", "t", "z", "d", "s", "n"]
+    ],
+    "words": [
+        { "word": "color", "position": { "start": [9, 1], "end": [5, 1] } },
+        { "word": "downtown", "position": { "start": [7, 9], "end": [7, 2] } },
+        { "word": "teller", "position": { "start": [5, 9], "end": [5, 4] } },
+        { "word": "pants", "position": { "start": [9, 2], "end": [9, 6] } },
+        { "word": "athlete", "position": { "start": [1, 7], "end": [1, 1] } },
+        { "word": "afternoon", "position": { "start": [2, 9], "end": [2, 1] } },
+        { "word": "snowplow", "position": { "start": [4, 8], "end": [4, 1] } },
+        { "word": "rooster", "position": { "start": [3, 1], "end": [3, 7] } },
+        { "word": "rugby", "position": { "start": [8, 3], "end": [8, 7] } },
+        { "word": "oatmeal", "position": { "start": [6, 8], "end": [6, 2] } }
+    ]
 }
 ```
 
