@@ -29,6 +29,7 @@ func main() {
 	routes.SchulteRouter(app)
 	routes.SetRouter(app)
 	routes.MinesweeperRouter(app)
+	routes.WordsearchRouter(app)
 
 	log.Fatal(app.Listen(":" + port))
 }
