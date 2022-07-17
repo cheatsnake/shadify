@@ -494,15 +494,5 @@ git clone https://github.com/cheatsnake/shadify.git
 go run cmd/server/main.go
 ```
 
-If you are using Windows, you can run the PowerShell script:
-
-```sh
-cd ./cmd/server
-```
-
-```sh
-./start.ps1
-```
-
 <div align="center">Made with &#9829;</div>
 <div align="center"><a href="https://github.com/cheatsnake/shadify/blob/master/LICENSE">LICENSE</a> 2022</div>
