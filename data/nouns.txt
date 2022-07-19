@@ -1368,8 +1368,6 @@ node
 noise
 noodle
 north
-north america
-north korea
 norwegian
 nose
 note
@@ -1760,7 +1758,6 @@ sardine
 satin
 saturday
 sauce
-saudi arabia
 sausage
 save
 saw
@@ -1905,9 +1902,6 @@ sort
 sound
 soup
 sousaphone
-south africa
-south america
-south korea
 soy
 soybean
 space
@@ -2171,7 +2165,6 @@ underpants
 undershirt
 underwear
 unit
-united kingdom
 unshielded
 use
 utensil
