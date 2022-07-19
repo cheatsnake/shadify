@@ -9,7 +9,7 @@ Focus on creating incredible and beautiful applications without worrying about c
 
 ## Quick overview
 
-Shadify is a powerful service for generating data and executing various logic on the server to create various applications and games. It uses HTTP requests to interact with the service and returns convenient JSON responses. Shadify can be very useful for developers who do Frontend-development. With the modules already available, you can focus entirely on creating beautiful UIs for applications that will enrich your portfolio.
+Shadify is a powerful API for generating data and executing various logic to create different applications and games. It uses HTTP requests to interact with the service and returns convenient JSON responses. Shadify can be very useful for developers who do Frontend-development. With the modules already available, you can focus entirely on creating beautiful UIs for applications that will enrich your portfolio.
 
 The codebase is written in the Go programming language, which is great for creating server-side applications, as well as providing high computational power.
 
