@@ -4,12 +4,12 @@ import (
 	"github.com/cheatsnake/shadify/pkg/assists"
 )
 
-// Creating a new instance of Sudoku Core
+// Create a new instance of Sudoku Core
 func NewCore() *Core {
 	return &Core{}
 }
 
-// Generating a new Sudoku 9x9 grid 
+// Generate a new Sudoku 9x9 grid 
 func (sc *Core) Generate() {
 	sc.Grid = basicGrid
 	numberOfSwaps := assists.GetRandomInteger(10, 50)
@@ -23,12 +23,12 @@ func (sc *Core) Generate() {
 	}
 }
 
-// Preparing a new Sudoku task based on already generated grid
+// Prepare a new Sudoku task based on already generated grid
 func (sc *Core) Prepare(fillFactor int) {
 	sc.Task = prepare(sc.Grid, fillFactor)
 }
 
-// Verifying a current Sudoku task
+// Verify a current Sudoku task
 func (sc *Core) Verify() *VerificationResult {
 	return verify(sc.Task)
 }
