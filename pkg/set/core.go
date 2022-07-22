@@ -7,10 +7,12 @@ import (
 	"github.com/cheatsnake/shadify/pkg/assists"
 )
 
+// Create a new instance of Set Core
 func NewCore() *Core {
 	return &Core{FreeCards: Deck}
 }
 
+// Start a new game with 12 randomly selected cards for Core.Layout
 func (sc *Core) Start() {
 	sc.Layout, sc.FreeCards = startGame()
 	sc.PossibleSets = [][]Card{}
@@ -18,6 +20,7 @@ func (sc *Core) Start() {
 	sc.State = updateState(sc.Layout, sc.WonCards)
 }
 
+// Remove a set from Core.Layout by passing an array of card IDs
 func (sc *Core) RemoveSet(set []int) error {
 	layoutId := make([]int, len(sc.Layout))
 
@@ -52,6 +55,7 @@ func (sc *Core) RemoveSet(set []int) error {
 	return nil
 }
 
+// Add 3 random cards to Core.layout from Core.FreeCards
 func (sc *Core) AddCards() error {
 	if len(sc.Layout) >= MaxLayerSize {
 		return errors.New(peakMaxLayoutSize)
@@ -73,6 +77,7 @@ func (sc *Core) AddCards() error {
 	return nil
 }
 
+// Find possible sets in current Core.Layout and them in Core.PossibleSets
 func (sc *Core) FindSets() string {
 	sc.PossibleSets = findSets(sc.Layout)	
 	if len(sc.FreeCards) < SetSize && len(sc.PossibleSets) < 1 {
@@ -88,6 +93,7 @@ func (sc *Core) FindSets() string {
 	}
 }
 
+// Load state of the game by passing state-string
 func (sc *Core) LoadState(state string) error {
 	layout, freeCards, wonCards, err := loadState(state)
 	if err != nil {
