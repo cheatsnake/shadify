@@ -2,17 +2,19 @@ package schulte
 
 import "github.com/cheatsnake/shadify/pkg/assists"
 
-func NewCore() *Core {
-	return &Core{}
-}
-
-func (sc *Core) GenerateNumeric(size int) [][]int {
+// Generate a Schulte numerical grid with a given size
+func GenerateNumeric(size int) Core[int] {
 	values := assists.GetNumbers(size * size, 1)
-	return Generate(values)
+	grid := generateGrid(values)
+
+	return Core[int]{Grid: grid}
 }
 
-func (sc *Core) GenerateAlphabetic() [][]string {
+// Generate a Schulte alphabetic grid with fixed 5x5 size
+func GenerateAlphabetic() Core[string] {
 	values := make([]string, 25)
 	copy(values, alphabet[0:25])
-	return Generate(values)
+	grid := generateGrid(values)
+
+	return Core[string]{Grid: grid}
 }

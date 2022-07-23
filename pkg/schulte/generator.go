@@ -6,8 +6,7 @@ import (
 	"github.com/cheatsnake/shadify/pkg/assists"
 )
 
-
-func Generate[T int | string](values []T) [][]T {
+func generateGrid[T int | string](values []T) [][]T {
 	size := int(math.Sqrt(float64(len(values))))
 	available := len(values) - 1
 	grid := [][]T{}
