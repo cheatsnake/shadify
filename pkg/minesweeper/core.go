@@ -2,32 +2,30 @@ package minesweeper
 
 import "errors"
 
-func NewCore() *Core {
-	return &Core{}
-}
-
-func (sc *Core) Generate(sp string, w, h, mines int) (Board, error) {
+// Generate a new Core with given start position, width
+// and height of the Core.Board and total number of mines
+func Generate(sp string, w, h, mines int) (Core, error) {
 
 	if (w * h < minFieldCells) {
-		return Board{}, errors.New(tooSmallField)
+		return Core{}, errors.New(tooSmallField)
 	}
 
 	if (w * h > maxFieldCells) {
-		return Board{}, errors.New(tooBigField)
+		return Core{}, errors.New(tooBigField)
 	}
 
 	if float64(mines) > float64(w * h) * (maxMinesPercent) {
-		return Board{}, errors.New(tooManyMines)
+		return Core{}, errors.New(tooManyMines)
 	}
 
 	startX, startY, err := parseStartPosition(sp, w, h)
 	if err != nil {
-		return Board{}, err
+		return Core{}, err
 	}
 
 	board := generator(startX, startY, w, h, mines)
 
-	return Board{
+	return Core{
 		StartPosition: sp,
 		Width:         w,
 		Height:        h,
