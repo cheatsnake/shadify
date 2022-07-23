@@ -11,21 +11,15 @@ const (
 	wordsearchGridHeight = 9
 )
 
-var wordsearchCore *wordsearch.Core
-
-func init() {
-	wordsearchCore = wordsearch.NewCore()
-}
-
 func WordsearchGenerator(c *fiber.Ctx) error {
 	width := helpers.GetQueryInt(c, "width", wordsearchGridWidth)
 	height := helpers.GetQueryInt(c, "height", wordsearchGridHeight)
 
-	result, err := wordsearchCore.Generate(width, height)
+	wsc, err := wordsearch.Generate(width, height)
 	if err != nil {
 		code := fiber.StatusBadRequest
 		return c.Status(code).JSON(fiber.NewError(code, err.Error()))
 	}
 
-	return c.JSON(result)
+	return c.JSON(wsc)
 }

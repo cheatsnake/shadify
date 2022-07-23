@@ -19,21 +19,19 @@ func init() {
 	wordsDB = nouns
 }
 
-func NewCore() *Core {
-	return &Core{}
-}
-
-func (wc *Core) Generate(w, h int) (Wsearch, error) {
+// Generate a new Core of a given width and heigth, 
+// corresponding to the size of the Core.Grid
+func Generate(w, h int) (Core, error) {
 	if w < minGridSideSize || h < minGridSideSize {
-		return Wsearch{}, errors.New(minGridSideError)
+		return Core{}, errors.New(minGridSideError)
 	}
 
 	if w > maxGridSideSize || h > maxGridSideSize {
-		return Wsearch{}, errors.New(maxGridSideError)
+		return Core{}, errors.New(maxGridSideError)
 	}
 
 	if w * h > maxCellsCount {
-		return Wsearch{}, errors.New(tooManyCells)
+		return Core{}, errors.New(tooManyCells)
 	}
 
 	grid, pWords := generateGrid(w, h)
@@ -47,7 +45,7 @@ func (wc *Core) Generate(w, h int) (Wsearch, error) {
 		}
 	}
 
-	return Wsearch{
+	return Core{
 		Width: w,
 		Height: h,
 		WordsCount: len(pWords),

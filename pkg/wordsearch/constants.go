@@ -10,7 +10,7 @@ const (
 	maxGridFill     = 0.8
 )
 
-//error constants
+// Error constant
 const (
 	minGridSideError string = "the size of each side of the grid should not be less than 5 units"
 	maxGridSideError string = "the size of each side of the grid must not be larger than 20 units"
