@@ -23,6 +23,7 @@ Shadify – это мощный сервис генерации данных и 
 -   [Schulte](#schulte)
 -   [Minesweeper](#minesweeper)
 -   [Wordsearch](#wordsearch)
+-   [Anagram](#anagram)
 
 ### Sudoku
 
@@ -482,6 +483,31 @@ GET https://shadify.dev/api/wordsearch/generator
     ]
 }
 ```
+
+### Anagram
+
+[Анаграммы](https://en.wikipedia.org/wiki/Anagrams_(game)) – это целый вид головоломок связанный с составлением все возможных слов из заданного набора букв. Данный модуль реализует самую простую вариацию анаграмм: задается случайное слово, из букв которого, необходимо составить как можно больше других слов.
+
+Для составления используются только английские существительные, список которых можно найти в этом репозитории по пути `./data/nouts.txt`.
+
+```rust
+GET https://shadify.dev/api/anagram/generator
+```
+
+Возвращаемый ответ:
+
+```json
+{
+    "Task":"possibility",
+    "Words":[
+        "bit","bolt","boy","lip","list","loss","oil",
+        "pilot","plot","toy","pot","slip","soil","soy",
+        "spot","spy","stop","tip","top"
+    ]
+}
+```
+
+> `Task` - слово из которого необходимо составлять другие слова. <br> `Words` - массив всех возможных слов, которые составляются из `Task`. 
 
 ## Запуск локального сервера
 

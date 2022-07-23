@@ -25,6 +25,7 @@ The service is divided into independent modules. Each module starts with a brief
 -   [Schulte](#schulte)
 -   [Minesweeper](#minesweeper)
 -   [Wordsearch](#wordsearch)
+-   [Anagram](#anagram)
 
 ### Sudoku
 
@@ -485,6 +486,31 @@ Returned response:
     ]
 }
 ```
+
+### Anagram
+
+[Anagrams](https://en.wikipedia.org/wiki/Anagrams_(game)) is a whole type of puzzles associated with composing all possible words from a given set of letters. This module implements the simplest variation of anagrams: a random word is given, the letters of which should be used to compose as many other words as possible. 
+
+Only English nouns are used for composition, a list of which can be found in this repository at the path `./data/nouts.txt`.
+
+```rust
+GET https://shadify.dev/api/anagram/generator
+```
+
+Returned response:
+
+```json
+{
+    "Task":"possibility",
+    "Words":[
+        "bit","bolt","boy","lip","list","loss","oil",
+        "pilot","plot","toy","pot","slip","soil","soy",
+        "spot","spy","stop","tip","top"
+    ]
+}
+```
+
+> `Task` - a word from which you need to make other words. <br> `Words` - an array of all possible words that are compiled from `Task`. 
 
 ## Starting a local server
 
