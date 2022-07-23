@@ -1,4 +1,4 @@
-package anagrams
+package anagram
 
 import (
 	"path/filepath"
@@ -12,16 +12,16 @@ var wordsDBSize int
 func init() {
 	nouns, err := assists.ReadFileLineByLine(filepath.Join("data", "nouns.txt"))
 	if err != nil {
-		fmt.Println(err)
+		println(err.Error())
 	}
 	wordsDB = nouns
 	wordsDBSize = len(nouns)
 }
 
-// Generate an anagram with random task and random hiden words
-func Generate() Anagram {
+// Generate an anagram with a random task and find possible words
+func Generate() Core {
 	word := getRandomWord(9, 15)
 	words := composingWords(word)
 
-	return Anagram{Task: word, Words: words}
+	return Core{Task: word, Words: words}
 }
