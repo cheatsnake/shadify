@@ -6,15 +6,15 @@ import "errors"
 // and height of the Core.Board and total number of mines
 func Generate(sp string, w, h, mines int) (Core, error) {
 
-	if (w * h < minFieldCells) {
+	if w*h < minFieldCells {
 		return Core{}, errors.New(tooSmallField)
 	}
 
-	if (w * h > maxFieldCells) {
+	if w*h > maxFieldCells {
 		return Core{}, errors.New(tooBigField)
 	}
 
-	if float64(mines) > float64(w * h) * (maxMinesPercent) {
+	if float64(mines) > float64(w*h)*(maxMinesPercent) {
 		return Core{}, errors.New(tooManyMines)
 	}
 

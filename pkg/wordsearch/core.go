@@ -19,7 +19,7 @@ func init() {
 	wordsDB = nouns
 }
 
-// Generate a new Core of a given width and heigth, 
+// Generate a new Core of a given width and heigth,
 // corresponding to the size of the Core.Grid
 func Generate(w, h int) (Core, error) {
 	if w < minGridSideSize || h < minGridSideSize {
@@ -30,7 +30,7 @@ func Generate(w, h int) (Core, error) {
 		return Core{}, errors.New(maxGridSideError)
 	}
 
-	if w * h > maxCellsCount {
+	if w*h > maxCellsCount {
 		return Core{}, errors.New(tooManyCells)
 	}
 
@@ -39,17 +39,17 @@ func Generate(w, h int) (Core, error) {
 	// fill unused cells by random letters
 	for i := range grid {
 		for j := range grid[i] {
-			if grid[i][j] == "" { 
+			if grid[i][j] == "" {
 				grid[i][j] = alphabet[rand.Intn(26)]
 			}
 		}
 	}
 
 	return Core{
-		Width: w,
-		Height: h,
+		Width:      w,
+		Height:     h,
 		WordsCount: len(pWords),
-		Grid: grid,
-		Words: pWords,
+		Grid:       grid,
+		Words:      pWords,
 	}, nil
 }

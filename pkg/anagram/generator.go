@@ -7,10 +7,9 @@ import (
 	"github.com/cheatsnake/shadify/pkg/assists"
 )
 
-
 func composingWords(word string) []string {
 	result := make([]string, 0, 32)
-	
+
 	for _, w := range wordsDB {
 		isFits := true
 		for _, letter := range w {
@@ -18,14 +17,14 @@ func composingWords(word string) []string {
 				isFits = false
 			}
 		}
-		
+
 		if isFits {
 			result = append(result, w)
 		}
 	}
-	
+
 	result = assists.RemoveElement(result, assists.IndexOf(word, result))
-	
+
 	return result
 }
 

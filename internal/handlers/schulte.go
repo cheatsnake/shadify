@@ -9,7 +9,7 @@ import (
 )
 
 const (
-	schulteSize int = 5
+	schulteSize int    = 5
 	schulteMode string = "numbers"
 )
 
@@ -22,7 +22,7 @@ func SchulteGenerator(c *fiber.Ctx) error {
 		return c.JSON(result)
 	}
 
-	if (math.Abs(float64(size)) > 15) {
+	if math.Abs(float64(size)) > 15 {
 		code := fiber.StatusBadRequest
 		return c.Status(code).JSON(fiber.NewError(code, "size should not exceed 15"))
 	}

@@ -8,5 +8,5 @@ import (
 func MinesweeperRouter(app fiber.Router) {
 	prefix := "/api/minesweeper"
 
-	app.Get(prefix + "/generator", handlers.MinesweeperGenerator)
+	app.Get(prefix+"/generator", handlers.MinesweeperGenerator)
 }

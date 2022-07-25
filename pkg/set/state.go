@@ -8,19 +8,19 @@ import (
 	"github.com/cheatsnake/shadify/pkg/assists"
 )
 
-func updateState(layout []Card, wonCards[]Card) string {
+func updateState(layout []Card, wonCards []Card) string {
 	layoutId := make([]string, 0, DeckSize)
 	wonCardsId := make([]string, 0, DeckSize)
 
-	for _, card := range(layout) {
+	for _, card := range layout {
 		layoutId = append(layoutId, strconv.Itoa(card.Id))
 	}
 
-	if (len(wonCards) < 1) {
+	if len(wonCards) < 1 {
 		return strings.Join(layoutId[:], idSeparator)
 	}
 
-	for _, card := range(wonCards) {
+	for _, card := range wonCards {
 		wonCardsId = append(wonCardsId, strconv.Itoa(card.Id))
 	}
 
@@ -30,10 +30,10 @@ func updateState(layout []Card, wonCards[]Card) string {
 func loadState(state string) ([]Card, []Card, []Card, error) {
 	layoutId, wonCardsId, err := parseStateString(state)
 	if err != nil {
-		return nil, nil, nil, err 
+		return nil, nil, nil, err
 	}
 
-	if len(layoutId) + len(wonCardsId) < StartLayoutSize {
+	if len(layoutId)+len(wonCardsId) < StartLayoutSize {
 		return nil, nil, nil, errors.New(notEnoughCards)
 	}
 
@@ -41,23 +41,21 @@ func loadState(state string) ([]Card, []Card, []Card, error) {
 		return nil, nil, nil, errors.New(layoutIsTooBig)
 	}
 
-	if len(layoutId) % SetSize != 0 || len(wonCardsId) % SetSize != 0 {
+	if len(layoutId)%SetSize != 0 || len(wonCardsId)%SetSize != 0 {
 		return nil, nil, nil, errors.New(incorrectCardsAmount)
 	}
 
-	if len(layoutId) + len(wonCardsId) > DeckSize {
+	if len(layoutId)+len(wonCardsId) > DeckSize {
 		return nil, nil, nil, errors.New(tooMuchCards)
 	}
 
 	layout := make([]Card, 0, DeckSize)
-	freeCards := make([]Card, 0, DeckSize - StartLayoutSize)
+	freeCards := make([]Card, 0, DeckSize-StartLayoutSize)
 	wonCards := make([]Card, 0, DeckSize)
-	
+
 	for j := range layoutId {
-		layout= append(layout, Deck[layoutId[j]])
+		layout = append(layout, Deck[layoutId[j]])
 	}
-
-
 
 	for _, id := range wonCardsId {
 		wonCards = append(wonCards, Deck[id])
@@ -80,10 +78,10 @@ func parseStateString(state string) ([]int, []int, error) {
 	layoutId, err := assists.SliceStringToInt(layoutIdStr)
 	if err != nil {
 		return nil, nil, err
-	} 
+	}
 
 	for _, id := range layoutId {
-		if (id >= DeckSize) {
+		if id >= DeckSize {
 			return nil, nil, errors.New("entered not exist id: " + strconv.Itoa(id))
 		}
 	}
@@ -96,10 +94,10 @@ func parseStateString(state string) ([]int, []int, error) {
 	wonCardsId, err := assists.SliceStringToInt(wonCardsIdStr)
 	if err != nil {
 		return nil, nil, err
-	} 
+	}
 
 	for _, id := range wonCardsId {
-		if (id >= DeckSize) {
+		if id >= DeckSize {
 			return nil, nil, errors.New("entered not exist id: " + strconv.Itoa(id))
 		}
 		if assists.SliceContains(layoutId, id) {

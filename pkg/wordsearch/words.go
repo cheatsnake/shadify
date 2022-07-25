@@ -8,7 +8,7 @@ import (
 )
 
 func getRandomWords(w, h int) []string {
-	words := make([]string, 0, w*h / 4)
+	words := make([]string, 0, w*h/4)
 	maxLettersCount := int(math.Floor(float64(w*h) * maxGridFill))
 	lettersCount := 0
 

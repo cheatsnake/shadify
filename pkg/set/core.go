@@ -66,7 +66,7 @@ func (sc *Core) AddCards() error {
 	}
 
 	for i := 0; i < SetSize; i++ {
-		index := assists.GetRandomInteger(0, len(sc.FreeCards) - 1)
+		index := assists.GetRandomInteger(0, len(sc.FreeCards)-1)
 		sc.Layout = append(sc.Layout, sc.FreeCards[index])
 		sc.FreeCards = assists.RemoveElement(sc.FreeCards, index)
 	}
@@ -79,17 +79,17 @@ func (sc *Core) AddCards() error {
 
 // Find possible sets in current Core.Layout and them in Core.PossibleSets
 func (sc *Core) FindSets() string {
-	sc.PossibleSets = findSets(sc.Layout)	
+	sc.PossibleSets = findSets(sc.Layout)
 	if len(sc.FreeCards) < SetSize && len(sc.PossibleSets) < 1 {
 		return gameOver
 	} else {
-		if (len(sc.PossibleSets) > 1) {
+		if len(sc.PossibleSets) > 1 {
 			return "found " + strconv.Itoa(len(sc.PossibleSets)) + " sets"
-		} else if (len(sc.PossibleSets) == 1) {
+		} else if len(sc.PossibleSets) == 1 {
 			return "found 1 set"
 		} else {
 			return setsNotFound
-		} 
+		}
 	}
 }
 

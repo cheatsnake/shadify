@@ -7,11 +7,11 @@ import (
 )
 
 const (
-	mathMin int = 1
-	mathMax int = 99
+	mathMin      int = 1
+	mathMax      int = 99
 	mathNegative int = 0
-	mathQuadMin int = 1
-	mathQuadMax int = 20 
+	mathQuadMin  int = 1
+	mathQuadMax  int = 20
 )
 
 func MathAddition(c *fiber.Ctx) error {
@@ -21,7 +21,7 @@ func MathAddition(c *fiber.Ctx) error {
 	maxSecond := helpers.GetQueryInt(c, "maxSecond", mathMax)
 
 	result := math.GetAddition(minFirst, maxFirst, minSecond, maxSecond)
-	
+
 	return c.JSON(result)
 }
 
@@ -34,7 +34,7 @@ func MathSubtraction(c *fiber.Ctx) error {
 	allowNegative := negative == 1
 
 	result := math.GetSubtraction(minFirst, maxFirst, minSecond, maxSecond, allowNegative)
-	
+
 	return c.JSON(result)
 }
 
@@ -63,10 +63,10 @@ func MathQuadratic(c *fiber.Ctx) error {
 	minB := helpers.GetQueryInt(c, "minB", mathQuadMin)
 	minC := helpers.GetQueryInt(c, "minC", mathQuadMin)
 	maxA := helpers.GetQueryInt(c, "maxA", mathQuadMax)
-	maxB := helpers.GetQueryInt(c, "maxB", mathQuadMax * 2)
+	maxB := helpers.GetQueryInt(c, "maxB", mathQuadMax*2)
 	maxC := helpers.GetQueryInt(c, "maxC", mathQuadMax)
 
 	result := math.GetQuadratic(minA, maxA, minB, maxB, minC, maxC)
 
 	return c.JSON(result)
-} 
+}

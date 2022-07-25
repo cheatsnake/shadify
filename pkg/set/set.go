@@ -22,7 +22,7 @@ func findSets(cards []Card) [][]Card {
 		var setId []int
 
 		for object := uint(0); object < length; object++ {
-			if ((subsetBits>>object)&1 == 1) {
+			if (subsetBits>>object)&1 == 1 {
 				setId = append(setId, cardsId[object])
 			}
 		}

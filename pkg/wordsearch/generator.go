@@ -10,8 +10,8 @@ import (
 func generateGrid(w, h int) ([][]string, []Word) {
 	var x, y, d int
 	var pastedWords []Word
-	
-	restart:
+
+restart:
 	pastedWords = []Word{}
 	words := getRandomWords(w, h)
 	grid := make([][]string, h)
@@ -23,7 +23,7 @@ func generateGrid(w, h int) ([][]string, []Word) {
 	cells := assists.GetNumbers(len(grid)*len(grid[0]), 0)
 
 	for _, word := range words {
-		changePos:
+	changePos:
 		randCell := rand.Intn(len(cells))
 		y = int(math.Floor(float64(cells[randCell]) / float64(len(grid[0]))))
 		x = cells[randCell] - (len(grid[0]) * y)
@@ -34,17 +34,16 @@ func generateGrid(w, h int) ([][]string, []Word) {
 			startPos := [2]int{x + 1, y + 1}
 			for i, letter := range word {
 				grid[y][x] = string(letter)
-				if (i == (len(word) - 1)) {
-					break;
+				if i == (len(word) - 1) {
+					break
 				}
 				x += directions[d][0]
 				y += directions[d][1]
 			}
-			
+
 			pastedWords = append(pastedWords, Word{
-				Word: word, 
-				Position: 
-				WordPosition{Start: startPos, End: [2]int{x + 1, y + 1}} })
+				Word:     word,
+				Position: WordPosition{Start: startPos, End: [2]int{x + 1, y + 1}}})
 
 			if len(cells) < 1 {
 				goto restart
@@ -71,7 +70,7 @@ func isPossibleToPaste(grid [][]string, x, y int, d *int, word string) bool {
 		lastDir = len(directions) - 1
 	}
 
-	again:
+again:
 	if *d == lastDir {
 		checkAllDirs = true
 	}

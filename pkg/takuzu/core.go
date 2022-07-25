@@ -5,7 +5,7 @@ import "errors"
 // Create a new instance of Takuzu Core with given size
 func NewCore(size int) (*Core, error) {
 
-	if (size < 4 || size > 12) {
+	if size < 4 || size > 12 {
 		return &Core{}, errors.New(incorrectSize)
 	}
 

@@ -18,7 +18,7 @@ func prepare(grid [9][9]int, fillFactor int) [9][9]int {
 		randCol := assists.GetRandomInteger(0, 8)
 
 		if task[randRow][randCol] == 0 {
-			task[randRow][randCol] = grid[randRow][randCol] 
+			task[randRow][randCol] = grid[randRow][randCol]
 			filled++
 		}
 	}

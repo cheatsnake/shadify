@@ -57,8 +57,8 @@ func SudokuVerificationGet(c *fiber.Ctx) error {
 	sudokuCore = sudoku.NewCore()
 	task := make([][]int, 9)
 	splitedTaskStr := strings.Split(taskStr, "-")
-			
-	for i, row := range(splitedTaskStr) {
+
+	for i, row := range splitedTaskStr {
 		if len(row) == 9 {
 			splitRow := strings.Split(row, "")
 			sudokuRow := []int{}
@@ -76,6 +76,6 @@ func SudokuVerificationGet(c *fiber.Ctx) error {
 	}
 
 	result := sudokuCore.Verify()
-	
+
 	return c.JSON(result)
 }

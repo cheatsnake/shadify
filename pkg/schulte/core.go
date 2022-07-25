@@ -4,7 +4,7 @@ import "github.com/cheatsnake/shadify/pkg/assists"
 
 // Generate a Schulte numerical grid with a given size
 func GenerateNumeric(size int) Core[int] {
-	values := assists.GetNumbers(size * size, 1)
+	values := assists.GetNumbers(size*size, 1)
 	grid := generateGrid(values)
 
 	return Core[int]{Grid: grid}

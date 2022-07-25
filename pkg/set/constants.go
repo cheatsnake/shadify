@@ -2,15 +2,15 @@ package set
 
 const (
 	// Total number of cards in game
-	DeckSize        int    = 81
+	DeckSize int = 81
 	// Default size of game layout
-	StartLayoutSize int    = 12
+	StartLayoutSize int = 12
 	// Number of cards in set
-	SetSize         int    = 3
+	SetSize int = 3
 	// Max possible game layout size (in this size is guaranteed to be a set)
-	MaxLayerSize    int    = 21
-	idSeparator     string = "-"
-	stateSeparator  string = "@"
+	MaxLayerSize   int    = 21
+	idSeparator    string = "-"
+	stateSeparator string = "@"
 )
 
 //error constants

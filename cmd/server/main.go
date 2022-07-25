@@ -18,11 +18,11 @@ func main() {
 	if os.Getenv("PORT") == "" {
 		port = "5000"
 	}
-	
+
 	app.Use(cors.New())
 	app.Use(limiter.New(limiter.Config{
 		Expiration: 10 * time.Second,
-		Max: 5,
+		Max:        5,
 	}))
 
 	app.Get("/", func(c *fiber.Ctx) error {

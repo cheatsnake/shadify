@@ -52,7 +52,7 @@ func TakuzuVerificationPost(c *fiber.Ctx) error {
 	}
 
 	takuzuCore.Task = tBody.Task
-	result, _:= takuzuCore.Verify()
+	result, _ := takuzuCore.Verify()
 
 	return c.JSON(result)
 }
@@ -69,12 +69,12 @@ func TakuzuVerificationGet(c *fiber.Ctx) error {
 	task := [][]string{}
 	splitTaskStr := strings.Split(taskStr, "-")
 	size := len(splitTaskStr[0])
-	if size % 2 != 0 || size > 12 {
+	if size%2 != 0 || size > 12 {
 		code := fiber.StatusBadRequest
 		return c.Status(code).JSON(fiber.NewError(code, "row size should be even and should not exceed 12 characters"))
 	}
-			
-	for _, row := range(splitTaskStr) {
+
+	for _, row := range splitTaskStr {
 		if len(row) == size {
 			splitRow := strings.Split(row, "")
 			task = append(task, splitRow)
@@ -89,9 +89,9 @@ func TakuzuVerificationGet(c *fiber.Ctx) error {
 		code := fiber.StatusBadRequest
 		return c.Status(code).JSON(fiber.NewError(code, err.Error()))
 	}
-	
+
 	takuzuCore.Task = task
 	result, _ := takuzuCore.Verify()
-	
+
 	return c.JSON(result)
 }

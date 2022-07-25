@@ -9,7 +9,7 @@ func NewCore() *Core {
 	return &Core{}
 }
 
-// Generate a new Sudoku 9x9 grid 
+// Generate a new Sudoku 9x9 grid
 func (sc *Core) Generate() {
 	sc.Grid = basicGrid
 	numberOfSwaps := assists.GetRandomInteger(10, 50)

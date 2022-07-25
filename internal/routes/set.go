@@ -8,7 +8,7 @@ import (
 func SetRouter(app fiber.Router) {
 	prefix := "/api/set"
 
-	app.Get(prefix + "/start", handlers.SetGameStart)
-	app.Get(prefix + "/cards", handlers.SetGameAllCards)
-	app.Get(prefix + "/:state", handlers.SetGameLoadState)
+	app.Get(prefix+"/start", handlers.SetGameStart)
+	app.Get(prefix+"/cards", handlers.SetGameAllCards)
+	app.Get(prefix+"/:state", handlers.SetGameLoadState)
 }

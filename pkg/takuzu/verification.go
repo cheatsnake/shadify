@@ -19,7 +19,7 @@ func verify(field [][]string) (*VerificationResult, error) {
 	for i := range field {
 		row := strings.Join(field[i][:], "")
 		column := ""
-		for j := range(field) {
+		for j := range field {
 			column += field[j][i]
 		}
 		rows = append(rows, row)
@@ -41,15 +41,15 @@ func verify(field [][]string) (*VerificationResult, error) {
 	return result, nil
 }
 
-func checkDuplication(lines[]string, lineType string) []string {
+func checkDuplication(lines []string, lineType string) []string {
 	position := []string{}
-	for i := range(lines) {
+	for i := range lines {
 		for j := i + 1; j < len(lines); j++ {
 			if lines[i] == lines[j] {
 				position = append(
-					position, 
-					lineType + "-" + strconv.Itoa(i + 1),
-					lineType + "-" + strconv.Itoa(j + 1),
+					position,
+					lineType+"-"+strconv.Itoa(i+1),
+					lineType+"-"+strconv.Itoa(j+1),
 				)
 			}
 		}
@@ -62,14 +62,14 @@ func checkDuplication(lines[]string, lineType string) []string {
 
 func defineVerificationError(msg string, pos []string) *VerificationResult {
 	return &VerificationResult{
-		IsError: true,
-		Message: msg,
+		IsError:  true,
+		Message:  msg,
 		Position: pos,
 	}
 }
 
 func checkTripleValues(line string) bool {
-	result := strings.Contains(line, strings.Repeat(takuzuZero, 3)) || 
+	result := strings.Contains(line, strings.Repeat(takuzuZero, 3)) ||
 		strings.Contains(line, strings.Repeat(takuzuOne, 3))
 	return result
 }
@@ -81,7 +81,7 @@ func checkBalance(line string) bool {
 	return result
 }
 
-func checkLines(lines []string, lineType string) *VerificationResult  {
+func checkLines(lines []string, lineType string) *VerificationResult {
 	result := &VerificationResult{
 		IsError:  false,
 		Message:  "",
@@ -93,15 +93,15 @@ func checkLines(lines []string, lineType string) *VerificationResult  {
 		return defineVerificationError("duplication", duplicationLines)
 	}
 
-	for i, line := range(lines) {
+	for i, line := range lines {
 		isTripled := checkTripleValues(line)
 		if isTripled {
-			return defineVerificationError("triple values", []string{lineType + "-" + strconv.Itoa(i + 1)})
+			return defineVerificationError("triple values", []string{lineType + "-" + strconv.Itoa(i+1)})
 		}
 
 		isBalanced := checkBalance(line)
 		if !isBalanced {
-			return defineVerificationError("failed balance", []string{lineType + "-" + strconv.Itoa(i + 1)})
+			return defineVerificationError("failed balance", []string{lineType + "-" + strconv.Itoa(i+1)})
 		}
 	}
 	return result

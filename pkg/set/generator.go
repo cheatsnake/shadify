@@ -9,10 +9,10 @@ import (
 func startGame() ([]Card, []Card) {
 	cardIndexes := assists.GetNumbers(DeckSize, 0)
 	layout := make([]Card, StartLayoutSize)
-	freeCards := make([]Card, 0, DeckSize - StartLayoutSize)
+	freeCards := make([]Card, 0, DeckSize-StartLayoutSize)
 
 	for j := range layout {
-		cardIndex := assists.GetRandomInteger(0, len(cardIndexes) - 1)
+		cardIndex := assists.GetRandomInteger(0, len(cardIndexes)-1)
 		layout[j] = Deck[cardIndexes[cardIndex]]
 		cardIndexes = assists.RemoveElement(cardIndexes, cardIndex)
 	}
@@ -28,7 +28,7 @@ func startGame() ([]Card, []Card) {
 	return layout, freeCards
 }
 
-func generateCards() ([]Card) {
+func generateCards() []Card {
 	cards := make([]Card, 0, DeckSize)
 
 	for i := 0; i < len(numbers); i++ {
@@ -38,7 +38,7 @@ func generateCards() ([]Card) {
 					cards = append(cards, Card{
 						Id:      len(cards),
 						Number:  numbers[i],
-						Shape:  shapes[j],
+						Shape:   shapes[j],
 						Shading: shadings[k],
 						Color:   colors[m],
 					})

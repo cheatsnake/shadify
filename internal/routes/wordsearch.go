@@ -8,5 +8,5 @@ import (
 func WordsearchRouter(app fiber.Router) {
 	prefix := "/api/wordsearch"
 
-	app.Get(prefix + "/generator", handlers.WordsearchGenerator)
+	app.Get(prefix+"/generator", handlers.WordsearchGenerator)
 }

@@ -8,5 +8,5 @@ import (
 func AnagramRouter(app fiber.Router) {
 	prefix := "/api/anagram"
 
-	app.Get(prefix + "/generator", handlers.AnagramGenerator)
+	app.Get(prefix+"/generator", handlers.AnagramGenerator)
 }
