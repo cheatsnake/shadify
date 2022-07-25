@@ -14,19 +14,13 @@ const (
 	mathQuadMax int = 20 
 )
 
-var mathCore *math.Core	
-
-func init() {
-	mathCore = math.NewCore()
-}
-
 func MathAddition(c *fiber.Ctx) error {
 	minFirst := helpers.GetQueryInt(c, "minFirst", mathMin)
 	maxFirst := helpers.GetQueryInt(c, "maxFirst", mathMax)
 	minSecond := helpers.GetQueryInt(c, "minSecond", mathMin)
 	maxSecond := helpers.GetQueryInt(c, "maxSecond", mathMax)
 
-	result := mathCore.Addition(minFirst, maxFirst, minSecond, maxSecond)
+	result := math.GetAddition(minFirst, maxFirst, minSecond, maxSecond)
 	
 	return c.JSON(result)
 }
@@ -39,7 +33,7 @@ func MathSubtraction(c *fiber.Ctx) error {
 	negative := helpers.GetQueryInt(c, "negative", mathNegative)
 	allowNegative := negative == 1
 
-	result := mathCore.Subtraction(minFirst, maxFirst, minSecond, maxSecond, allowNegative)
+	result := math.GetSubtraction(minFirst, maxFirst, minSecond, maxSecond, allowNegative)
 	
 	return c.JSON(result)
 }
@@ -50,7 +44,7 @@ func MathMultiplication(c *fiber.Ctx) error {
 	minSecond := helpers.GetQueryInt(c, "minSecond", mathMin)
 	maxSecond := helpers.GetQueryInt(c, "maxSecond", mathMax)
 
-	result := mathCore.Multiplication(minFirst, maxFirst, minSecond, maxSecond)
+	result := math.GetMultiplication(minFirst, maxFirst, minSecond, maxSecond)
 
 	return c.JSON(result)
 }
@@ -59,7 +53,7 @@ func MathDivision(c *fiber.Ctx) error {
 	minFirst := helpers.GetQueryInt(c, "minFirst", mathMin)
 	maxFirst := helpers.GetQueryInt(c, "maxFirst", mathMax)
 
-	result := mathCore.Division(minFirst, maxFirst)
+	result := math.GetDivision(minFirst, maxFirst)
 
 	return c.JSON(result)
 }
@@ -72,7 +66,7 @@ func MathQuadratic(c *fiber.Ctx) error {
 	maxB := helpers.GetQueryInt(c, "maxB", mathQuadMax * 2)
 	maxC := helpers.GetQueryInt(c, "maxC", mathQuadMax)
 
-	result := mathCore.Quadratic(minA, maxA, minB, maxB, minC, maxC)
+	result := math.GetQuadratic(minA, maxA, minB, maxB, minC, maxC)
 
 	return c.JSON(result)
 } 
