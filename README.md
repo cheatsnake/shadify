@@ -15,6 +15,8 @@ Shadify is a powerful API for generating data and executing various logic to cre
 The codebase is written in the Go programming language, which is great for creating server-side applications, as well as providing high computational power.
 
 ## Documentation
+<div align="center"><a href="https://github.com/cheatsnake/shadify/blob/master/README_RU.md#%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%86%D0%B8%D1%8F">Доступно на русском</a></div>
+</br>
 
 The service is divided into independent modules. Each module starts with a brief description of what the module is oriented at (be it a game, a puzzle, a task, etc.). This is followed by a detailed description of each HTTP interface, with descriptions of the possible parameters and return responses.
 
