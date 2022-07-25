@@ -7,11 +7,8 @@ import (
 	"github.com/cheatsnake/shadify/pkg/assists"
 )
 
-func NewCore() *Core {
-	return &Core{}
-}
-
-func (mc *Core) Addition(minFirst, maxFirst, minSecond, maxSecond int) BasicExpression {
+// Get a random addition expression with a given range of numbers
+func GetAddition(minFirst, maxFirst, minSecond, maxSecond int) BasicExpression {
 	operation := "+"
 	first := assists.GetRandomInteger(minFirst, maxFirst)
 	second := assists.GetRandomInteger(minSecond, maxSecond)
@@ -23,7 +20,8 @@ func (mc *Core) Addition(minFirst, maxFirst, minSecond, maxSecond int) BasicExpr
 	}
 }
 
-func (mc *Core) Subtraction(minFirst, maxFirst, minSecond, maxSecond int, allowNegative bool) BasicExpression {
+// Get a random subtraction expression with a given range of numbers
+func GetSubtraction(minFirst, maxFirst, minSecond, maxSecond int, allowNegative bool) BasicExpression {
 	operation := "-"
 	first := assists.GetRandomInteger(minFirst, maxFirst)
 	second := assists.GetRandomInteger(minSecond, maxSecond)
@@ -40,7 +38,8 @@ func (mc *Core) Subtraction(minFirst, maxFirst, minSecond, maxSecond int, allowN
 	}
 }
 
-func (mc *Core) Multiplication(minFirst, maxFirst, minSecond, maxSecond int) BasicExpression {
+// Get a random multiplication expression with a given range of numbers
+func GetMultiplication(minFirst, maxFirst, minSecond, maxSecond int) BasicExpression {
 	operation := "*"
 	first := assists.GetRandomInteger(minFirst, maxFirst)
 	second := assists.GetRandomInteger(minSecond, maxSecond)
@@ -52,16 +51,17 @@ func (mc *Core) Multiplication(minFirst, maxFirst, minSecond, maxSecond int) Bas
 	}
 }
 
-func (mc *Core) Division(minFirst, maxFirst int) BasicExpression {
+// Get a random division expression with a given range of numbers
+func GetDivision(minFirst, maxFirst int) BasicExpression {
 	operation := "/"
 	first := assists.GetRandomInteger(minFirst, maxFirst)
-	divisors := FindDivisors(first);
+	divisors := findDivisors(first)
 
 	if len(divisors) > 2 {
-		divisors = divisors[1:len(divisors) - 1]
+		divisors = divisors[1 : len(divisors)-1]
 	}
 
-	index := assists.GetRandomInteger(0, len(divisors) - 1)
+	index := assists.GetRandomInteger(0, len(divisors)-1)
 	second := divisors[index]
 	expression := strconv.Itoa(first) + " " + operation + " " + strconv.Itoa(second)
 	answer := first / second
@@ -71,14 +71,15 @@ func (mc *Core) Division(minFirst, maxFirst int) BasicExpression {
 	}
 }
 
-func (mc* Core) Quadratic(minA, maxA, minB, maxB, minC, maxC int) QuadraticEquation {
+// Get a random quadratic expression with a given range of coefficients
+func GetQuadratic(minA, maxA, minB, maxB, minC, maxC int) QuadraticEquation {
 	a := assists.GetRandomInteger(minA, maxA)
 	b := assists.GetRandomInteger(minB, maxB)
 	c := assists.GetRandomInteger(minC, maxC)
 
 	equation := strconv.Itoa(a) + "x^2 + " + strconv.Itoa(b) + "x + " + strconv.Itoa(c) + " = 0"
 
-	discriminant := (b * b) - 4 * a * c
+	discriminant := (b * b) - 4*a*c
 	if discriminant < 0 {
 		return QuadraticEquation{equation, a, b, c, discriminant, "none", "none"}
 	}
@@ -87,8 +88,8 @@ func (mc* Core) Quadratic(minA, maxA, minB, maxB, minC, maxC int) QuadraticEquat
 	x2 := (-float64(b) + (math.Sqrt(float64(discriminant)))) / (2 * float64(a))
 
 	return QuadraticEquation{
-		equation, a, b, c, discriminant, 
-		strconv.FormatFloat(x1, 'f', 3, 64), 
+		equation, a, b, c, discriminant,
+		strconv.FormatFloat(x1, 'f', 3, 64),
 		strconv.FormatFloat(x2, 'f', 3, 64),
 	}
 }

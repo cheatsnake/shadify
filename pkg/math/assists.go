@@ -1,6 +1,6 @@
 package math
 
-func FindDivisors(divisible int) []int {
+func findDivisors(divisible int) []int {
 	divisors := []int{}
 
 	if divisible < 0 {
