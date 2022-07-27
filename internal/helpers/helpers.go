@@ -38,3 +38,7 @@ func GetQueryIntSlice(c *fiber.Ctx, param string, size int) []int {
 	}
 	return res
 }
+
+func ThrowError(c *fiber.Ctx, code int, error string) error {
+	return c.Status(code).JSON(fiber.NewError(code, error))
+}
