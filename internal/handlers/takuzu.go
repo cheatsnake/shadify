@@ -19,16 +19,13 @@ type takuzuTaskBody struct {
 	Task [][]string `json:"task"`
 }
 
-var takuzuCore *takuzu.Core
-
 func TakuzuGenerator(c *fiber.Ctx) error {
 	size := helpers.GetQueryInt(c, "size", takuzuSize)
 	fill := helpers.GetQueryInt(c, "fill", takuzuFill)
 
 	takuzuCore, err := takuzu.NewCore(size)
 	if err != nil {
-		code := fiber.StatusBadRequest
-		return c.Status(code).JSON(fiber.NewError(code, err.Error()))
+		return helpers.ThrowError(c, fiber.StatusBadRequest, err.Error())
 	}
 
 	takuzuCore.Generate()
@@ -41,14 +38,12 @@ func TakuzuVerificationPost(c *fiber.Ctx) error {
 	tBody := new(takuzuTaskBody)
 
 	if err := c.BodyParser(tBody); err != nil {
-		code := fiber.StatusBadRequest
-		return c.Status(code).JSON(fiber.NewError(code, err.Error()))
+		return helpers.ThrowError(c, fiber.StatusBadRequest, err.Error())
 	}
 
 	takuzuCore, err := takuzu.NewCore(takuzuSize)
 	if err != nil {
-		code := fiber.StatusBadRequest
-		return c.Status(code).JSON(fiber.NewError(code, err.Error()))
+		return helpers.ThrowError(c, fiber.StatusBadRequest, err.Error())
 	}
 
 	takuzuCore.Task = tBody.Task
@@ -62,16 +57,14 @@ func TakuzuVerificationGet(c *fiber.Ctx) error {
 	matched, _ := regexp.MatchString(`[01-]`, taskStr)
 
 	if taskStr == "" || !strings.Contains(taskStr, "-") || !matched {
-		code := fiber.StatusBadRequest
-		return c.Status(code).JSON(fiber.NewError(code, "invalid 'task' parameter value"))
+		return helpers.ThrowError(c, fiber.StatusBadRequest, "invalid 'task' parameter value")
 	}
 
 	task := [][]string{}
 	splitTaskStr := strings.Split(taskStr, "-")
 	size := len(splitTaskStr[0])
 	if size%2 != 0 || size > 12 {
-		code := fiber.StatusBadRequest
-		return c.Status(code).JSON(fiber.NewError(code, "row size should be even and should not exceed 12 characters"))
+		return helpers.ThrowError(c, fiber.StatusBadRequest, "row size should be even and should not exceed 12 characters")
 	}
 
 	for _, row := range splitTaskStr {
@@ -79,15 +72,13 @@ func TakuzuVerificationGet(c *fiber.Ctx) error {
 			splitRow := strings.Split(row, "")
 			task = append(task, splitRow)
 		} else {
-			code := fiber.StatusBadRequest
-			return c.Status(code).JSON(fiber.NewError(code, "each row must be the same length"))
+			return helpers.ThrowError(c, fiber.StatusBadRequest, "each row must be the same length")
 		}
 	}
 
 	takuzuCore, err := takuzu.NewCore(size)
 	if err != nil {
-		code := fiber.StatusBadRequest
-		return c.Status(code).JSON(fiber.NewError(code, err.Error()))
+		return helpers.ThrowError(c, fiber.StatusBadRequest, err.Error())
 	}
 
 	takuzuCore.Task = task

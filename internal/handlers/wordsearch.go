@@ -17,8 +17,7 @@ func WordsearchGenerator(c *fiber.Ctx) error {
 
 	wsc, err := wordsearch.Generate(width, height)
 	if err != nil {
-		code := fiber.StatusBadRequest
-		return c.Status(code).JSON(fiber.NewError(code, err.Error()))
+		return helpers.ThrowError(c, fiber.StatusBadRequest, err.Error())
 	}
 
 	return c.JSON(wsc)

@@ -23,8 +23,7 @@ func SchulteGenerator(c *fiber.Ctx) error {
 	}
 
 	if math.Abs(float64(size)) > 15 {
-		code := fiber.StatusBadRequest
-		return c.Status(code).JSON(fiber.NewError(code, "size should not exceed 15"))
+		return helpers.ThrowError(c, fiber.StatusBadRequest, "size should not exceed 15")
 	}
 
 	result := schulte.GenerateNumeric(size)

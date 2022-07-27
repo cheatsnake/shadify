@@ -47,24 +47,21 @@ func SetGameLoadState(c *fiber.Ctx) error {
 
 	err = setCore.LoadState(state)
 	if err != nil {
-		code := fiber.StatusBadRequest
-		return c.Status(code).JSON(fiber.NewError(code, err.Error()))
+		return helpers.ThrowError(c, fiber.StatusBadRequest, err.Error())
 	}
 
 	switch action {
 	case "add":
 		err := setCore.AddCards()
 		if err != nil {
-			code := fiber.StatusBadRequest
-			return c.Status(code).JSON(fiber.NewError(code, err.Error()))
+			return helpers.ThrowError(c, fiber.StatusBadRequest, err.Error())
 		}
 	case "remove":
 		cards := helpers.GetQueryIntSlice(c, "cards", set.SetSize)
 		if len(cards) == set.SetSize {
 			err := setCore.RemoveSet(cards)
 			if err != nil {
-				code := fiber.StatusBadRequest
-				return c.Status(code).JSON(fiber.NewError(code, err.Error()))
+				return helpers.ThrowError(c, fiber.StatusBadRequest, err.Error())
 			}
 		}
 	}

@@ -20,8 +20,7 @@ func MinesweeperGenerator(c *fiber.Ctx) error {
 
 	result, err := minesweeper.Generate(start, width, height, mines)
 	if err != nil {
-		code := fiber.StatusBadRequest
-		return c.Status(code).JSON(fiber.NewError(code, err.Error()))
+		return helpers.ThrowError(c, fiber.StatusBadRequest, err.Error())
 	}
 
 	return c.JSON(result)
