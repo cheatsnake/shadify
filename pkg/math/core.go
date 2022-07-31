@@ -55,6 +55,11 @@ func GetMultiplication(minFirst, maxFirst, minSecond, maxSecond int) BasicExpres
 func GetDivision(minFirst, maxFirst int) BasicExpression {
 	operation := "/"
 	first := assists.GetRandomInteger(minFirst, maxFirst)
+
+	if first == 0 {
+		first = 1
+	}
+
 	divisors := findDivisors(first)
 
 	if len(divisors) > 2 {
