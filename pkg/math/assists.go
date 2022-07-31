@@ -4,7 +4,7 @@ func findDivisors(divisible int) []int {
 	divisors := []int{}
 
 	if divisible < 0 {
-		for i := divisible; i <= 0; i++ {
+		for i := divisible; i < 0; i++ {
 			if divisible%i == 0 {
 				divisors = append(divisors, i, -i)
 			}
