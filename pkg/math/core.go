@@ -92,6 +92,11 @@ func GetQuadratic(minA, maxA, minB, maxB, minC, maxC int) QuadraticEquation {
 	x1 := (-float64(b) - (math.Sqrt(float64(discriminant)))) / (2 * float64(a))
 	x2 := (-float64(b) + (math.Sqrt(float64(discriminant)))) / (2 * float64(a))
 
+	// The case when the root can be any natural number
+	if math.IsNaN(x1) {
+		return QuadraticEquation{equation, a, b, c, discriminant, "R", "R"}
+	}
+
 	return QuadraticEquation{
 		equation, a, b, c, discriminant,
 		strconv.FormatFloat(x1, 'f', 3, 64),
