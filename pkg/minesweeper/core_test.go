@@ -35,6 +35,7 @@ func TestGenerateFail(t *testing.T) {
 		{"1-1", 32, 32, 32},
 		{"1-1", 10, 10, 26},
 		{"13-13", 12, 12, 12},
+		{"7", 7, 7, 7},
 	}
 
 	for _, tv := range testValues {
