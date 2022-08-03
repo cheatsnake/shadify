@@ -10,10 +10,7 @@ var wordsDB []string
 var wordsDBSize int
 
 func init() {
-	nouns, err := assists.ReadFileLineByLine(filepath.Join("data", "nouns.txt"))
-	if err != nil {
-		println(err.Error())
-	}
+	nouns, _ := assists.ReadFileLineByLine(filepath.Join("data", "nouns.txt"))
 	wordsDB = nouns
 	wordsDBSize = len(nouns)
 }
