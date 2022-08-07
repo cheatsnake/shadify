@@ -3,11 +3,11 @@ package sudoku
 import "github.com/cheatsnake/shadify/pkg/assists"
 
 func prepare(grid [9][9]int, fillFactor int) [9][9]int {
-	if fillFactor > 81 {
+	if fillFactor > 99 {
 		return grid
 	}
-	if fillFactor < 1 {
-		fillFactor = 1
+	if fillFactor < 0 {
+		fillFactor = 0
 	}
 
 	filled := 0
