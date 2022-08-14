@@ -77,7 +77,7 @@ func (sc *Core) AddCards() error {
 	return nil
 }
 
-// Find possible sets in current Core.Layout and them in Core.PossibleSets
+// Find possible sets in current Core.Layout and paste them in Core.PossibleSets
 func (sc *Core) FindSets() string {
 	sc.PossibleSets = findSets(sc.Layout)
 	if len(sc.FreeCards) < SetSize && len(sc.PossibleSets) < 1 {
