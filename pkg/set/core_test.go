@@ -98,3 +98,27 @@ func TestAddCards(t *testing.T) {
 		t.Logf("Core.AddCards() PASSED")
 	}
 }
+
+type testState struct {
+	State  string
+	Expect string
+}
+
+func TestFindSets(t *testing.T) {
+	sc := NewCore()
+	testStates := []testState{
+		{State: "12-79-77-49-1-80-13-66-16-17-10-30", Expect: "found 4 sets"},
+		{State: "69-42-54-43-59-20-38-63-46-61-4-50", Expect: "found 1 set"},
+		{State: "14-74-48-45-32-22-12-46-26-71-24-44", Expect: setsNotFound},
+		{State: "11-50-60@0-1-2-3-4-5-6-7-8-9-10-12-13-14-15-16-17-18-19-20-21-22-23-24-25-26-27-28-29-30-31-32-33-34-35-36-37-38-39-40-41-42-43-44-45-46-47-48-49-51-52-53-54-55-56-57-58-59-61-62-63-64-65-66-67-68-69-70-71-72-73-74-75-76-77-78-79-80", Expect: gameOver}}
+
+	for _, ts := range testStates {
+		sc.LoadState(ts.State)
+		msg := sc.FindSets()
+		if msg != ts.Expect {
+			t.Errorf("Core.AddCards() FAILED. Should return message: %s, but got: %s", ts.Expect, msg)
+		} else {
+			t.Logf("Core.FindSets() PASSED")
+		}
+	}
+}
