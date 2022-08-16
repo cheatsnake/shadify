@@ -116,9 +116,31 @@ func TestFindSets(t *testing.T) {
 		sc.LoadState(ts.State)
 		msg := sc.FindSets()
 		if msg != ts.Expect {
-			t.Errorf("Core.AddCards() FAILED. Should return message: %s, but got: %s", ts.Expect, msg)
+			t.Errorf("Core.FindSets() FAILED. Should return message: %s, but got: %s", ts.Expect, msg)
 		} else {
 			t.Logf("Core.FindSets() PASSED")
+		}
+	}
+}
+
+func TestLoadState(t *testing.T) {
+	sc := NewCore()
+	testStates := []string{
+		"a-a-a",
+		"0-1-2",
+		"0-1-2-3-4-5-6-7-8-9-10-11-12",
+		"0-1-2-3-4-5-6-7-8-9-10-81",
+		"0-1-2-3-4-5-6-7-8-9-10-11@0-1-2",
+		"0-1-2-3-4-5-6-7-8-9-10-11@12-13",
+		"0-1-2-3-4-5-6-7-8-9-10-11@12-13-81",
+	}
+
+	for _, ts := range testStates {
+		result := sc.LoadState(ts)
+		if result == nil {
+			t.Errorf("Core.AddCards() FAILED. Should return error")
+		} else {
+			t.Logf("Core.LoadState() PASSED")
 		}
 	}
 }
