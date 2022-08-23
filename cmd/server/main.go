@@ -37,6 +37,7 @@ func main() {
 	routes.MinesweeperRouter(app)
 	routes.WordsearchRouter(app)
 	routes.AnagramRouter(app)
+	routes.CountriesRouter(app)
 
 	log.Fatal(app.Listen(":" + port))
 }
