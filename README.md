@@ -28,6 +28,7 @@ The service is divided into independent modules. Each module starts with a brief
 -   [Minesweeper](#minesweeper)
 -   [Wordsearch](#wordsearch)
 -   [Anagram](#anagram)
+-	[Countries](#countries)
 
 ### Sudoku
 
@@ -513,6 +514,65 @@ Returned response:
 ```
 
 > `Task` - a word from which you need to make other words. <br> `Words` - an array of all possible words that are compiled from `Task`. 
+
+### Countries
+
+Countries module allows you to generate quizes such as guess the capital or guess the country from an image of the flag. It is a simple and useful module for creating applications to test and practice knowledge of all countries.
+
+-   Generating capital quiz
+
+```rust
+GET https://shadify.dev/api/countries/capital-quiz
+```
+
+| Parameter | Description                                                                                                                      |
+| --------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| `variants`    | _Optional_ <br> A number from 2 to 6 corresponding to the number of different options from which you have to choose the correct capital of the given country. <br> The default value is 4. |
+
+Returned response:
+
+```json
+{
+	"country": "Cyprus",
+	"flag": "https://flagcdn.com/w320/cy.png",
+	"variants": [
+		"Nicosia",
+		"Juba",
+		"Oslo",
+		"Jamestown"
+	],
+	"answer": "Nicosia"
+}
+```
+
+> `country` - the country for which you must guess the capital. <br> `flag` - country's flag image (it powered by [Flagpedia API](https://flagpedia.net/download/api), so you can customize it). <br> `variants` - possible options for answering. <br> `answer` - correct answer.
+
+-   Generating country quiz
+
+```rust
+GET https://shadify.dev/api/countries/country-quiz
+```
+
+| Parameter | Description                                                                                                                      |
+| --------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| `variants`    | _Optional_ <br> A number from 2 to 6 corresponding to the number of different options from which you have to choose the correct country of the given flag image. <br> The default value is 4. |
+
+Returned response:
+
+```json
+{
+	"flag": "https://flagcdn.com/w320/dk.png",
+	"variants": [
+		"Yemen",
+		"Denmark",
+		"Norfolk Island",
+		"Vietnam"
+	],
+	"answer": "Denmark"
+}
+```
+
+> `flag` - the flag of the country you have to guess. <br> `variants` - possible options for answering. <br> `answer` - correct answer.
 
 ## Starting a local server
 
