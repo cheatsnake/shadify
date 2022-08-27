@@ -13,7 +13,7 @@ const (
 	stateSeparator string = "@"
 )
 
-//error constants
+// error constants
 const (
 	setIsNotValid        string = "this combination is not a set"
 	peakMaxLayoutSize    string = "the operation of adding cards has been canceled (in the layout with size of more then 20 cards is guaranteed to be a set)"

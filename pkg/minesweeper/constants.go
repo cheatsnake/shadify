@@ -6,7 +6,7 @@ const (
 	maxFieldCells   int     = 1000
 )
 
-//error constants
+// error constants
 const (
 	tooSmallField     string = "field is too small"
 	tooBigField       string = "field is too big"
