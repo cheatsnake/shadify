@@ -22,6 +22,7 @@ func init() {
 	}
 }
 
+// Get a quiz in which you have to guess the capital of the specified country
 func GetCapitalQuiz(variants int) (CapitalQuiz, error) {
 	if variants > maxVariantsCount {
 		return CapitalQuiz{}, errors.New(variantsCountToBig)
@@ -35,6 +36,7 @@ func GetCapitalQuiz(variants int) (CapitalQuiz, error) {
 	return result, nil
 }
 
+// Get a quiz in which you have to guess the name of the country from the image of its flag
 func GetCountryQuiz(variants int) (CountryQuiz, error) {
 	if variants > maxVariantsCount {
 		return CountryQuiz{}, errors.New(variantsCountToBig)

@@ -6,5 +6,7 @@ const maxVariantsCount = 6
 const minVariantsCount = 2
 
 // error constants
-const variantsCountToBig string = "the number of variants is too large"
-const variantsCountToLow string = "the number of variants is too small"
+const (
+	variantsCountToBig string = "the number of variants is too large"
+	variantsCountToLow string = "the number of variants is too small"
+)
