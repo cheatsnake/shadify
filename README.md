@@ -582,10 +582,33 @@ Returned response:
 git clone https://github.com/cheatsnake/shadify.git
 ```
 
-2. From the root directory of the project, run the following command:
+2. Download packages:
+
+```sh
+go mod download
+```
+
+3. From the root directory of the project, run the following command:
 
 ```sh
 go run cmd/server/main.go
+```
+## Launch server in Docker
+
+Running a Docker container for development (after any file changes, server will be restarts):
+
+```sh
+docker compose up
+```
+
+Running a Docker container for production:
+
+```sh
+docker build -t shadify . --target prod
+```
+
+```sh
+docker run --rm -p 5000:5000 --name shadify shadify
 ```
 
 <div align="center">Made with &#9829;</div>
