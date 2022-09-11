@@ -6,13 +6,21 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
-const countriesVariants = 4
+const (
+	countriesVariants   = 4
+	countriesQuizAmount = 1
+)
 
 func CountriesCountryQuiz(c *fiber.Ctx) error {
 	variants := helpers.GetQueryInt(c, "variants", countriesVariants)
-	cq, err := countries.GetCountryQuiz(variants)
+	amount := helpers.GetQueryInt(c, "amount", countriesQuizAmount)
+	cq, err := countries.GetCountryQuiz(variants, amount)
 	if err != nil {
 		return helpers.ThrowError(c, fiber.StatusBadRequest, err.Error())
+	}
+
+	if amount == countriesQuizAmount {
+		return c.JSON(cq[0])
 	}
 
 	return c.JSON(cq)
@@ -20,9 +28,14 @@ func CountriesCountryQuiz(c *fiber.Ctx) error {
 
 func CountriesCapitalQuiz(c *fiber.Ctx) error {
 	variants := helpers.GetQueryInt(c, "variants", countriesVariants)
-	cq, err := countries.GetCapitalQuiz(variants)
+	amount := helpers.GetQueryInt(c, "amount", countriesQuizAmount)
+	cq, err := countries.GetCapitalQuiz(variants, amount)
 	if err != nil {
 		return helpers.ThrowError(c, fiber.StatusBadRequest, err.Error())
+	}
+
+	if amount == countriesQuizAmount {
+		return c.JSON(cq[0])
 	}
 
 	return c.JSON(cq)
