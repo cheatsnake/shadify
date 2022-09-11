@@ -61,3 +61,49 @@ func generateCountryQuiz(variantsCount int) CountryQuiz {
 		Variants: variants,
 		Answer:   randomCountry.Country}
 }
+
+func generateCapitalQuizzes(variants, amount int) []CapitalQuiz {
+	quizes := make([]CapitalQuiz, 0, amount)
+
+	for i := 0; i < amount; i += 0 {
+		quiz := generateCapitalQuiz(variants)
+		isNew := true
+
+		for _, q := range quizes {
+			if q.Answer == quiz.Answer {
+				isNew = false
+				break
+			}
+		}
+
+		if isNew {
+			quizes = append(quizes, quiz)
+			i++
+		}
+	}
+
+	return quizes
+}
+
+func generateCountryQuizzes(variants, amount int) []CountryQuiz {
+	quizzes := make([]CountryQuiz, 0, amount)
+
+	for i := 0; i < amount; i += 0 {
+		quiz := generateCountryQuiz(variants)
+		isNew := true
+
+		for _, q := range quizzes {
+			if q.Answer == quiz.Answer {
+				isNew = false
+				break
+			}
+		}
+
+		if isNew {
+			quizzes = append(quizzes, quiz)
+			i++
+		}
+	}
+
+	return quizzes
+}
