@@ -15,10 +15,10 @@ func init() {
 func TestGetCapitalQuiz(t *testing.T) {
 	validValues := []int{2, 4, 6}
 	for _, vv := range validValues {
-		result, _ := GetCapitalQuiz(vv)
-		if len(result.Variants) != vv {
+		result, _ := GetCapitalQuiz(vv, 1)
+		if len(result[0].Variants) != vv {
 			t.Errorf("GetCapitalQuiz(%d) FAILED. Expected result.Variants with length = %d, but got %d",
-				vv, vv, len(result.Variants))
+				vv, vv, len(result[0].Variants))
 		} else {
 			t.Logf("GetCapitalQuiz(%d) PASSED.", vv)
 		}
@@ -26,7 +26,7 @@ func TestGetCapitalQuiz(t *testing.T) {
 
 	invalidValues := []int{-2, 0, 1, 7, 10}
 	for _, iv := range invalidValues {
-		_, err := GetCapitalQuiz(iv)
+		_, err := GetCapitalQuiz(iv, 1)
 		if err == nil {
 			t.Errorf("GetCapitalQuiz(%d) FAILED. Expected error", iv)
 		} else {
@@ -38,10 +38,10 @@ func TestGetCapitalQuiz(t *testing.T) {
 func TestGetCountryQuiz(t *testing.T) {
 	validValues := []int{2, 4, 6}
 	for _, vv := range validValues {
-		result, _ := GetCountryQuiz(vv)
-		if len(result.Variants) != vv {
+		result, _ := GetCountryQuiz(vv, 1)
+		if len(result[0].Variants) != vv {
 			t.Errorf("GetCountryQuiz(%d) FAILED. Expected result.Variants with length = %d, but got %d",
-				vv, vv, len(result.Variants))
+				vv, vv, len(result[0].Variants))
 		} else {
 			t.Logf("GetCountryQuiz(%d) PASSED.", vv)
 		}
@@ -49,7 +49,7 @@ func TestGetCountryQuiz(t *testing.T) {
 
 	invalidValues := []int{-2, 0, 1, 7, 10}
 	for _, iv := range invalidValues {
-		_, err := GetCountryQuiz(iv)
+		_, err := GetCountryQuiz(iv, 1)
 		if err == nil {
 			t.Errorf("GetCountryQuiz(%d) FAILED. Expected error", iv)
 		} else {
