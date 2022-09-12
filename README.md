@@ -527,7 +527,8 @@ GET https://shadify.dev/api/countries/capital-quiz
 
 | Parameter | Description                                                                                                                      |
 | --------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| `variants`    | _Optional_ <br> A number from 2 to 6 corresponding to the number of different options from which you have to choose the correct capital of the given country. <br> The default value is 4. |
+| `variants` | _Optional_ <br> A number from 2 to 6 corresponding to the number of different options from which you have to choose the correct capital of the given country. <br> The default value is 4. |
+| `amount`   | _Optional_ <br> A number from 1 to 20 which is responsible for the number of quizzes returned. The use of this parameter ensures that among all quizzes received, all will be unique. <br> The default value is 1. |
 
 Returned response:
 
@@ -553,9 +554,10 @@ Returned response:
 GET https://shadify.dev/api/countries/country-quiz
 ```
 
-| Parameter | Description                                                                                                                      |
-| --------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| `variants`    | _Optional_ <br> A number from 2 to 6 corresponding to the number of different options from which you have to choose the correct country of the given flag image. <br> The default value is 4. |
+| Parameter  | Description                                                                                                                      |
+| ---------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| `variants` | _Optional_ <br> A number from 2 to 6 corresponding to the number of different options from which you have to choose the correct country of the given flag image. <br> The default value is 4. |
+| `amount`   | _Optional_ <br> A number from 1 to 20 which is responsible for the number of quizzes returned. The use of this parameter ensures that among all quizzes received, all will be unique. <br> The default value is 1. |
 
 Returned response:
 
