@@ -501,8 +501,8 @@ GET https://shadify.dev/api/anagram/generator
 
 ```json
 {
-    "Task":"possibility",
-    "Words":[
+    "task":"possibility",
+    "words":[
         "bit","bolt","boy","lip","list","loss","oil",
         "pilot","plot","toy","pot","slip","soil","soy",
         "spot","spy","stop","tip","top"
@@ -510,7 +510,7 @@ GET https://shadify.dev/api/anagram/generator
 }
 ```
 
-> `Task` - слово из которого необходимо составлять другие слова. <br> `Words` - массив всех возможных слов, которые составляются из `Task`. 
+> `task` - слово из которого необходимо составлять другие слова. <br> `words` - массив всех возможных слов, которые составляются из `task`. 
 
 ### Countries
 

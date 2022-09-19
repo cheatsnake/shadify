@@ -504,8 +504,8 @@ Returned response:
 
 ```json
 {
-    "Task":"possibility",
-    "Words":[
+    "task":"possibility",
+    "words":[
         "bit","bolt","boy","lip","list","loss","oil",
         "pilot","plot","toy","pot","slip","soil","soy",
         "spot","spy","stop","tip","top"
@@ -513,7 +513,7 @@ Returned response:
 }
 ```
 
-> `Task` - a word from which you need to make other words. <br> `Words` - an array of all possible words that are compiled from `Task`. 
+> `task` - a word from which you need to make other words. <br> `words` - an array of all possible words that are compiled from `task`. 
 
 ### Countries
 
