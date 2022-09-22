@@ -1,4 +1,4 @@
-package assists
+package helpers
 
 import (
 	"bufio"
