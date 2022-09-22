@@ -1,13 +1,15 @@
 package schulte
 
-import "github.com/cheatsnake/shadify/pkg/assists"
+import (
+	"github.com/cheatsnake/shadify/internal/helpers"
+)
 
 // Generate a Schulte numerical grid with a given size
 func GenerateNumeric(size int) Core[int] {
 	if size > 100 || size < -100 {
 		size = 100
 	}
-	values := assists.GetNumbers(size*size, 1)
+	values := helpers.GetNumbers(size*size, 1)
 	grid := generateGrid(values)
 
 	return Core[int]{Grid: grid}

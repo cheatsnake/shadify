@@ -3,18 +3,18 @@ package set
 import (
 	"sort"
 
-	"github.com/cheatsnake/shadify/pkg/assists"
+	"github.com/cheatsnake/shadify/internal/helpers"
 )
 
 func startGame() ([]Card, []Card) {
-	cardIndexes := assists.GetNumbers(DeckSize, 0)
+	cardIndexes := helpers.GetNumbers(DeckSize, 0)
 	layout := make([]Card, StartLayoutSize)
 	freeCards := make([]Card, 0, DeckSize-StartLayoutSize)
 
 	for j := range layout {
-		cardIndex := assists.GetRandomInteger(0, len(cardIndexes)-1)
+		cardIndex := helpers.GetRandomInteger(0, len(cardIndexes)-1)
 		layout[j] = Deck[cardIndexes[cardIndex]]
-		cardIndexes = assists.RemoveElement(cardIndexes, cardIndex)
+		cardIndexes = helpers.RemoveElement(cardIndexes, cardIndex)
 	}
 
 	sort.Slice(cardIndexes, func(i, j int) bool {

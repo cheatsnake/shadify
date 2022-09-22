@@ -5,7 +5,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/cheatsnake/shadify/pkg/assists"
+	"github.com/cheatsnake/shadify/internal/helpers"
 )
 
 func updateState(layout []Card, wonCards []Card) string {
@@ -64,7 +64,7 @@ func loadState(state string) ([]Card, []Card, []Card, error) {
 	usedCardsId := append(layoutId, wonCardsId...)
 
 	for i := range Deck {
-		if !assists.SliceContains(usedCardsId, i) {
+		if !helpers.SliceContains(usedCardsId, i) {
 			freeCards = append(freeCards, Deck[i])
 		}
 	}
@@ -74,8 +74,8 @@ func loadState(state string) ([]Card, []Card, []Card, error) {
 
 func parseStateString(state string) ([]int, []int, error) {
 	splitedState := strings.Split(state, stateSeparator)
-	layoutIdStr := assists.RemoveDuplicateStrings(strings.Split(splitedState[0], "-"))
-	layoutId, err := assists.SliceStringToInt(layoutIdStr)
+	layoutIdStr := helpers.RemoveDuplicateStrings(strings.Split(splitedState[0], "-"))
+	layoutId, err := helpers.SliceStringToInt(layoutIdStr)
 	if err != nil {
 		return nil, nil, err
 	}
@@ -90,8 +90,8 @@ func parseStateString(state string) ([]int, []int, error) {
 		return layoutId, nil, nil
 	}
 
-	wonCardsIdStr := assists.RemoveDuplicateStrings(strings.Split(splitedState[1], "-"))
-	wonCardsId, err := assists.SliceStringToInt(wonCardsIdStr)
+	wonCardsIdStr := helpers.RemoveDuplicateStrings(strings.Split(splitedState[1], "-"))
+	wonCardsId, err := helpers.SliceStringToInt(wonCardsIdStr)
 	if err != nil {
 		return nil, nil, err
 	}
@@ -100,7 +100,7 @@ func parseStateString(state string) ([]int, []int, error) {
 		if id >= DeckSize {
 			return nil, nil, errors.New("entered not exist id: " + strconv.Itoa(id))
 		}
-		if assists.SliceContains(layoutId, id) {
+		if helpers.SliceContains(layoutId, id) {
 			return nil, nil, errors.New("layout must not contain won card id: " + strconv.Itoa(id))
 		}
 	}

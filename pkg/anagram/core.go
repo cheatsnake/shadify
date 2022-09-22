@@ -3,14 +3,14 @@ package anagram
 import (
 	"path/filepath"
 
-	"github.com/cheatsnake/shadify/pkg/assists"
+	"github.com/cheatsnake/shadify/internal/helpers"
 )
 
 var wordsDB []string
 var wordsDBSize int
 
 func init() {
-	nouns, _ := assists.ReadFileLineByLine(filepath.Join("data", "nouns.txt"))
+	nouns, _ := helpers.ReadFileLineByLine(filepath.Join("data", "nouns.txt"))
 	wordsDB = nouns
 	wordsDBSize = len(nouns)
 }

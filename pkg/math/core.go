@@ -4,14 +4,14 @@ import (
 	"math"
 	"strconv"
 
-	"github.com/cheatsnake/shadify/pkg/assists"
+	"github.com/cheatsnake/shadify/internal/helpers"
 )
 
 // Get a random addition expression with a given range of numbers
 func GetAddition(minFirst, maxFirst, minSecond, maxSecond int) BasicExpression {
 	operation := "+"
-	first := assists.GetRandomInteger(minFirst, maxFirst)
-	second := assists.GetRandomInteger(minSecond, maxSecond)
+	first := helpers.GetRandomInteger(minFirst, maxFirst)
+	second := helpers.GetRandomInteger(minSecond, maxSecond)
 	expression := strconv.Itoa(first) + " " + operation + " " + strconv.Itoa(second)
 	answer := first + second
 
@@ -23,8 +23,8 @@ func GetAddition(minFirst, maxFirst, minSecond, maxSecond int) BasicExpression {
 // Get a random subtraction expression with a given range of numbers
 func GetSubtraction(minFirst, maxFirst, minSecond, maxSecond int, allowNegative bool) BasicExpression {
 	operation := "-"
-	first := assists.GetRandomInteger(minFirst, maxFirst)
-	second := assists.GetRandomInteger(minSecond, maxSecond)
+	first := helpers.GetRandomInteger(minFirst, maxFirst)
+	second := helpers.GetRandomInteger(minSecond, maxSecond)
 
 	if second > first && !allowNegative {
 		second, first = first, second
@@ -41,8 +41,8 @@ func GetSubtraction(minFirst, maxFirst, minSecond, maxSecond int, allowNegative 
 // Get a random multiplication expression with a given range of numbers
 func GetMultiplication(minFirst, maxFirst, minSecond, maxSecond int) BasicExpression {
 	operation := "*"
-	first := assists.GetRandomInteger(minFirst, maxFirst)
-	second := assists.GetRandomInteger(minSecond, maxSecond)
+	first := helpers.GetRandomInteger(minFirst, maxFirst)
+	second := helpers.GetRandomInteger(minSecond, maxSecond)
 	expression := strconv.Itoa(first) + " " + operation + " " + strconv.Itoa(second)
 	answer := first * second
 
@@ -54,7 +54,7 @@ func GetMultiplication(minFirst, maxFirst, minSecond, maxSecond int) BasicExpres
 // Get a random division expression with a given range of numbers
 func GetDivision(minFirst, maxFirst int) BasicExpression {
 	operation := "/"
-	first := assists.GetRandomInteger(minFirst, maxFirst)
+	first := helpers.GetRandomInteger(minFirst, maxFirst)
 
 	if first == 0 {
 		first = 1
@@ -66,7 +66,7 @@ func GetDivision(minFirst, maxFirst int) BasicExpression {
 		divisors = divisors[1 : len(divisors)-1]
 	}
 
-	index := assists.GetRandomInteger(0, len(divisors)-1)
+	index := helpers.GetRandomInteger(0, len(divisors)-1)
 	second := divisors[index]
 	expression := strconv.Itoa(first) + " " + operation + " " + strconv.Itoa(second)
 	answer := first / second
@@ -78,9 +78,9 @@ func GetDivision(minFirst, maxFirst int) BasicExpression {
 
 // Get a random quadratic expression with a given range of coefficients
 func GetQuadratic(minA, maxA, minB, maxB, minC, maxC int) QuadraticEquation {
-	a := assists.GetRandomInteger(minA, maxA)
-	b := assists.GetRandomInteger(minB, maxB)
-	c := assists.GetRandomInteger(minC, maxC)
+	a := helpers.GetRandomInteger(minA, maxA)
+	b := helpers.GetRandomInteger(minB, maxB)
+	c := helpers.GetRandomInteger(minC, maxC)
 
 	equation := strconv.Itoa(a) + "x^2 + " + strconv.Itoa(b) + "x + " + strconv.Itoa(c) + " = 0"
 

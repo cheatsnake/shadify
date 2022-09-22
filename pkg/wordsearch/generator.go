@@ -4,7 +4,7 @@ import (
 	"math"
 	"math/rand"
 
-	"github.com/cheatsnake/shadify/pkg/assists"
+	"github.com/cheatsnake/shadify/internal/helpers"
 )
 
 func generateGrid(w, h int) ([][]string, []Word) {
@@ -20,14 +20,14 @@ restart:
 		grid[i] = row
 	}
 
-	cells := assists.GetNumbers(len(grid)*len(grid[0]), 0)
+	cells := helpers.GetNumbers(len(grid)*len(grid[0]), 0)
 
 	for _, word := range words {
 	changePos:
 		randCell := rand.Intn(len(cells))
 		y = int(math.Floor(float64(cells[randCell]) / float64(len(grid[0]))))
 		x = cells[randCell] - (len(grid[0]) * y)
-		cells = assists.RemoveElement(cells, randCell)
+		cells = helpers.RemoveElement(cells, randCell)
 		d = rand.Intn(len(directions))
 
 		if isPossibleToPaste(grid, x, y, &d, word) {

@@ -4,7 +4,7 @@ import (
 	"math"
 	"math/rand"
 
-	"github.com/cheatsnake/shadify/pkg/assists"
+	"github.com/cheatsnake/shadify/internal/helpers"
 )
 
 func getRandomWords(w, h int) []string {
@@ -16,7 +16,7 @@ func getRandomWords(w, h int) []string {
 		randWord := wordsDB[rand.Intn(len(wordsDB))]
 		rwLen := len(randWord)
 
-		if assists.IndexOf(randWord, words) == -1 && rwLen <= w && rwLen <= h {
+		if helpers.IndexOf(randWord, words) == -1 && rwLen <= w && rwLen <= h {
 			lettersCount += rwLen
 			words = append(words, randWord)
 		}

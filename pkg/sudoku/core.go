@@ -1,8 +1,6 @@
 package sudoku
 
-import (
-	"github.com/cheatsnake/shadify/pkg/assists"
-)
+import "github.com/cheatsnake/shadify/internal/helpers"
 
 // Create a new instance of Sudoku Core
 func NewCore() *Core {
@@ -12,7 +10,7 @@ func NewCore() *Core {
 // Generate a new Sudoku 9x9 grid
 func (sc *Core) Generate() {
 	sc.Grid = basicGrid
-	numberOfSwaps := assists.GetRandomInteger(10, 50)
+	numberOfSwaps := helpers.GetRandomInteger(10, 50)
 
 	for i := 0; i < numberOfSwaps; i++ {
 		sc.Grid = swapRows(sc.Grid)

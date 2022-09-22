@@ -1,6 +1,6 @@
 package sudoku
 
-import "github.com/cheatsnake/shadify/pkg/assists"
+import "github.com/cheatsnake/shadify/internal/helpers"
 
 func prepare(grid [9][9]int, fillFactor int) [9][9]int {
 	if fillFactor > 99 {
@@ -14,8 +14,8 @@ func prepare(grid [9][9]int, fillFactor int) [9][9]int {
 	task := getEmptyGrid()
 
 	for filled < fillFactor {
-		randRow := assists.GetRandomInteger(0, 8)
-		randCol := assists.GetRandomInteger(0, 8)
+		randRow := helpers.GetRandomInteger(0, 8)
+		randCol := helpers.GetRandomInteger(0, 8)
 
 		if task[randRow][randCol] == 0 {
 			task[randRow][randCol] = grid[randRow][randCol]

@@ -4,7 +4,7 @@ import (
 	"math/rand"
 	"strings"
 
-	"github.com/cheatsnake/shadify/pkg/assists"
+	"github.com/cheatsnake/shadify/internal/helpers"
 )
 
 func composingWords(word string) []string {
@@ -23,7 +23,7 @@ func composingWords(word string) []string {
 		}
 	}
 
-	result = assists.RemoveElement(result, assists.IndexOf(word, result))
+	result = helpers.RemoveElement(result, helpers.IndexOf(word, result))
 
 	return result
 }

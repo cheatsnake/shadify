@@ -3,7 +3,7 @@ package schulte
 import (
 	"math"
 
-	"github.com/cheatsnake/shadify/pkg/assists"
+	"github.com/cheatsnake/shadify/internal/helpers"
 )
 
 func generateGrid[T int | string](values []T) [][]T {
@@ -18,9 +18,9 @@ func generateGrid[T int | string](values []T) [][]T {
 
 	for i := 0; i < size; i++ {
 		for j := 0; j < size; j++ {
-			index := assists.GetRandomInteger(0, available)
+			index := helpers.GetRandomInteger(0, available)
 			grid[i][j] = values[index]
-			values = assists.RemoveElement(values, index)
+			values = helpers.RemoveElement(values, index)
 			available -= 1
 		}
 	}

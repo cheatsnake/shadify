@@ -4,7 +4,7 @@ import (
 	"errors"
 	"strconv"
 
-	"github.com/cheatsnake/shadify/pkg/assists"
+	"github.com/cheatsnake/shadify/internal/helpers"
 )
 
 // Create a new instance of Set Core
@@ -29,7 +29,7 @@ func (sc *Core) RemoveSet(set []int) error {
 	}
 
 	for _, id := range set {
-		if !assists.SliceContains(layoutId, id) {
+		if !helpers.SliceContains(layoutId, id) {
 			return errors.New("the card with id:" + strconv.Itoa(id) + " was not found in the current layout")
 		}
 	}
@@ -40,9 +40,9 @@ func (sc *Core) RemoveSet(set []int) error {
 
 	for _, id := range set {
 		sc.WonCards = append(sc.WonCards, Deck[id])
-		index := assists.IndexOf(id, layoutId)
-		sc.Layout = assists.RemoveElement(sc.Layout, index)
-		layoutId = assists.RemoveElement(layoutId, index)
+		index := helpers.IndexOf(id, layoutId)
+		sc.Layout = helpers.RemoveElement(sc.Layout, index)
+		layoutId = helpers.RemoveElement(layoutId, index)
 	}
 
 	if len(sc.Layout) < StartLayoutSize && len(sc.FreeCards) >= SetSize {
@@ -66,9 +66,9 @@ func (sc *Core) AddCards() error {
 	}
 
 	for i := 0; i < SetSize; i++ {
-		index := assists.GetRandomInteger(0, len(sc.FreeCards)-1)
+		index := helpers.GetRandomInteger(0, len(sc.FreeCards)-1)
 		sc.Layout = append(sc.Layout, sc.FreeCards[index])
-		sc.FreeCards = assists.RemoveElement(sc.FreeCards, index)
+		sc.FreeCards = helpers.RemoveElement(sc.FreeCards, index)
 	}
 
 	sc.PossibleSets = [][]Card{}

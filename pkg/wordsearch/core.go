@@ -5,13 +5,13 @@ import (
 	"math/rand"
 	"path/filepath"
 
-	"github.com/cheatsnake/shadify/pkg/assists"
+	"github.com/cheatsnake/shadify/internal/helpers"
 )
 
 var wordsDB []string
 
 func init() {
-	nouns, _ := assists.ReadFileLineByLine(filepath.Join("data", "nouns.txt"))
+	nouns, _ := helpers.ReadFileLineByLine(filepath.Join("data", "nouns.txt"))
 	wordsDB = nouns
 }
 

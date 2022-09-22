@@ -5,7 +5,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/cheatsnake/shadify/pkg/assists"
+	"github.com/cheatsnake/shadify/internal/helpers"
 )
 
 func generator(startX, startY, w, h, mines int) [][]string {
@@ -16,8 +16,8 @@ func generator(startX, startY, w, h, mines int) [][]string {
 	}
 
 	for i := 0; i < mines; i++ {
-		x := assists.GetRandomInteger(0, w-1)
-		y := assists.GetRandomInteger(0, h-1)
+		x := helpers.GetRandomInteger(0, w-1)
+		y := helpers.GetRandomInteger(0, h-1)
 		if board[y][x] == "x" || isProtectedPosition(x, y, startX, startY) {
 			i--
 		} else {

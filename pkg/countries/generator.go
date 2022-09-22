@@ -4,7 +4,7 @@ import (
 	"math/rand"
 	"strings"
 
-	"github.com/cheatsnake/shadify/pkg/assists"
+	"github.com/cheatsnake/shadify/internal/helpers"
 )
 
 func generateCapitalQuiz(variantsCount int) CapitalQuiz {
@@ -18,7 +18,7 @@ func generateCapitalQuiz(variantsCount int) CapitalQuiz {
 		randomIdx := rand.Intn(len(countriesDB))
 		capital := countriesDB[randomIdx].Capital
 
-		if assists.IndexOf(capital, variants) == -1 {
+		if helpers.IndexOf(capital, variants) == -1 {
 			variants[i] = countriesDB[randomIdx].Capital
 			i++
 		}
@@ -46,7 +46,7 @@ func generateCountryQuiz(variantsCount int) CountryQuiz {
 		randomIdx := rand.Intn(len(countriesDB))
 		country := countriesDB[randomIdx].Country
 
-		if assists.IndexOf(country, variants) == -1 {
+		if helpers.IndexOf(country, variants) == -1 {
 			variants[i] = countriesDB[randomIdx].Country
 			i++
 		}

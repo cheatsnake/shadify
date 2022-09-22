@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/cheatsnake/shadify/pkg/assists"
+	"github.com/cheatsnake/shadify/internal/helpers"
 )
 
 func generateField(size int) ([][]string, error) {
@@ -25,11 +25,11 @@ func generateField(size int) ([][]string, error) {
 			if len(filteredRows) < 1 {
 				return [][]string{}, errors.New(deadEnd)
 			}
-			index = assists.GetRandomInteger(0, len(filteredRows)-1)
+			index = helpers.GetRandomInteger(0, len(filteredRows)-1)
 			row = filteredRows[index]
-			index = assists.IndexOf(row, freeRows)
+			index = helpers.IndexOf(row, freeRows)
 		} else {
-			index = assists.GetRandomInteger(0, len(freeRows)-1)
+			index = helpers.GetRandomInteger(0, len(freeRows)-1)
 			row = freeRows[index]
 		}
 
@@ -56,7 +56,7 @@ func generateRows(size int) []string {
 
 	for i := 0; i < int(max); i++ {
 		binary := strconv.FormatInt(int64(i), 2)
-		strBinary := assists.PadStart(binary, size-len(binary), "0")
+		strBinary := helpers.PadStart(binary, size-len(binary), "0")
 
 		if strings.Contains(strBinary, strings.Repeat(takuzuZero, 3)) ||
 			strings.Contains(strBinary, strings.Repeat(takuzuOne, 3)) ||
@@ -135,7 +135,7 @@ func prepareField(field [][]string, fillFactor int) ([][]string, error) {
 	for i, row := range field {
 		preparedRow := []string{}
 		for j := range row {
-			randBool := assists.GetRandomBool(fillFactor)
+			randBool := helpers.GetRandomBool(fillFactor)
 			if randBool {
 				preparedRow = append(preparedRow, string(field[i][j]))
 			} else {

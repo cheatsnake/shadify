@@ -4,11 +4,11 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/cheatsnake/shadify/pkg/assists"
+	"github.com/cheatsnake/shadify/internal/helpers"
 )
 
 func TestGenerateSuccess(t *testing.T) {
-	wordsDB, _ = assists.ReadFileLineByLine(filepath.Join("..", "..", "data", "nouns.txt"))
+	wordsDB, _ = helpers.ReadFileLineByLine(filepath.Join("..", "..", "data", "nouns.txt"))
 	testValues := [][]int{{8, 8}, {5, 5}, {16, 16}, {20, 12}, {12, 20}, {5, 20}, {20, 5}}
 
 	for _, tv := range testValues {

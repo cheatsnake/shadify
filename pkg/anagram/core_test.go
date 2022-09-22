@@ -4,11 +4,11 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/cheatsnake/shadify/pkg/assists"
+	"github.com/cheatsnake/shadify/internal/helpers"
 )
 
 func TestGenerate(t *testing.T) {
-	wordsDB, _ = assists.ReadFileLineByLine(filepath.Join("..", "..", "data", "nouns.txt"))
+	wordsDB, _ = helpers.ReadFileLineByLine(filepath.Join("..", "..", "data", "nouns.txt"))
 	wordsDBSize = len(wordsDB)
 	result := Generate()
 
