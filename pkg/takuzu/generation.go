@@ -135,7 +135,7 @@ func prepareField(field [][]string, fillFactor int) ([][]string, error) {
 	for i, row := range field {
 		preparedRow := []string{}
 		for j := range row {
-			randBool := helpers.GetRandomBool(fillFactor)
+			randBool := helpers.GetRandomBool(fillFactor * 10)
 			if randBool {
 				preparedRow = append(preparedRow, string(field[i][j]))
 			} else {

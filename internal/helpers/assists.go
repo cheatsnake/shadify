@@ -35,7 +35,7 @@ func IndexOf[T int | string](element T, data []T) int {
 }
 
 func GetRandomBool(chance int) bool {
-	return rand.Intn(100) < chance
+	return rand.Intn(1000) < chance
 }
 
 func SliceContains[T int | string](a []T, x T) bool {
