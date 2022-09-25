@@ -4,9 +4,10 @@ type Core struct {
 	Width       int     `json:"width"`
 	Height      int     `json:"height"`
 	Trees       int     `json:"trees"`
-	RowCamps    []int   `json:"rowCamps"`
-	ColumnCamps []int   `json:"columnCamps"`
-	Field       [][]int `json:"field"`
+	RowTents    []int   `json:"rowTents"`
+	ColumnTents []int   `json:"columnTents"`
+	Task       [][]int `json:"task"`
+	Solution [][]int `json:"solution"`
 }
 
 type VerifyResult struct {
