@@ -32,6 +32,8 @@ The service is divided into independent modules. Each module starts with a brief
 
 ### Sudoku
 
+<p align="center"><img src="./images/sudoku.png" alt="Sudoku"/></p>
+
 [Sudoku](https://en.wikipedia.org/wiki/Sudoku) is a popular number puzzle game. The essence of the game is to fill free cells with numbers from 1 to 9 so that in each row, each column and each small 3×3 square each digit occurs only once.
 
 -   Generating random Sudoku
@@ -128,6 +130,8 @@ Returned response:
 
 ### Takuzu
 
+<p align="center"><img src="./images/takuzu.png" alt="Takuzu"/></p>
+
 [Takuzu](https://en.wikipedia.org/wiki/Takuzu) (a.k.a. Binairo) is an entertaining puzzle game with simple rules. All you have to do is to fill a square field of a certain size with two digits (or colors) while following three simple rules:
 
 1. Each column and each row must be unique
@@ -223,6 +227,8 @@ Returned response:
 ```
 
 ### Set
+
+<p align="center"><img src="./images/set.png" alt="Set"/></p>
 
 [Set (card game)](<https://en.wikipedia.org/wiki/Set_(card_game)>) – a fascinating card game. The game deck consists of 81 cards, each with one, two, or three of the same symbol (rhombus, oval, or wave) of the same color (red, green, or purple) and texture (shaded, shaded, or outline only). The essence of the game is to find a set - a set of three cards that meets certain conditions.
 
