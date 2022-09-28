@@ -306,9 +306,12 @@ https://shadify.dev/api/set/0-27-53-10-46-15-16-64-32-23-29-6?action=remove&card
 
 ### Math
 
+<p align="center"><img src="./images/math-expressions.png" alt="Math-expressions"/></p>
+
 A module for generating random mathematical expressions. Great for creating various simulators, where you'll have to wiggle your brain. You can see [my application](https://cheatsnake.github.io/MindMath/) as an example.
 
 -   Generating an expression with addition
+
 
 ```rust
 GET https://shadify.dev/api/math/add
@@ -353,6 +356,8 @@ Returned response:
 ```
 
 -   Generating a quadratic equation
+
+<p align="center"><img src="./images/quadratic-equation.png" alt="Quadratic-equation"/></p>
 
 [Quadratic equation](https://en.wikipedia.org/wiki/Quadratic_equation) is an equation of the form ax2 + bx + c = 0, where the coefficients a, b and c are arbitrary numbers.
 
