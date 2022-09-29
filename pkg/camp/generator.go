@@ -1,22 +1,22 @@
 package camp
 
 import (
+	"math"
+
 	"github.com/cheatsnake/shadify/internal/helpers"
 )
 
 func generateField(w, h, t int) [][]int {
-	i := 0
 	field := make([][]int, h)
 	for i := range field {
 		field[i] = make([]int, w)
 	}
 
 	for t > 0 {
-		i++
 		treeY := helpers.GetRandomInteger(0, h-1)
 		treeX := helpers.GetRandomInteger(0, w-1)
 
-		isTreeFit := checkIsAreaFit(treeX, treeY, true, field)
+		isTreeFit := checkIsAreaFit(treeX, treeY, field, false, true)
 		if !isTreeFit {
 			continue
 		}
@@ -32,9 +32,12 @@ func generateField(w, h, t int) [][]int {
 		field[tentY][tentX] = tentValue
 		t--
 	}
-	println(i)
 
 	return field
+}
+
+func calcTreesCount(w, h int) int {
+	return int(math.Floor(float64(w*h) * percentageOfTrees))
 }
 
 func checkIsCoordsFit(x, y int, field [][]int) bool {
@@ -43,19 +46,32 @@ func checkIsCoordsFit(x, y int, field [][]int) bool {
 
 func placeTent(x, y int, field [][]int) (int, int, bool) {
 	possibleCoords := [][]int{{x - 1, y}, {x + 1, y}, {x, y - 1}, {x, y + 1}}
-	randCoords := possibleCoords[helpers.GetRandomInteger(0, len(possibleCoords)-1)]
-	tentX, tentY := randCoords[0], randCoords[1]
+	isCoordsFit := false
+	var randCoords []int
+	var tentX, tentY int
 
-	isCoordsFit := checkIsCoordsFit(tentX, tentY, field)
+	for len(possibleCoords) > 0 {
+		randIndex := helpers.GetRandomInteger(0, len(possibleCoords)-1)
+		randCoords = possibleCoords[randIndex]
+		tentX, tentY = randCoords[0], randCoords[1]
+		isCoordsFit = checkIsCoordsFit(tentX, tentY, field)
+
+		if isCoordsFit {
+			break
+		}
+
+		possibleCoords = helpers.RemoveElement(possibleCoords, randIndex)
+	}
+
 	if !isCoordsFit {
 		return 0, 0, isCoordsFit
 	}
 
-	isTentFit := checkIsAreaFit(tentX, tentY, false, field)
+	isTentFit := checkIsAreaFit(tentX, tentY, field, false, false)
 	return tentX, tentY, isTentFit
 }
 
-func checkIsAreaFit(srcX, srcY int, isTree bool, field [][]int) bool {
+func checkIsAreaFit(srcX, srcY int, field [][]int, isVerify, isTree bool) bool {
 	treesAround := 0
 	tentsAround := 0
 	coordsCount := 0
@@ -81,10 +97,14 @@ func checkIsAreaFit(srcX, srcY int, isTree bool, field [][]int) bool {
 	checkArea(srcX, srcY-1)
 	checkArea(srcX, srcY+1)
 
-	if isTree {
-		return treesAround < coordsCount && tentsAround == 0
+	if isVerify {
+		return tentsAround == 0
 	}
-	return treesAround == 1 && tentsAround == 0
+
+	if isTree {
+		return treesAround+tentsAround < coordsCount
+	}
+	return treesAround < coordsCount && tentsAround == 0
 }
 
 func countTents(field [][]int) ([]int, []int) {
@@ -95,13 +115,6 @@ func countTents(field [][]int) ([]int, []int) {
 		for j := range field[0] {
 			if field[i][j] == tentValue {
 				column[j]++
-			}
-		}
-	}
-
-	for i := range field {
-		for j := range field[0] {
-			if field[i][j] == tentValue {
 				row[i]++
 			}
 		}

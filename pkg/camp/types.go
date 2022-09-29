@@ -6,11 +6,12 @@ type Core struct {
 	Trees       int     `json:"trees"`
 	RowTents    []int   `json:"rowTents"`
 	ColumnTents []int   `json:"columnTents"`
-	Task       [][]int `json:"task"`
-	Solution [][]int `json:"solution"`
+	Task        [][]int `json:"task"`
+	Solution    [][]int `json:"solution"`
 }
 
 type VerifyResult struct {
 	IsError  bool   `json:"isError"`
 	Position string `json:"position"`
+	Message  string `json:"message"`
 }
