@@ -7,8 +7,9 @@ import (
 )
 
 const (
-	campWidth  int = 7
-	campHeight int = 7
+	campWidth    int  = 7
+	campHeight   int  = 7
+	campSolution bool = true
 )
 
 type campTaskBody struct {
@@ -20,10 +21,15 @@ type campTaskBody struct {
 func CampGenerator(c *fiber.Ctx) error {
 	width := helpers.GetQueryInt(c, "width", campWidth)
 	height := helpers.GetQueryInt(c, "height", campHeight)
+	solution := helpers.GetQueryBool(c, "solution", campSolution)
 
 	result, err := camp.Generate(width, height)
 	if err != nil {
 		return helpers.ThrowError(c, fiber.StatusBadRequest, err.Error())
+	}
+
+	if !solution {
+		result.Solution = [][]int{}
 	}
 
 	return c.JSON(result)
