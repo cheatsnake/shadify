@@ -29,6 +29,7 @@ The service is divided into independent modules. Each module starts with a brief
 -   [Wordsearch](#wordsearch)
 -   [Anagram](#anagram)
 -	[Countries](#countries)
+-	[Camp](#camp)
 
 ### Sudoku
 
