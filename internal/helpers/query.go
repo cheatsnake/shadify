@@ -38,3 +38,14 @@ func GetQueryIntSlice(c *fiber.Ctx, param string, size int) []int {
 	}
 	return res
 }
+
+func GetQueryBool(c *fiber.Ctx, param string, def bool) bool {
+	value := c.Query(param)
+	boolean, err := strconv.ParseBool(value)
+
+	if err != nil {
+		return def
+	}
+
+	return boolean
+}
