@@ -7,7 +7,7 @@ type Core struct {
 	RowTents    []int   `json:"rowTents"`
 	ColumnTents []int   `json:"columnTents"`
 	Task        [][]int `json:"task"`
-	Solution    [][]int `json:"solution"`
+	Solution    [][]int `json:"solution,omitempty"`
 }
 
 type VerifyResult struct {

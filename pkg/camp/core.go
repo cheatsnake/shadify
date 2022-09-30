@@ -3,11 +3,11 @@ package camp
 import "errors"
 
 func Generate(w, h int) (Core, error) {
-	if w > maxFieldSize || h > maxFieldSize {
+	if w > maxSideSize || h > maxSideSize {
 		return Core{}, errors.New(tooLargeFieldSize)
 	}
 
-	if w < minFieldSize || h < minFieldSize {
+	if w < minSideSize || h < minSideSize {
 		return Core{}, errors.New(tooSmallFieldSize)
 	}
 
@@ -20,11 +20,11 @@ func Generate(w, h int) (Core, error) {
 }
 
 func Verify(field [][]int, rowTents, columnTents []int) (VerifyResult, error) {
-	if len(field) > maxFieldSize || len(field[0]) > maxFieldSize {
+	if len(field) > maxSideSize || len(field[0]) > maxSideSize {
 		return VerifyResult{}, errors.New(tooLargeFieldSize)
 	}
 
-	if len(field) < minFieldSize || len(field[0]) < minFieldSize {
+	if len(field) < minSideSize || len(field[0]) < minSideSize {
 		return VerifyResult{}, errors.New(tooSmallFieldSize)
 	}
 
