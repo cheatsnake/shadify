@@ -587,6 +587,89 @@ Returned response:
 
 > `flag` - the flag of the country you have to guess. <br> `variants` - possible options for answering. <br> `answer` - correct answer.
 
+### Camp
+
+[Camp (aka Tents and trees, Tents)](https://www.chiark.greenend.org.uk/~sgtatham/puzzles/js/tents.html) – is a logic puzzle with simple rules and challenging solutions. The rules of Camp are simple:
+- Pair each tree with a tent adjacent horizontally or vertically. This should be a 1 to 1 relation.
+- Tents never touch each other even diagonally
+- The clues outside the grid indicate the number of tents on that row/column.
+
+-   Generating random task
+
+```rust
+GET https://shadify.dev/api/camp/generator
+```
+
+| Parameter  | Description                                                                                                                      |
+| ---------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| `width`    | _Optional_ <br> A number from 5 to 15 which corresponds to the width of the generated field. <br> The default value is 7.        |
+| `height`   | _Optional_ <br> A number from 5 to 15 which corresponds to the height of the generated field. <br> The default value is 7.       |
+| `solution` | _Optional_ <br> The true/false value that specifies whether the solution should be sent with the task or not. <br> The default value is true.       |
+
+Returned response:
+
+```json
+{
+    "width": 7,
+    "height": 7,
+    "trees": 9,
+    "rowTents": [1, 2, 2, 1, 0, 2, 1],
+    "columnTents": [1, 1, 0, 2, 0, 2, 3],
+    "task": [
+        [0, 0, 0, 1, 0, 0, 1],
+        [0, 0, 0, 0, 0, 1, 0],
+        [0, 0, 0, 0, 0, 0, 0],
+        [0, 1, 0, 0, 0, 1, 0],
+        [0, 0, 0, 0, 0, 0, 1],
+        [0, 0, 0, 0, 0, 0, 1],
+        [1, 0, 0, 1, 0, 0, 0]
+    ],
+    "solution": [
+        [0, 0, 0, 1, 0, 2, 1],
+        [0, 0, 0, 2, 0, 1, 2],
+        [0, 2, 0, 0, 0, 2, 0],
+        [0, 1, 0, 0, 0, 1, 2],
+        [0, 0, 0, 0, 0, 0, 1],
+        [2, 0, 0, 2, 0, 0, 1],
+        [1, 0, 0, 1, 0, 0, 2]
+    ]
+}
+```
+
+- Verifying a completed task
+
+```rust
+POST https://shadify.dev/api/camp/verifier
+```
+
+Example of JSON body: 
+
+```json
+{
+    "rowTents": [1, 2, 2, 1, 0, 2, 1],
+    "columnTents": [1, 1, 0, 2, 0, 2, 3],
+    "solution": [
+        [0, 0, 0, 1, 0, 2, 1],
+        [0, 0, 0, 2, 0, 1, 2],
+        [0, 2, 0, 0, 0, 2, 0],
+        [0, 1, 0, 0, 0, 1, 2],
+        [0, 0, 0, 0, 0, 0, 1],
+        [2, 0, 0, 2, 0, 0, 1],
+        [1, 0, 0, 1, 0, 0, 2]
+    ]
+}
+```
+
+Returned response:
+
+```json
+{
+	"isError": true,
+	"position": "row-3",
+	"message": "the number of tents in each row must match the assignment"
+}
+```
+
 ## Starting a local server
 
 1. Clone this repository onto your computer:
