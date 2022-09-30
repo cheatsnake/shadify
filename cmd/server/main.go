@@ -38,6 +38,7 @@ func main() {
 	routes.WordsearchRouter(app)
 	routes.AnagramRouter(app)
 	routes.CountriesRouter(app)
+	routes.CampRouter(app)
 
 	log.Fatal(app.Listen(":" + port))
 }
