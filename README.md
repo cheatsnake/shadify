@@ -638,7 +638,13 @@ Returned response:
 }
 ```
 
-> `width` – the width of the generated field. <br> `heigth` – the height of the generated field. `trees` – the total number of trees on the field (and therefore the total number of tents that need to be set up). <br> `rowTents` – an array of values that corresponds to the number of tents that should be placed in the corresponding row from 1 to the `height` value. <br> `columnTents` – an array of values that corresponds to the number of tents that should be placed in the corresponding column from 1 to the `width` value. <br> `task` – the task that needs to be solved. Values of ones are trees around which you must place values of twos, which correspond to tents. <br> `solution` – a completely solved task, where the values of ones are trees, and the values of twos are tents.
+> - `width` – the width of the generated field. <br> 
+> - `heigth` – the height of the generated field. 
+> - `trees` – the total number of trees on the field (and therefore the total number of tents that need to be set up). <br> 
+> - `rowTents` – an array of values that corresponds to the number of tents that should be placed in the corresponding row from 1 to the `height` value. <br> 
+> - `columnTents` – an array of values that corresponds to the number of tents that should be placed in the corresponding column from 1 to the `width` value. <br> 
+> - `task` – the task that needs to be solved. Values of ones are trees around which you must place values of twos, which correspond to tents. <br> 
+> - `solution` – a completely solved task, where the values of ones are trees, and the values of twos are tents.
 
 - Verifying a completed task
 
