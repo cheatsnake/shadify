@@ -428,6 +428,8 @@ Returned response:
 
 ### Minesweeper
 
+<p align="center"><img src="./images/minesweeper.png" alt="Minesweeper"/></p>
+
 [Minesweeper](<https://en.wikipedia.org/wiki/Minesweeper_(video_game)>) – a computer puzzle game in which the playing field is divided into adjacent cells, some of which are "mined"; the number of "mined" cells is known. The goal of the game is to open all the cells that do not contain mines. This game has become quite popular among Windows users, since it was pre-installed by default on older versions of that OS.
 
 -   Generating a random field
@@ -466,6 +468,8 @@ Returned response:
 ```
 
 ### Wordsearch
+
+<p align="center"><img src="./images/wordsearch.png" alt="Wordsearch"/></p>
 
 [Word search](https://en.wikipedia.org/wiki/Word_search) is a puzzle consisting of letters of words placed in a square or rectangular grid. The aim of the puzzle is to find and mark all the words hidden in the grid. The words can be placed horizontally, vertically or diagonally.
 
@@ -515,6 +519,8 @@ Returned response:
 
 ### Anagram
 
+<p align="center"><img src="./images/anagram.png" alt="Anagram"/></p>
+
 [Anagrams](https://en.wikipedia.org/wiki/Anagrams_(game)) is a whole type of puzzles associated with composing all possible words from a given set of letters. This module implements the simplest variation of anagrams: a random word is given, the letters of which should be used to compose as many other words as possible. 
 
 Only English nouns are used for composition, a list of which can be found in this repository at the path `./data/nouts.txt`.
@@ -544,6 +550,8 @@ Returned response:
 Countries module allows you to generate quizes such as guess the capital or guess the country from an image of the flag. It is a simple and useful module for creating applications to test and practice knowledge of all countries.
 
 -   Generating capital quiz
+
+<p align="center"><img src="./images/guess-capital.png" alt="Guess capital"/></p>
 
 ```rust
 GET https://shadify.dev/api/countries/capital-quiz
@@ -577,6 +585,8 @@ Returned response:
 
 -   Generating country quiz
 
+<p align="center"><img src="./images/guess-country.png" alt="Guess country"/></p>
+
 ```rust
 GET https://shadify.dev/api/countries/country-quiz
 ```
@@ -604,6 +614,8 @@ Returned response:
 > `flag` - the flag of the country you have to guess. <br> `variants` - possible options for answering. <br> `answer` - correct answer.
 
 ### Camp
+
+<p align="center"><img src="./images/camp.png" alt="Camp"/></p>
 
 [Camp (aka Tents and trees, Tents)](https://www.chiark.greenend.org.uk/~sgtatham/puzzles/js/tents.html) – is a logic puzzle with simple rules and challenging solutions. The rules of Camp are simple:
 
