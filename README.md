@@ -76,7 +76,8 @@ Returned response:
 }
 ```
 
-> `grid` - fully solved Sudoku. <br> `task` - the task, which must be solved by filling in the zeros with the correct numbers.
+> `grid` - fully solved Sudoku. <br> 
+> `task` - the task, which must be solved by filling in the zeros with the correct numbers.
 
 -   Checking Sudoku
 
@@ -253,7 +254,11 @@ Always returns the same array of 81 objects. Each object corresponds to one of t
 }
 ```
 
-> `_id` - a unique identifier for each card <br> `number` – number of figures: 1 | 2 | 3 <br> `shape` – body shape: "diamond" | "squiggle" | "oval" <br> `blee` – figure color: "red" | "green" | "purple" <br> `shading` – figure shading: "solid" | "striped" | "open"
+> - `_id` - a unique identifier for each card <br> 
+> - `number` – number of figures: _1_ / _2_ / _3_ <br> 
+> - `shape` – body shape: _diamond_ / _squiggle_ / _oval_ <br> 
+> - `blee` – figure color: _red_ / _green_ / _purple_ <br> 
+> - `shading` – figure shading: _solid_ / _striped_ / _open_
 
 -   Generating a new game
 
@@ -277,7 +282,11 @@ Returned response:
 }
 ```
 
-> `freeCards` – an array of objects corresponding to free maps that have not yet been used in the game. <br> `layout` – an array of objects corresponding to the maps that are available to play, i.e. to search for sets. <br> `possibleSets` – array containing arrays that include exactly 3 objects each. Each 3 object corresponds to a combination of three cards forming a set, which can be assembled from the cards available on the current `layout`. <br> `wonCards` – an array of objects corresponding to the won cards, which will no longer participate in the game. <br> `state` – A unique identifier for the current game state. It is needed to perform actions on deleting sets, adding additional cards or just to load the current game state. It has the following form _1-2-3@4-5-6_, where the numbers to the left of the sign _@_ correspond to the unique identifiers of those cards that are in `layout`, and the numbers on the right are in `wonCards`.
+> - `freeCards` – an array of objects corresponding to free maps that have not yet been used in the game. <br> 
+> - `layout` – an array of objects corresponding to the maps that are available to play, i.e. to search for sets. <br> 
+> - `possibleSets` – array containing arrays that include exactly 3 objects each. Each 3 object corresponds to a combination of three cards forming a set, which can be assembled from the cards available on the current `layout`. <br> 
+> - `wonCards` – an array of objects corresponding to the won cards, which will no longer participate in the game. <br> 
+> - `state` – a unique identifier for the current game state. It is needed to perform actions on deleting sets, adding additional cards or just to load the current game state. It has the following form _1-2-3@4-5-6_, where the numbers to the left of the sign _@_ correspond to the unique identifiers of those cards that are in `layout`, and the numbers on the right are in `wonCards`.
 
 -   Load state
 
@@ -525,7 +534,8 @@ Returned response:
 }
 ```
 
-> `task` - a word from which you need to make other words. <br> `words` - an array of all possible words that are compiled from `task`. 
+> - `task` - a word from which you need to make other words. <br> 
+> - `words` - an array of all possible words that are compiled from `task`. 
 
 ### Countries
 
@@ -558,7 +568,10 @@ Returned response:
 }
 ```
 
-> `country` - the country for which you must guess the capital. <br> `flag` - country's flag image (it powered by [Flagpedia API](https://flagpedia.net/download/api), so you can customize it). <br> `variants` - possible options for answering. <br> `answer` - correct answer.
+> - `country` - the country for which you must guess the capital. <br> 
+> - `flag` - country's flag image (it powered by [Flagpedia API](https://flagpedia.net/download/api), so you can customize it). <br> 
+> - `variants` - possible options for answering. <br> 
+> - `answer` - correct answer.
 
 -   Generating country quiz
 
