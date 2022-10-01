@@ -282,8 +282,8 @@ Returned response:
 }
 ```
 
-> - `freeCards` – an array of objects corresponding to free maps that have not yet been used in the game. <br> 
-> - `layout` – an array of objects corresponding to the maps that are available to play, i.e. to search for sets. <br> 
+> - `freeCards` – an array of objects corresponding to free cards that have not yet been used in the game. <br> 
+> - `layout` – an array of objects corresponding to the card that are available to play, i.e. to search for sets. <br> 
 > - `possibleSets` – array containing arrays that include exactly 3 objects each. Each 3 object corresponds to a combination of three cards forming a set, which can be assembled from the cards available on the current `layout`. <br> 
 > - `wonCards` – an array of objects corresponding to the won cards, which will no longer participate in the game. <br> 
 > - `state` – a unique identifier for the current game state. It is needed to perform actions on deleting sets, adding additional cards or just to load the current game state. It has the following form _1-2-3@4-5-6_, where the numbers to the left of the sign _@_ correspond to the unique identifiers of those cards that are in `layout`, and the numbers on the right are in `wonCards`.
