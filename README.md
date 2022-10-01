@@ -397,6 +397,8 @@ Returned response:
 
 ### Schulte
 
+<p align="center"><img src="./images/schulte.gif" alt="Schulte"/></p>
+
 [Schulte Tables](https://youtu.be/4R1kycHqsqM) – tables with randomly arranged objects (usually numbers or letters) used to test and develop quickness of finding these objects in a certain order (usually in ascending order for numbers and alphabetical order for letters). Exercises with tables can improve peripheral visual perception, which will have a positive impact on the skill of speed reading.
 
 -   Generating a Random Table
