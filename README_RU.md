@@ -397,6 +397,8 @@ GET https://shadify.dev/api/math/quad
 
 -   Генерация случайной таблицы
 
+<p align="center"><img src="./images/schulte.gif" alt="Schulte"/></p>
+
 ```rust
 GET https://shadify.dev/api/schulte/generator
 ```
@@ -421,6 +423,8 @@ GET https://shadify.dev/api/schulte/generator
 ```
 
 ### Minesweeper
+
+<p align="center"><img src="./images/minesweeper.png" alt="Minesweeper"/></p>
 
 [Сапёр](<https://ru.wikipedia.org/wiki/%D0%A1%D0%B0%D0%BF%D1%91%D1%80_(%D0%B8%D0%B3%D1%80%D0%B0)>) – компьютерная игра-головоломка, в которой игровое поле разделено на смежные ячейки, некоторые из которых заминированы. Количество заминированных ячеек известно. Целью игры является открытие всех ячеек, не содержащих мины. Это игра стала довольно популярной среди пользователей Windows, поскольку была предустановлена по умолчанию на более старых версиях этой ОС.
 
@@ -460,6 +464,8 @@ GET https://shadify.dev/api/minesweeper/generator
 ```
 
 ### Wordsearch
+
+<p align="center"><img src="./images/wordsearch.png" alt="Wordsearch"/></p>
 
 [Головоломка по поиску слов](https://ru.wikipedia.org/wiki/%D0%93%D0%BE%D0%BB%D0%BE%D0%B2%D0%BE%D0%BB%D0%BE%D0%BC%D0%BA%D0%B0_%D0%BF%D0%BE_%D0%BF%D0%BE%D0%B8%D1%81%D0%BA%D1%83_%D1%81%D0%BB%D0%BE%D0%B2) – головоломка, представляющая собой прямоугольную таблицу из букв, в которой спрятаны слова — вертикально, горизонтально и по диагонали, в прямом и обратном порядке.
 
@@ -509,6 +515,8 @@ GET https://shadify.dev/api/wordsearch/generator
 
 ### Anagram
 
+<p align="center"><img src="./images/anagram.png" alt="Anagram"/></p>
+
 [Анаграммы](https://en.wikipedia.org/wiki/Anagrams_(game)) – это целый вид головоломок связанный с составлением все возможных слов из заданного набора букв. Данный модуль реализует самую простую вариацию анаграмм: задается случайное слово, из букв которого, необходимо составить как можно больше других слов.
 
 Для составления используются только английские существительные, список которых можно найти в этом репозитории по пути `./data/nouts.txt`.
@@ -538,6 +546,8 @@ GET https://shadify.dev/api/anagram/generator
 Модуль Countries позволяет генерировать викторины, такие как "угадай столицу" или "угадай страну по изображению флага". Это простой и полезный модуль для создания приложений для проверки и тренировки знаний по всем странам мира.
 
 -   Генерация задания "угадай столицу"
+
+<p align="center"><img src="./images/guess-capital.png" alt="Guess capital"/></p>
 
 ```rust
 GET https://shadify.dev/api/countries/capital-quiz
@@ -570,6 +580,8 @@ GET https://shadify.dev/api/countries/capital-quiz
 > - `answer` - правильный ответ.
 
 -   Генерация задания "угадай страну по изображению флага"
+
+<p align="center"><img src="./images/guess-country.png" alt="Guess country"/></p>
 
 ```rust
 GET https://shadify.dev/api/countries/country-quiz
