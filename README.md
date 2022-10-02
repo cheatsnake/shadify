@@ -76,8 +76,8 @@ Returned response:
 }
 ```
 
-> `grid` - fully solved Sudoku. <br> 
-> `task` - the task, which must be solved by filling in the zeros with the correct numbers.
+> - `grid` - fully solved Sudoku. <br> 
+> - `task` - the task, which must be solved by filling in the zeros with the correct numbers.
 
 -   Checking Sudoku
 
@@ -257,7 +257,7 @@ Always returns the same array of 81 objects. Each object corresponds to one of t
 > - `_id` - a unique identifier for each card <br> 
 > - `number` – number of figures: _1_ / _2_ / _3_ <br> 
 > - `shape` – body shape: _diamond_ / _squiggle_ / _oval_ <br> 
-> - `blee` – figure color: _red_ / _green_ / _purple_ <br> 
+> - `color` – figure color: _red_ / _green_ / _purple_ <br> 
 > - `shading` – figure shading: _solid_ / _striped_ / _open_
 
 -   Generating a new game
@@ -430,7 +430,7 @@ Returned response:
 
 <p align="center"><img src="./images/minesweeper.png" alt="Minesweeper"/></p>
 
-[Minesweeper](<https://en.wikipedia.org/wiki/Minesweeper_(video_game)>) – a computer puzzle game in which the playing field is divided into adjacent cells, some of which are "mined"; the number of "mined" cells is known. The goal of the game is to open all the cells that do not contain mines. This game has become quite popular among Windows users, since it was pre-installed by default on older versions of that OS.
+[Minesweeper](<https://en.wikipedia.org/wiki/Minesweeper_(video_game)>) – a computer puzzle game in which the playing field is divided into adjacent cells, some of which are mined. The number of mined cells is known. The goal of the game is to open all the cells that do not contain mines. This game has become quite popular among Windows users, since it was pre-installed by default on older versions of that OS.
 
 -   Generating a random field
 
