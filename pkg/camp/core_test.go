@@ -29,3 +29,55 @@ func TestGenerate(t *testing.T) {
 		}
 	}
 }
+
+type verifyArgs struct {
+	RowTents    []int
+	ColumnTents []int
+	Solution    [][]int
+}
+
+func TestVerify(t *testing.T) {
+	testValidValue := verifyArgs{[]int{1, 1, 1, 1, 1}, []int{1, 1, 0, 3, 0}, [][]int{{1, 0, 0, 2, 0}, {2, 0, 0, 1, 0}, {0, 0, 0, 2, 1}, {0, 2, 0, 0, 0}, {0, 1, 0, 2, 1}}}
+	result, err := Verify(testValidValue.Solution, testValidValue.RowTents, testValidValue.ColumnTents)
+
+	if err != nil || result.IsError {
+		t.Errorf("Verify(...) with valid args FAILED. Expected error != nil & result.IsError = false, but got %v, %v", err, result.IsError)
+	} else {
+		t.Logf("Verify(...) PASSED")
+	}
+
+	testInvalidValue := verifyArgs{[]int{1, 1, 1, 1, 1}, []int{1, 1, 0, 3, 0}, [][]int{{1, 2, 2, 2, 0}, {2, 0, 0, 1, 0}, {0, 0, 0, 2, 1}, {0, 2, 0, 0, 0}, {0, 1, 0, 2, 1}}}
+
+	result, err = Verify(testInvalidValue.Solution, testInvalidValue.RowTents, testInvalidValue.ColumnTents)
+
+	if err != nil || !result.IsError {
+		t.Errorf("Verify(...) with invalid args FAILED. Expected error = nil & result.IsError = true, but got %v, %v", err, result.IsError)
+	} else {
+		t.Logf("Verify(...) PASSED")
+	}
+
+	testIncorrectValues := []verifyArgs{
+		{[]int{1, 1, 1, 1},
+			[]int{1, 1, 0, 3, 0},
+			[][]int{{1, 2, 2, 2, 0}, {2, 0, 0, 1, 0}, {0, 0, 0, 2, 1}, {0, 2, 0, 0, 0}, {0, 1, 0, 2, 1}}},
+		{[]int{1, 1, 1, 1, 1},
+			[]int{1, 1, 0, 3},
+			[][]int{{1, 2, 2, 2, 0}, {2, 0, 0, 1, 0}, {0, 0, 0, 2, 1}, {0, 2, 0, 0, 0}, {0, 1, 0, 2, 1}}},
+		{[]int{0},
+			[]int{0},
+			[][]int{{1}, {1}, {1}, {1}, {1}, {1}, {1}, {1}, {1}, {1}, {1}, {1}, {1}, {1}, {1}, {1}}},
+		{[]int{0},
+			[]int{0},
+			[][]int{{1}}},
+	}
+
+	for _, tiv := range testIncorrectValues {
+		result, err = Verify(tiv.Solution, tiv.RowTents, tiv.ColumnTents)
+
+		if err == nil {
+			t.Errorf("Verify(...) with incorrect args FAILED. Expected error != nil, but got nil")
+		} else {
+			t.Logf("Verify(...) PASSED")
+		}
+	}
+}
