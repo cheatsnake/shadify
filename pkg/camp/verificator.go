@@ -10,7 +10,7 @@ func verifyTask(field [][]int, rowTents, columnTents []int) VerifyResult {
 	}
 
 	for i := 0; i < len(field[0]); i++ {
-		var column []int
+		column := make([]int, 0, len(columnTents))
 		for j := 0; j < len(field); j++ {
 			column = append(column, field[j][i])
 		}

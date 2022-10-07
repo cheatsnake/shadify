@@ -1,6 +1,8 @@
 package camp
 
-import "errors"
+import (
+	"errors"
+)
 
 func Generate(w, h int) (Core, error) {
 	if w > maxSideSize || h > maxSideSize {
@@ -37,5 +39,6 @@ func Verify(field [][]int, rowTents, columnTents []int) (VerifyResult, error) {
 	}
 
 	result := verifyTask(field, rowTents, columnTents)
+
 	return result, nil
 }
