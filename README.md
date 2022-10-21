@@ -726,6 +726,9 @@ go mod download
 ```sh
 go run cmd/server/main.go
 ```
+
+For easy testing, use a ready-made collection for [Insomnia](https://insomnia.rest). Open `Settings` > `Data` > `Import Data` > `From URL` and paste link to the [insomnia.shadify.json](./insomnia.shadify.json) file. Enjoy!
+
 ## Launch server in Docker
 
 Running a Docker container for development (after any file changes, server will be restarts):
