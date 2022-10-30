@@ -3,16 +3,16 @@ package countries
 import (
 	"encoding/json"
 	"errors"
-	"io/ioutil"
 	"log"
 	"math"
+	"os"
 	"path/filepath"
 )
 
 var countriesDB []CountryData
 
 func init() {
-	countriesJson, err := ioutil.ReadFile(filepath.Join("data", "countries.json"))
+	countriesJson, err := os.ReadFile(filepath.Join("data", "countries.json"))
 	if err != nil {
 		log.Printf("error opening file: %v \n", err)
 	}

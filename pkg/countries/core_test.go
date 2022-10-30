@@ -2,13 +2,13 @@ package countries
 
 import (
 	"encoding/json"
-	"io/ioutil"
+	"os"
 	"path/filepath"
 	"testing"
 )
 
 func init() {
-	countriesJson, _ := ioutil.ReadFile(filepath.Join("..", "..", "data", "countries.json"))
+	countriesJson, _ := os.ReadFile(filepath.Join("..", "..", "data", "countries.json"))
 	json.Unmarshal((countriesJson), &countriesDB)
 }
 
