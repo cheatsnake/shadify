@@ -8,13 +8,13 @@
 
 Focus on creating incredible and beautiful applications without worrying about complicated logic.
 
-## Quick overview
+## 🔬 Quick overview
 
 Shadify is a powerful API for generating data and executing various logic to create different applications and games. It uses HTTP requests to interact with the service and returns convenient JSON responses. Shadify can be very useful for developers who do Frontend-development. With the modules already available, you can focus entirely on creating beautiful UIs for applications that will enrich your portfolio.
 
 The codebase is written in the Go programming language, which is great for creating server-side applications, as well as providing high computational power.
 
-## Documentation
+## 📃 Documentation
 <div align="center"><a href="https://github.com/cheatsnake/shadify/blob/master/README_RU.md#%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%86%D0%B8%D1%8F">Доступно на русском</a></div>
 </br>
 
@@ -707,7 +707,7 @@ Returned response:
 }
 ```
 
-## Starting a local server
+## 🚀 Server startup
 
 1. Clone this repository onto your computer:
 
@@ -715,29 +715,33 @@ Returned response:
 git clone https://github.com/cheatsnake/shadify.git
 ```
 
-2. Download packages:
+2. Inside the project, run this command to install the necessary packages:
 
 ```sh
 go mod download
 ```
 
-3. From the root directory of the project, run the following command:
+> Make sure you have already [installed Go](https://go.dev) on your computer.
+
+3. Start the server by running the last command:
 
 ```sh
 go run cmd/server/main.go
 ```
 
+> The server will start at the address http://localhost:5000
+
 For easy testing, use a ready-made collection for [Insomnia](https://insomnia.rest). Open `Settings` > `Data` > `Import Data` > `From URL` and paste link to the [insomnia.shadify.json](./insomnia.shadify.json) file. Enjoy!
 
-## Launch server in Docker
+## 🐳 Docker container startup
 
-Running a Docker container for development (after any file changes, server will be restarts):
+- Running a Docker container for development (after any file changes, server will be restarts):
 
 ```sh
 docker compose up
 ```
 
-Running a Docker container for production:
+- Running a Docker container for production:
 
 ```sh
 docker build -t shadify . --target prod
