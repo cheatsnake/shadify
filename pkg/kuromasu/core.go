@@ -1,10 +1,10 @@
 package kuromasu
 
-import "fmt"
+func Generate(w, h, fill int) Core {
+	result := generator(w, h, fill)
+	return result
+}
 
-func Generate(w, h int) {
-	result := generator(w, h)
-	for _, r := range result.Solution {
-		fmt.Println(r)
-	}
+func Verify(sol [][]string) VerifyResult {
+	return VerifyResult{}
 }

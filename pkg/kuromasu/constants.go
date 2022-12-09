@@ -2,5 +2,8 @@ package kuromasu
 
 const emptyCell string = "o"
 const boxCell string = "x"
-const boxCellPercentage float64 = 0.2
+
+const minBoxPercent int = 15
+const maxBoxPercent int = 25
+
 const cellDirections int = 4
