@@ -1,10 +1,10 @@
 package kuromasu
 
 type Core struct {
-	Width  int        `json:"width"`
-	Height int        `json:"height"`
-	Task   [][]string `json:"task"`
-	Grid   [][]string `json:"grid"`
+	Width    int        `json:"width"`
+	Height   int        `json:"height"`
+	Task     [][]string `json:"task"`
+	Solution [][]string `json:"solution"`
 }
 
 type position struct {

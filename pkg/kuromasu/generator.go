@@ -51,7 +51,7 @@ func generator(w, h, fill int) Core {
 
 	task := prepareTask(grid, fill)
 
-	result := Core{Width: w, Height: h, Grid: grid, Task: task}
+	result := Core{Width: w, Height: h, Solution: grid, Task: task}
 	return result
 }
 
