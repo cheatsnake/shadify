@@ -120,5 +120,5 @@ func prepareTask(sol [][]string, fill int) [][]string {
 		}
 	}
 
-	return [][]string{}
+	return task
 }

@@ -6,5 +6,6 @@ func Generate(w, h, fill int) Core {
 }
 
 func Verify(sol [][]string) VerifyResult {
-	return VerifyResult{}
+	result := verifier(sol)
+	return result
 }
