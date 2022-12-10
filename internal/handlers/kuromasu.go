@@ -12,7 +12,7 @@ const (
 )
 
 type kuromasuTaskBody struct {
-	Task [][]string `json:"task"`
+	Solution [][]string `json:"solution"`
 }
 
 func KuromasuGenerator(c *fiber.Ctx) error {
@@ -35,7 +35,7 @@ func KuromasuVerifier(c *fiber.Ctx) error {
 		return helpers.ThrowError(c, fiber.StatusBadRequest, err.Error())
 	}
 
-	result, err := kuromasu.Verify(tBody.Task)
+	result, err := kuromasu.Verify(tBody.Solution)
 	if err != nil {
 		return helpers.ThrowError(c, fiber.StatusBadRequest, err.Error())
 	}
