@@ -26,7 +26,7 @@ func main() {
 	}))
 
 	app.Get("/", func(c *fiber.Ctx) error {
-		return c.Redirect("https://github.com/cheatsnake/shadify/blob/master/README.md#documentation")
+		return c.Redirect("https://github.com/cheatsnake/shadify/blob/master/README.md#-documentation")
 	})
 
 	routes.MathRouter(app)
@@ -39,6 +39,7 @@ func main() {
 	routes.AnagramRouter(app)
 	routes.CountriesRouter(app)
 	routes.CampRouter(app)
+	routes.KuromasuRouter(app)
 
 	log.Fatal(app.Listen(":" + port))
 }
