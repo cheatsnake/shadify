@@ -22,12 +22,12 @@ func Generate(w, h int) (Core, error) {
 }
 
 func Verify(field [][]int, rowTents, columnTents []int) (VerifyResult, error) {
-	if len(field) > maxSideSize || len(field[0]) > maxSideSize {
-		return VerifyResult{}, errors.New(tooLargeFieldSize)
-	}
-
 	if len(field) < minSideSize || len(field[0]) < minSideSize {
 		return VerifyResult{}, errors.New(tooSmallFieldSize)
+	}
+
+	if len(field) > maxSideSize || len(field[0]) > maxSideSize {
+		return VerifyResult{}, errors.New(tooLargeFieldSize)
 	}
 
 	if len(field) != len(rowTents) {
