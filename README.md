@@ -710,6 +710,8 @@ Returned response:
 
 ### Kuromasu
 
+<p align="center"><img src="./images/kuromasu.png" alt="Kuromasu"/></p>
+
 [Kuromasu](https://en.wikipedia.org/wiki/Kuromasu) is a puzzle played on a rectangular grid. Some of these cells have numbers in them. Each cell may be either black or white. The object is to determine what type each cell is. The following rules determine which cells are which:
 
 1. Each number on the board represents the number of white cells that can be seen from that cell, including itself. A cell can be seen from another cell if both cells are within the same row or column, and there are no black cells between them in that row or column.
