@@ -831,4 +831,4 @@ docker run --rm -p 5000:5000 --name shadify shadify
 ```
 
 <div align="center">Made with &#9829;</div>
-<div align="center"><a href="https://github.com/cheatsnake/shadify/blob/master/LICENSE">LICENSE</a> 2022</div>
+<div align="center"><a href="https://github.com/cheatsnake/shadify/blob/master/LICENSE">LICENSE</a> 2022-2023</div>
