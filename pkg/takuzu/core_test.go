@@ -88,17 +88,13 @@ func TestVerify(t *testing.T) {
 	res, err := tc.Verify()
 	if err == nil {
 		t.Errorf("TestVerify FAILED. Should return error, but got %+v", res)
-	} else {
-		t.Logf("Verify() PASSED")
 	}
 
 	tc.Task = tc.Field
 
 	res, _ = tc.Verify()
-	if res.IsError {
+	if !res.IsValid {
 		t.Errorf("TestVerify FAILED. Should be verified, but got error: %+v", res)
-	} else {
-		t.Logf("Verify() PASSED")
 	}
 
 	tc.Task[0][0] = "1"
@@ -106,10 +102,8 @@ func TestVerify(t *testing.T) {
 	tc.Task[0][2] = "1"
 
 	res, _ = tc.Verify()
-	if !res.IsError {
+	if res.IsValid {
 		t.Errorf("TestVerify FAILED. Should be not verified, but verified: %+v", res)
-	} else {
-		t.Logf("Verify() PASSED")
 	}
 
 	tc.Generate()
@@ -119,9 +113,7 @@ func TestVerify(t *testing.T) {
 	tc.Task[2][0] = "1"
 
 	res, _ = tc.Verify()
-	if !res.IsError {
+	if res.IsValid {
 		t.Errorf("TestVerify FAILED. Should be not verified, but verified: %+v", res)
-	} else {
-		t.Logf("Verify() PASSED")
 	}
 }

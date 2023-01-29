@@ -8,12 +8,12 @@ import (
 
 func verify(grid [9][9]int) *VerificationResult {
 	verifyRows := checkRows(grid)
-	if verifyRows.IsError {
+	if !verifyRows.IsValid {
 		return verifyRows
 	}
 
 	verifyColumns := checkColumns(grid)
-	if verifyColumns.IsError {
+	if !verifyColumns.IsValid {
 		return verifyColumns
 	}
 
@@ -27,12 +27,12 @@ func сheckLines(grid [9][9]int, lineType string) *VerificationResult {
 		for j := 1; j <= len(row); j++ {
 			if j != row[j-1] {
 				return &VerificationResult{
-					true, lineType + "-" + strconv.Itoa(i+1),
+					false, lineType + "-" + strconv.Itoa(i+1),
 				}
 			}
 		}
 	}
-	return &VerificationResult{false, ""}
+	return &VerificationResult{true, ""}
 }
 
 func checkRows(grid [9][9]int) *VerificationResult {

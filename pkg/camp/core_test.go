@@ -40,8 +40,8 @@ func TestVerify(t *testing.T) {
 	testValidValue := verifyArgs{[]int{1, 1, 1, 1, 1}, []int{1, 1, 0, 3, 0}, [][]int{{1, 0, 0, 2, 0}, {2, 0, 0, 1, 0}, {0, 0, 0, 2, 1}, {0, 2, 0, 0, 0}, {0, 1, 0, 2, 1}}}
 	result, err := Verify(testValidValue.Solution, testValidValue.RowTents, testValidValue.ColumnTents)
 
-	if err != nil || result.IsError {
-		t.Errorf("Verify(...) with valid args FAILED. Expected error != nil & result.IsError = false, but got %v, %v", err, result.IsError)
+	if err != nil || result.IsValid {
+		t.Errorf("Verify(...) with valid args FAILED. Expected error != nil & result.IsValid = false, but got %v, %v", err, result.IsValid)
 	} else {
 		t.Logf("Verify(...) PASSED")
 	}
@@ -50,8 +50,8 @@ func TestVerify(t *testing.T) {
 
 	result, err = Verify(testInvalidValue.Solution, testInvalidValue.RowTents, testInvalidValue.ColumnTents)
 
-	if err != nil || !result.IsError {
-		t.Errorf("Verify(...) with invalid args FAILED. Expected error = nil & result.IsError = true, but got %v, %v", err, result.IsError)
+	if err != nil || !result.IsValid {
+		t.Errorf("Verify(...) with invalid args FAILED. Expected error = nil & result.IsValid = true, but got %v, %v", err, result.IsValid)
 	} else {
 		t.Logf("Verify(...) PASSED")
 	}

@@ -7,7 +7,7 @@ type Core struct {
 }
 
 type VerificationResult struct {
-	IsError  bool     `json:"isError"`
+	IsValid  bool     `json:"isValid"`
 	Message  string   `json:"message"`
 	Position []string `json:"position"`
 }

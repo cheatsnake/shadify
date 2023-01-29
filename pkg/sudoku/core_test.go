@@ -108,7 +108,7 @@ func TestVerify(t *testing.T) {
 	// check 100% filled task
 	result := testCore.Verify()
 
-	if result.IsError {
+	if !result.IsValid {
 		t.Errorf("testCore.Verify() FAILED. Should be verified, but got error at position %+v", result.Position)
 	} else {
 		t.Logf("testCore.Verify() PASSED")
@@ -119,7 +119,7 @@ func TestVerify(t *testing.T) {
 	testCore.Task[0][1] = 1
 	result = testCore.Verify()
 
-	if !result.IsError {
+	if result.IsValid {
 		t.Errorf("testCore.Verify() FAILED. Should be an error, but got verified")
 	} else {
 		t.Logf("testCore.Verify() PASSED")
@@ -130,7 +130,7 @@ func TestVerify(t *testing.T) {
 	testCore.Task[1][0] = 1
 	result = testCore.Verify()
 
-	if !result.IsError {
+	if result.IsValid {
 		t.Errorf("testCore.Verify() FAILED. Should be an error, but got verified")
 	} else {
 		t.Logf("testCore.Verify() PASSED")

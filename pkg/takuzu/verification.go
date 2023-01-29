@@ -28,13 +28,13 @@ func verify(field [][]string) (*VerificationResult, error) {
 
 	result := checkLines(rows, "row")
 
-	if result.IsError {
+	if !result.IsValid {
 		return result, errors.New(result.Message)
 	}
 
 	result = checkLines(columns, "column")
 
-	if result.IsError {
+	if !result.IsValid {
 		return result, errors.New(result.Message)
 	}
 
@@ -62,7 +62,7 @@ func checkDuplication(lines []string, lineType string) []string {
 
 func defineVerificationError(msg string, pos []string) *VerificationResult {
 	return &VerificationResult{
-		IsError:  true,
+		IsValid:  false,
 		Message:  msg,
 		Position: pos,
 	}
@@ -83,7 +83,7 @@ func checkBalance(line string) bool {
 
 func checkLines(lines []string, lineType string) *VerificationResult {
 	result := &VerificationResult{
-		IsError:  false,
+		IsValid:  true,
 		Message:  "",
 		Position: []string{},
 	}

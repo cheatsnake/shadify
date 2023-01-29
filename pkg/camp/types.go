@@ -11,7 +11,7 @@ type Core struct {
 }
 
 type VerifyResult struct {
-	IsError  bool   `json:"isError"`
+	IsValid  bool   `json:"isValid"`
 	Position string `json:"position"`
 	Message  string `json:"message"`
 }
