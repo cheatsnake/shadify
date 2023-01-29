@@ -21,8 +21,8 @@ func main() {
 
 	app.Use(cors.New())
 	app.Use(limiter.New(limiter.Config{
-		Expiration: 10 * time.Second,
-		Max:        5,
+		Expiration: 15 * time.Second,
+		Max:        10,
 	}))
 
 	app.Get("/", func(c *fiber.Ctx) error {
