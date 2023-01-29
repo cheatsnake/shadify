@@ -19,15 +19,13 @@ func main() {
 		port = "5000"
 	}
 
+	app.Static("/", "./book")
+
 	app.Use(cors.New())
 	app.Use(limiter.New(limiter.Config{
-		Expiration: 15 * time.Second,
-		Max:        10,
+		Expiration: 10 * time.Second,
+		Max:        15,
 	}))
-
-	app.Get("/", func(c *fiber.Ctx) error {
-		return c.Redirect("https://github.com/cheatsnake/shadify/blob/master/README.md#-documentation")
-	})
 
 	routes.MathRouter(app)
 	routes.TakuzuRouter(app)
