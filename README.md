@@ -126,7 +126,7 @@ Returned response:
 
 ```json
 {
-    "isError": true,
+    "isValid": false,
     "position": "row-4"
 }
 ```
@@ -223,7 +223,7 @@ Returned response:
 
 ```json
 {
-    "isError": true,
+    "isValid": false,
     "message": "duplication",
     "position": ["row-3", "row-4"]
 }
@@ -269,7 +269,7 @@ GET https://shadify.dev/api/set/start
 
 | Parameter      | Description                                                                                                                                                                                                                                                                       |
 | -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `possibleSets` | _Optional_ <br> A true/false string that enables/disables the search for possible sets in the current `layout`. The list of possible sets is not necessary for the game and acts only as a hint and evidence that sets exist in the current `layout`. <br> Default value is true. |
+| `possible-sets` | _Optional_ <br> A true/false string that enables/disables the search for possible sets in the current `layout`. The list of possible sets is not necessary for the game and acts only as a hint and evidence that sets exist in the current `layout`. <br> Default value is true. |
 
 Returned response:
 
@@ -297,14 +297,14 @@ GET https://shadify.dev/api/set/<:state>
 
 | Parameter      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `possibleSets` | _Optional_ <br> A _true_/_false_ string that enables/disables the search for possible sets in the current `layout`. <br> Default value is _true_.                                                                                                                                                                                                                                                                                                                                   |
+| `possible-sets` | _Optional_ <br> A _true_/_false_ string that enables/disables the search for possible sets in the current `layout`. <br> Default value is _true_.                                                                                                                                                                                                                                                                                                                                   |
 | `action`       | _Optional_ <br> The _add_/_remove_ string, which allows you to perform the appropriate action with the current game state. <br> The _add_ string adds 3 random cards from the current `freeCards` array to the current `layout` (available only if the `layout` size does not exceed 20 cards). <br> The _remove_ string removes the specified combination of three cards from the current `layout`. To do this you must use the `cards` parameter. <br> There is no default value. |
 | `cards`        | _Required for `action=remove`_ <br> A string of the form _1-2-3_, where each number corresponds to the unique identifier of one of the cards that make up the set. <br> There is no default value.                                                                                                                                                                                                                                                                                  |
 
 Examples of requests with state loading:
 
 ```rust
-https://shadify.dev/api/set/0-27-53-10-46-15-16-64-32-23-29-6?possibleSets=false
+https://shadify.dev/api/set/0-27-53-10-46-15-16-64-32-23-29-6?possible-sets=false
 ```
 
 ```rust
@@ -702,7 +702,7 @@ Returned response:
 
 ```json
 {
-	"isError": true,
+    "isValid": false,
 	"position": "row-1",
 	"message": "the number of tents in each row must match the assignment"
 }
