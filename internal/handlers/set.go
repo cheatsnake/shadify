@@ -19,7 +19,7 @@ func init() {
 }
 
 func SetGameStart(c *fiber.Ctx) error {
-	posSets, err := strconv.ParseBool(c.Query("possibleSets"))
+	posSets, err := strconv.ParseBool(c.Query("possible-sets"))
 	if err != nil {
 		posSets = possibleSets
 	}
@@ -40,7 +40,7 @@ func SetGameAllCards(c *fiber.Ctx) error {
 func SetGameLoadState(c *fiber.Ctx) error {
 	state := c.Params("state")
 	action := c.Query("action")
-	posSets, err := strconv.ParseBool(c.Query("possibleSets"))
+	posSets, err := strconv.ParseBool(c.Query("possible-sets"))
 	if err != nil {
 		posSets = possibleSets
 	}
