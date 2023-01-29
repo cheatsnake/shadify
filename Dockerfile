@@ -13,8 +13,12 @@ ENV CGO_ENABLED 0
 WORKDIR /app
 COPY go.mod go.sum ./
 RUN go mod download
+# download mdbook to compile docs
+RUN wget https://github.com/rust-lang/mdBook/releases/download/v0.4.25/mdbook-v0.4.25-x86_64-unknown-linux-gnu.tar.gz
+RUN tar -xzf mdbook-v0.4.25-x86_64-unknown-linux-gnu.tar.gz
 COPY . .
 RUN go build -o app cmd/server/main.go
+RUN ./mdbook build
 
 FROM alpine:latest AS prod
 RUN apk add --no-cache ca-certificates
