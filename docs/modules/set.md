@@ -73,7 +73,7 @@ GET https://shadify.dev/api/set/<:state>
 Examples of requests with state loading:
 
 ```nginx
-https://shadify.dev/api/set/0-27-53-10-46-15-16-64-32-23-29-6?possibleSets=false
+https://shadify.dev/api/set/0-27-53-10-46-15-16-64-32-23-29-6?possible-sets=false
 ```
 
 ```nginx

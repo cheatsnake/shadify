@@ -32,7 +32,7 @@ Shadify – это мощный сервис генерации данных и 
 
 ### Sudoku
 
-<p align="center"><img src="./images/sudoku.png" alt="Sudoku"/></p>
+<p align="center"><img src="./docs/images/sudoku.png" alt="Sudoku"/></p>
 
 [Судоку](https://ru.wikipedia.org/wiki/%D0%A1%D1%83%D0%B4%D0%BE%D0%BA%D1%83) – популярная головоломка с числами. Суть игры заключается в заполнении свободных клеток цифрами от 1 до 9 так, чтобы в каждой строке, в каждом столбце и в каждом малом квадрате 3×3 каждая цифра встречалась бы только один раз.
 
@@ -131,7 +131,7 @@ POST https://shadify.dev/api/sudoku/verifier
 
 ### Takuzu
 
-<p align="center"><img src="./images/takuzu.png" alt="Takuzu"/></p>
+<p align="center"><img src="./docs/images/takuzu.png" alt="Takuzu"/></p>
 
 [Takuzu](https://en.wikipedia.org/wiki/Takuzu) (так же известная как Binairo) – занимательная головоломка с простыми правилами. Всё, что Вам нужно сделать, это заполнить квадратное поле определенного размера плитками двух цифр (или цветов), придерживаясь при этом трёх простых правил:
 
@@ -229,7 +229,7 @@ POST https://shadify.dev/api/takuzu/verifier
 
 ### Set
 
-<p align="center"><img src="./images/set.png" alt="Set"/></p>
+<p align="center"><img src="./docs/images/set.png" alt="Set"/></p>
 
 [Сет (игра)](<https://ru.wikipedia.org/wiki/%D0%A1%D0%B5%D1%82_(%D0%B8%D0%B3%D1%80%D0%B0)>) – увлекательная карточная игра. Колода для игры состоит из 81 карты, на каждой из которых изображены один, два или три одинаковых символа (ромба, овала или волны) одного и того же цвета (красного, зелёного или фиолетового) и одной и той же текстуры (закрашенные, заштрихованные или только контур). Суть игры заключается в поиске сета – набора из трёх карт, который соответствует определенным условиям.
 
@@ -315,7 +315,7 @@ https://shadify.dev/api/set/0-27-53-10-46-15-16-64-32-23-29-6?action=remove&card
 
 ### Math
 
-<p align="center"><img src="./images/math-expressions.png" alt="Math-expressions"/></p>
+<p align="center"><img src="./docs/images/math-expressions.png" alt="Math-expressions"/></p>
 
 Модуль для генерации случайных математических выражений. Отлично подойдет для создания различных тренажёров, в которых придётся хорошенько пошевелить мозгами. Кстати, для примера можете посмотреть [моё приложение](https://cheatsnake.github.io/MindMath/).
 
@@ -365,7 +365,7 @@ GET https://shadify.dev/api/math/div
 
 -   Генерация квадратного уравнения
 
-<p align="center"><img src="./images/quadratic-equation.png" alt="Quadratic-equation"/></p>
+<p align="center"><img src="./docs/images/quadratic-equation.png" alt="Quadratic-equation"/></p>
 
 [Квадратное уравнение](https://ru.wikipedia.org/wiki/%D0%9A%D0%B2%D0%B0%D0%B4%D1%80%D0%B0%D1%82%D0%BD%D0%BE%D0%B5_%D1%83%D1%80%D0%B0%D0%B2%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5) – это уравнение вида ax2 + bx + c = 0, где коэффициенты a, b и c – произвольные числа.
 
@@ -399,7 +399,7 @@ GET https://shadify.dev/api/math/quad
 
 -   Генерация случайной таблицы
 
-<p align="center"><img src="./images/schulte.gif" alt="Schulte"/></p>
+<p align="center"><img src="./docs/images/schulte.gif" alt="Schulte"/></p>
 
 ```rust
 GET https://shadify.dev/api/schulte/generator
@@ -426,7 +426,7 @@ GET https://shadify.dev/api/schulte/generator
 
 ### Minesweeper
 
-<p align="center"><img src="./images/minesweeper.png" alt="Minesweeper"/></p>
+<p align="center"><img src="./docs/images/minesweeper.png" alt="Minesweeper"/></p>
 
 [Сапёр](<https://ru.wikipedia.org/wiki/%D0%A1%D0%B0%D0%BF%D1%91%D1%80_(%D0%B8%D0%B3%D1%80%D0%B0)>) – компьютерная игра-головоломка, в которой игровое поле разделено на смежные ячейки, некоторые из которых заминированы. Количество заминированных ячеек известно. Целью игры является открытие всех ячеек, не содержащих мины. Это игра стала довольно популярной среди пользователей Windows, поскольку была предустановлена по умолчанию на более старых версиях этой ОС.
 
@@ -467,7 +467,7 @@ GET https://shadify.dev/api/minesweeper/generator
 
 ### Wordsearch
 
-<p align="center"><img src="./images/wordsearch.png" alt="Wordsearch"/></p>
+<p align="center"><img src="./docs/images/wordsearch.png" alt="Wordsearch"/></p>
 
 [Головоломка по поиску слов](https://ru.wikipedia.org/wiki/%D0%93%D0%BE%D0%BB%D0%BE%D0%B2%D0%BE%D0%BB%D0%BE%D0%BC%D0%BA%D0%B0_%D0%BF%D0%BE_%D0%BF%D0%BE%D0%B8%D1%81%D0%BA%D1%83_%D1%81%D0%BB%D0%BE%D0%B2) – головоломка, представляющая собой прямоугольную таблицу из букв, в которой спрятаны слова — вертикально, горизонтально и по диагонали, в прямом и обратном порядке.
 
@@ -517,7 +517,7 @@ GET https://shadify.dev/api/wordsearch/generator
 
 ### Anagram
 
-<p align="center"><img src="./images/anagram.png" alt="Anagram"/></p>
+<p align="center"><img src="./docs/images/anagram.png" alt="Anagram"/></p>
 
 [Анаграммы](https://en.wikipedia.org/wiki/Anagrams_(game)) – это целый вид головоломок связанный с составлением все возможных слов из заданного набора букв. Данный модуль реализует самую простую вариацию анаграмм: задается случайное слово, из букв которого, необходимо составить как можно больше других слов.
 
@@ -549,7 +549,7 @@ GET https://shadify.dev/api/anagram/generator
 
 -   Генерация задания "угадай столицу"
 
-<p align="center"><img src="./images/guess-capital.png" alt="Guess capital"/></p>
+<p align="center"><img src="./docs/images/guess-capital.png" alt="Guess capital"/></p>
 
 ```rust
 GET https://shadify.dev/api/countries/capital-quiz
@@ -583,7 +583,7 @@ GET https://shadify.dev/api/countries/capital-quiz
 
 -   Генерация задания "угадай страну по изображению флага"
 
-<p align="center"><img src="./images/guess-country.png" alt="Guess country"/></p>
+<p align="center"><img src="./docs/images/guess-country.png" alt="Guess country"/></p>
 
 ```rust
 GET https://shadify.dev/api/countries/country-quiz
@@ -615,7 +615,7 @@ GET https://shadify.dev/api/countries/country-quiz
 
 ### Camp
 
-<p align="center"><img src="./images/camp.png" alt="Camp"/></p>
+<p align="center"><img src="./docs/images/camp.png" alt="Camp"/></p>
 
 [Головоломка лагерь](https://youtu.be/GxMQAU86Lhw) – это логическая головоломка с простыми правилами и сложными решениями. Правила игры просты:
 
@@ -709,7 +709,7 @@ POST https://shadify.dev/api/camp/verifier
 
 ### Kuromasu
 
-<p align="center"><img src="./images/kuromasu.png" alt="Kuromasu"/></p>
+<p align="center"><img src="./docs/images/kuromasu.png" alt="Kuromasu"/></p>
 
 [Kuromasu](https://en.wikipedia.org/wiki/Kuromasu) это головоломка, в которую играют на прямоугольной сетке. В некоторых из этих клеток есть цифры. Каждая клетка может быть либо черной, либо белой (либо любая другая пара цветов). Задача состоит в том, чтобы определить, к какому типу относится каждая клетка, соблюдая простые правила:
 
