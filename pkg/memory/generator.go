@@ -1,23 +1,35 @@
 package memory
 
 import (
-	"errors"
 	"math/rand"
 	"strings"
 )
 
-func generateGrid(w, h, pairSize int) {
+func gridGenerator(w, h, pairSize int) {
+	// letters, _ := lettersPool(w*h, pairSize)
 	// grid := make([][]string, h)
 
-	// letters, _ := createLetterPairs(w*h, pairSize)
 }
 
-func createLetterPairs(total, pairSize int) ([]string, error) {
-	if total > len(_lowerCaseLetters)*2 {
-		return nil, errors.New("too big size")
+func lettersPool(totalLetters, pairSize int) ([]string, error) {
+	if totalLetters < 0 {
+		return nil, errNegativeNumbers
 	}
 
-	totalPairs := total / pairSize
+	_, ok := _pairSizes[pairSize]
+	if !ok {
+		return nil, errPairSizeNotAllowed
+	}
+
+	if totalLetters > len(_lowerCaseLetters)*2*pairSize {
+		return nil, errTooManyLetters
+	}
+
+	if totalLetters%pairSize != 0 {
+		return nil, errIncorrectLettersAmount
+	}
+
+	totalPairs := totalLetters / pairSize
 	allLetters := _lowerCaseLetters
 
 	if totalPairs > len(_lowerCaseLetters) {
@@ -25,14 +37,10 @@ func createLetterPairs(total, pairSize int) ([]string, error) {
 	}
 
 	letters := strings.Split(strings.Repeat(allLetters[:totalPairs], pairSize), "")
-	shuffleSlice(letters)
+
+	rand.Shuffle(len(letters), func(i, j int) {
+		letters[i], letters[j] = letters[j], letters[i]
+	})
 
 	return letters, nil
-
-}
-
-func shuffleSlice(s []string) {
-	rand.Shuffle(len(s), func(i, j int) {
-		s[i], s[j] = s[j], s[i]
-	})
 }
