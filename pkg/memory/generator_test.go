@@ -20,4 +20,32 @@ func TestLettersPool(t *testing.T) {
 			}
 		}
 	})
+
+	t.Run("invalid pair sizes", func(t *testing.T) {
+		values := [][]int{
+			{2, 3}, {64, 3}, {104, 3},
+			{6, 4}, {60, 5}, {156, 1},
+			{4, 3}, {80, 3}, {208, 3},
+		}
+
+		for _, val := range values {
+			_, err := lettersPool(val[0], val[1])
+			if err == nil {
+				t.Error("should be invalid, but got valid")
+			}
+		}
+	})
+
+	t.Run("invalid total letters", func(t *testing.T) {
+		values := [][]int{
+			{105, 2}, {2, 200}, {157, 3}, {200, 3}, {209, 4}, {250, 4},
+		}
+
+		for _, val := range values {
+			_, err := lettersPool(val[0], val[1])
+			if err == nil {
+				t.Error("should be invalid, but got valid")
+			}
+		}
+	})
 }

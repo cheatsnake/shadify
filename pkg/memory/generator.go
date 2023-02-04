@@ -5,10 +5,19 @@ import (
 	"strings"
 )
 
-func gridGenerator(w, h, pairSize int) {
-	// letters, _ := lettersPool(w*h, pairSize)
-	// grid := make([][]string, h)
+func gridGenerator(w, h, pairSize int) ([][]string, error) {
+	letters, err := lettersPool(w*h, pairSize)
+	if err != nil {
+		return nil, err
+	}
 
+	grid := make([][]string, h)
+
+	for i := range grid {
+		grid[i] = letters[i*w : w*(i+1)]
+	}
+
+	return grid, nil
 }
 
 func lettersPool(totalLetters, pairSize int) ([]string, error) {
