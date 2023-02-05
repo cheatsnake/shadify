@@ -11,7 +11,7 @@ func TestLettersPool(t *testing.T) {
 		}
 
 		for _, val := range values {
-			letters, err := lettersPool(val[0], val[1])
+			letters, _, err := lettersPool(val[0], val[1])
 			if err != nil {
 				t.Errorf("should be valid, but got error: %v", err.Error())
 			}
@@ -29,7 +29,7 @@ func TestLettersPool(t *testing.T) {
 		}
 
 		for _, val := range values {
-			_, err := lettersPool(val[0], val[1])
+			_, _, err := lettersPool(val[0], val[1])
 			if err == nil {
 				t.Error("should be invalid, but got valid")
 			}
@@ -42,7 +42,7 @@ func TestLettersPool(t *testing.T) {
 		}
 
 		for _, val := range values {
-			_, err := lettersPool(val[0], val[1])
+			_, _, err := lettersPool(val[0], val[1])
 			if err == nil {
 				t.Error("should be invalid, but got valid")
 			}

@@ -5,37 +5,42 @@ import (
 	"strings"
 )
 
-func gridGenerator(w, h, pairSize int) ([][]string, error) {
-	letters, err := lettersPool(w*h, pairSize)
+func generator(w, h, pairSize int, showPositions bool) ([][]string, []PairPositions, error) {
+	pool, usedLetters, err := lettersPool(w*h, pairSize)
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 
 	grid := make([][]string, h)
 
 	for i := range grid {
-		grid[i] = letters[i*w : w*(i+1)]
+		grid[i] = pool[i*w : w*(i+1)]
 	}
 
-	return grid, nil
+	if showPositions {
+		pp := definePositions(grid, usedLetters, pairSize)
+		return grid, pp, nil
+	}
+
+	return grid, nil, nil
 }
 
-func lettersPool(totalLetters, pairSize int) ([]string, error) {
+func lettersPool(totalLetters, pairSize int) ([]string, string, error) {
 	if totalLetters < 0 {
-		return nil, errNegativeNumbers
+		return nil, "", errNegativeNumbers
 	}
 
 	_, ok := _pairSizes[pairSize]
 	if !ok {
-		return nil, errPairSizeNotAllowed
+		return nil, "", errPairSizeNotAllowed
 	}
 
 	if totalLetters > len(_lowerCaseLetters)*2*pairSize {
-		return nil, errTooManyLetters
+		return nil, "", errTooManyLetters
 	}
 
 	if totalLetters%pairSize != 0 {
-		return nil, errIncorrectLettersAmount
+		return nil, "", errIncorrectLettersAmount
 	}
 
 	totalPairs := totalLetters / pairSize
@@ -45,11 +50,38 @@ func lettersPool(totalLetters, pairSize int) ([]string, error) {
 		allLetters += _upperCaseLetters
 	}
 
-	letters := strings.Split(strings.Repeat(allLetters[:totalPairs], pairSize), "")
+	usedLetters := allLetters[:totalPairs]
+	pool := strings.Split(strings.Repeat(usedLetters, pairSize), "")
 
-	rand.Shuffle(len(letters), func(i, j int) {
-		letters[i], letters[j] = letters[j], letters[i]
+	rand.Shuffle(len(pool), func(i, j int) {
+		pool[i], pool[j] = pool[j], pool[i]
 	})
 
-	return letters, nil
+	return pool, usedLetters, nil
+}
+
+func definePositions(grid [][]string, letters string, ps int) []PairPositions {
+	values := make(map[string][][]int)
+
+	for i, row := range grid {
+		for j, val := range row {
+			_, ok := values[val]
+			if !ok {
+				values[val] = make([][]int, 0, ps)
+			}
+
+			values[val] = append(values[val], []int{i + 1, j + 1})
+		}
+	}
+
+	pp := make([]PairPositions, len(letters))
+
+	for i, letter := range letters {
+		pp[i] = PairPositions{
+			Value:     string(letter),
+			Positions: values[string(letter)],
+		}
+	}
+
+	return pp
 }

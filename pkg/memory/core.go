@@ -1,7 +1,7 @@
 package memory
 
 func Generate(w, h, ps int, showPositions bool) (Core, error) {
-	grid, err := gridGenerator(w, h, ps)
+	grid, positions, err := generator(w, h, ps, showPositions)
 	if err != nil {
 		return Core{}, err
 	}
@@ -12,6 +12,6 @@ func Generate(w, h, ps int, showPositions bool) (Core, error) {
 		PairSize:      ps,
 		TotalPairs:    (w * h) / ps,
 		Grid:          grid,
-		PairPositions: []PairPositions{},
+		PairPositions: positions,
 	}, nil
 }
