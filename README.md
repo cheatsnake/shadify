@@ -27,6 +27,7 @@ All docs is available on the [official website](https://shadify.dev). The servic
 -   [Countries](https://shadify.dev/modules/countries.html)
 -   [Camp](https://shadify.dev/modules/camp.html)
 -   [Kuromasu](https://shadify.dev/modules/kuromasu.html)
+-   [Memory](https://shadify.dev/modules/memory.html)
 
 > Translations: [`Russian`](https://github.com/cheatsnake/shadify/blob/master/README_RU.md#%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%86%D0%B8%D1%8F)
 
