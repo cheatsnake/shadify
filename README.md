@@ -1,20 +1,20 @@
+# Shadify
+
 <a href="https://goreportcard.com/report/github.com/cheatsnake/shadify"><img src="https://goreportcard.com/badge/github.com/cheatsnake/shadify" alt="Go report"/></a>
 <a href="https://github.com/cheatsnake/shadify/releases"><img src="https://img.shields.io/github/v/release/cheatsnake/shadify.svg" alt="GitHub repo size"/></a>
 <a href="https://img.shields.io/github/repo-size/cheatsnake/shadify?color=blue"><img src="https://img.shields.io/github/repo-size/cheatsnake/shadify?color=blue" alt="GitHub repo size"/></a>
 <a href="https://img.shields.io/github/license/cheatsnake/shadify?color=orange"><img src="https://img.shields.io/github/license/cheatsnake/shadify?color=orange" alt="GitHub repo license"/></a>
 <a href="https://github.com/cheatsnake/shadify/issues"><img src="https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat" alt="GitHub repo issues"/></a>
 
-# Shadify
-
-Powerful REST API for building puzzles.
-
-## 👋 Introduction
+<p align="center"><img src="/docs/images/shadify.png" alt="Promo"/></p>
 
 Shadify is a powerful REST API service provides a collection of different puzzle types, like crosswords, Sudoku, word search and so on. The API allows users to generate data for puzzles, check the correctness of solutions, and configure various parameters to change the difficulty of the puzzles.
 
 ## 📃 Documentation
 
-All docs is available on the [official website](https://shadify.dev). The service is divided into independent modules. Each module starts with a brief description of what the module is oriented at (be it a game, a puzzle, a task, etc.). This is followed by a detailed description of each HTTP interface, with descriptions of the possible parameters and return responses.
+All documentation is available on the [official website](https://shadify.dev).
+
+The service is divided into independent modules. Each module starts with a brief description of what the module is oriented at (be it a game, a puzzle, a task, etc.). This is followed by a detailed description of each HTTP interface, with descriptions of the possible parameters and return responses.
 
 -   [Sudoku](https://shadify.dev/modules/sudoku.html)
 -   [Takuzu](https://shadify.dev/modules/takuzu.html)

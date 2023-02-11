@@ -1,5 +1,7 @@
 # 👋 Introduction
 
+<p align="center"><img src="../images/shadify.png" alt="Promo"/></p>
+
 Shadify is a powerful REST API service provides a collection of different puzzle types, like crosswords, Sudoku, word search and so on. The API allows users to generate data for puzzles, check the correctness of solutions, and configure various parameters to change the difficulty of the puzzles.
 
 ## 👍 Easy to use
