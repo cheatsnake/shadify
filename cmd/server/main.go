@@ -38,6 +38,7 @@ func main() {
 	routes.CountriesRouter(app)
 	routes.CampRouter(app)
 	routes.KuromasuRouter(app)
+	routes.MemoryRouter(app)
 
 	log.Fatal(app.Listen(":" + port))
 }
