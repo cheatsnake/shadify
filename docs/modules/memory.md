@@ -1,5 +1,7 @@
 # Memory
 
+<p align="center"><img src="../images/memory.png" alt="Memory"/></p>
+
 **Memory** is a puzzle that's great for practicing memorization. You are given a field with a random set of elements, and each element in the field occur several times (usually 2 or 3). You have some time to remember the position of all the elements on the field, and then all of them are hidden and your task is to open pairs of identical elements one by one trying to make as few mistakes as possible.
 
 ## Generating a random grid
