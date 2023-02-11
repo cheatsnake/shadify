@@ -15,3 +15,4 @@ The service is divided into independent modules. Each module starts with a brief
 -   [Countries](./modules/countries.md)
 -   [Camp](./modules/camp.md)
 -   [Kuromasu](./modules/kuromasu.md)
+-   [Memory](./modules/memory.md)

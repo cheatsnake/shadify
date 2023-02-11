@@ -17,3 +17,4 @@
 -   [Countries](./modules/countries.md)
 -   [Camp](./modules/camp.md)
 -   [Kuromasu](./modules/kuromasu.md)
+-   [Memory](./modules/memory.md)
