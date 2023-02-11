@@ -14,6 +14,6 @@ var _pairSizes = map[int]int{
 }
 
 var errNegativeNumbers = errors.New("negative numbers are not allowed")
-var errPairSizeNotAllowed = errors.New("pair size not allowed")
-var errTooManyLetters = errors.New("total number of letters must not exceed 52 multiplied by the size of the pair")
-var errIncorrectLettersAmount = errors.New("total number of letters must be even to the size of the pair")
+var errPairSizeNotAllowed = errors.New("given pair size not allowed")
+var errTooBigGrid = errors.New("total number of cells in the grid must not exceed 52 multiplied by the pair size")
+var errIncorrectGridSize = errors.New("total number of cells in the grid must be even to the size of the pair")

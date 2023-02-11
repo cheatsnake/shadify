@@ -6,6 +6,10 @@ import (
 )
 
 func generator(w, h, pairSize int, showPositions bool) ([][]string, []PairPositions, error) {
+	if w < 0 || h < 0 {
+		return nil, nil, errNegativeNumbers
+	}
+
 	pool, usedLetters, err := lettersPool(w*h, pairSize)
 	if err != nil {
 		return nil, nil, err
@@ -26,21 +30,17 @@ func generator(w, h, pairSize int, showPositions bool) ([][]string, []PairPositi
 }
 
 func lettersPool(totalLetters, pairSize int) ([]string, string, error) {
-	if totalLetters < 0 {
-		return nil, "", errNegativeNumbers
-	}
-
 	_, ok := _pairSizes[pairSize]
 	if !ok {
 		return nil, "", errPairSizeNotAllowed
 	}
 
 	if totalLetters > len(_lowerCaseLetters)*2*pairSize {
-		return nil, "", errTooManyLetters
+		return nil, "", errTooBigGrid
 	}
 
 	if totalLetters%pairSize != 0 {
-		return nil, "", errIncorrectLettersAmount
+		return nil, "", errIncorrectGridSize
 	}
 
 	totalPairs := totalLetters / pairSize
