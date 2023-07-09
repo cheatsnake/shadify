@@ -3,7 +3,7 @@ package sudoku
 import "github.com/cheatsnake/shadify/internal/helpers"
 
 func prepare(grid [9][9]int, fillFactor int) [9][9]int {
-	if fillFactor > 99 {
+	if fillFactor > maxFillFactor {
 		return grid
 	}
 	if fillFactor < 0 {
