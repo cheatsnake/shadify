@@ -12,7 +12,7 @@ GET https://shadify.dev/api/sudoku/generator
 
 | Parameter | Description                                                                                                                              |
 | --------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| `fill`    | _Optional_ <br><br> A number from 0 to 100 that corresponds to the field fill level (as a percentage). <br><br> The default value is 30. |
+| `fill`    | _Optional_ <br><br> A number from 0 to 50 that corresponds to the field fill level (as a percentage). <br><br> The default value is 30. |
 
 Returned response:
 
