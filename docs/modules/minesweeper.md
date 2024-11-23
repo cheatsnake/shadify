@@ -7,7 +7,7 @@
 ## Generating a random field
 
 ```nginx
-GET https://shadify.dev/api/minesweeper/generator
+GET https://shadify.yurace.pro/api/minesweeper/generator
 ```
 
 | Parameter | Description                                                                                                                                                                                                                                                                                                                                                           |

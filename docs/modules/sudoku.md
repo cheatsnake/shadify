@@ -7,11 +7,11 @@
 ## Generating random Sudoku
 
 ```nginx
-GET https://shadify.dev/api/sudoku/generator
+GET https://shadify.yurace.pro/api/sudoku/generator
 ```
 
-| Parameter | Description                                                                                                                              |
-| --------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| Parameter | Description                                                                                                                             |
+| --------- | --------------------------------------------------------------------------------------------------------------------------------------- |
 | `fill`    | _Optional_ <br><br> A number from 0 to 50 that corresponds to the field fill level (as a percentage). <br><br> The default value is 30. |
 
 Returned response:
@@ -51,7 +51,7 @@ Returned response:
 To check Sudoku you can use GET-request with required query-parameter
 
 ```nginx
-GET https://shadify.dev/api/sudoku/verifier
+GET https://shadify.yurace.pro/api/sudoku/verifier
 ```
 
 | Parameter | Description                                                                                                                                  |
@@ -61,14 +61,14 @@ GET https://shadify.dev/api/sudoku/verifier
 An example of a GET-request:
 
 ```nginx
-https://shadify.dev/api/sudoku/verifier?task=123564897-456897231-789231564-
+https://shadify.yurace.pro/api/sudoku/verifier?task=123564897-456897231-789231564-
 234675918-567918342-891342675-345786129-678129453-912453786
 ```
 
 Also, for convenience, you can use POST-request with body in JSON format
 
 ```nginx
-POST https://shadify.dev/api/sudoku/verifier
+POST https://shadify.yurace.pro/api/sudoku/verifier
 ```
 
 Example body for a POST request:

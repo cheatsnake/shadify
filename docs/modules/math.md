@@ -7,25 +7,25 @@ A module for generating random mathematical expressions. Great for creating vari
 ## Generating an expression with addition
 
 ```nginx
-GET https://shadify.dev/api/math/add
+GET https://shadify.yurace.pro/api/math/add
 ```
 
 -   Generating an expression with subtraction
 
 ```nginx
-GET https://shadify.dev/api/math/sub
+GET https://shadify.yurace.pro/api/math/sub
 ```
 
 -   Generating an expression with multiplication
 
 ```nginx
-GET https://shadify.dev/api/math/mul
+GET https://shadify.yurace.pro/api/math/mul
 ```
 
 -   Generating an expression with division
 
 ```nginx
-GET https://shadify.dev/api/math/div
+GET https://shadify.yurace.pro/api/math/div
 ```
 
 The following parameters are available for the above endpoints:
@@ -55,7 +55,7 @@ Returned response:
 [Quadratic equation](https://en.wikipedia.org/wiki/Quadratic_equation) is an equation of the form ax2 + bx + c = 0, where the coefficients a, b and c are arbitrary numbers.
 
 ```nginx
-GET https://shadify.dev/api/math/quad
+GET https://shadify.yurace.pro/api/math/quad
 ```
 
 | Parameter        | Description                                                                                                                             |

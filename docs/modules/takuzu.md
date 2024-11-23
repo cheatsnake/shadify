@@ -13,7 +13,7 @@ For an example, you can see my app [Binario](https://binario.vercel.app).
 ## Generating Takuzu
 
 ```nginx
-GET https://shadify.dev/api/takuzu/generator
+GET https://shadify.yurace.pro/api/takuzu/generator
 ```
 
 | Parameter | Description                                                                                                                              |
@@ -54,7 +54,7 @@ Returned response:
 To check Takuzu, you can use a GET-request with the required query parameter:
 
 ```nginx
-GET https://shadify.dev/api/takuzu/verifier
+GET https://shadify.yurace.pro/api/takuzu/verifier
 ```
 
 | Parameter | Description                                                                                                                                                                                                                                               |
@@ -64,13 +64,13 @@ GET https://shadify.dev/api/takuzu/verifier
 An example of a GET-request:
 
 ```nginx
-https://shadify.dev/api/takuzu/verifier?task=1010-1100-0101-0101
+https://shadify.yurace.pro/api/takuzu/verifier?task=1010-1100-0101-0101
 ```
 
 Also, for convenience, you can use POST-request with body in JSON format
 
 ```nginx
-POST https://shadify.dev/api/takuzu/verifier
+POST https://shadify.yurace.pro/api/takuzu/verifier
 ```
 
 Example body for a POST-request:

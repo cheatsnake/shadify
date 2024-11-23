@@ -12,22 +12,22 @@ Shadify is a powerful REST API service provides a collection of different puzzle
 
 ## 📃 Documentation
 
-All documentation is available on the [official website](https://shadify.dev).
+All documentation is available on the [official website](https://shadify.yurace.pro).
 
 The service is divided into independent modules. Each module starts with a brief description of what the module is oriented at (be it a game, a puzzle, a task, etc.). This is followed by a detailed description of each HTTP interface, with descriptions of the possible parameters and return responses.
 
--   [Sudoku](https://shadify.dev/modules/sudoku.html)
--   [Takuzu](https://shadify.dev/modules/takuzu.html)
--   [Set](https://shadify.dev/modules/set.html)
--   [Math](https://shadify.dev/modules/math.html)
--   [Schulte](https://shadify.dev/modules/schulte.html)
--   [Minesweeper](https://shadify.dev/modules/minesweeper.html)
--   [Wordsearch](https://shadify.dev/modules/wordsearch.html)
--   [Anagram](https://shadify.dev/modules/anagram.html)
--   [Countries](https://shadify.dev/modules/countries.html)
--   [Camp](https://shadify.dev/modules/camp.html)
--   [Kuromasu](https://shadify.dev/modules/kuromasu.html)
--   [Memory](https://shadify.dev/modules/memory.html)
+-   [Sudoku](https://shadify.yurace.pro/modules/sudoku.html)
+-   [Takuzu](https://shadify.yurace.pro/modules/takuzu.html)
+-   [Set](https://shadify.yurace.pro/modules/set.html)
+-   [Math](https://shadify.yurace.pro/modules/math.html)
+-   [Schulte](https://shadify.yurace.pro/modules/schulte.html)
+-   [Minesweeper](https://shadify.yurace.pro/modules/minesweeper.html)
+-   [Wordsearch](https://shadify.yurace.pro/modules/wordsearch.html)
+-   [Anagram](https://shadify.yurace.pro/modules/anagram.html)
+-   [Countries](https://shadify.yurace.pro/modules/countries.html)
+-   [Camp](https://shadify.yurace.pro/modules/camp.html)
+-   [Kuromasu](https://shadify.yurace.pro/modules/kuromasu.html)
+-   [Memory](https://shadify.yurace.pro/modules/memory.html)
 
 > Translations: [`Russian`](https://github.com/cheatsnake/shadify/blob/master/README_RU.md#%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%86%D0%B8%D1%8F)
 

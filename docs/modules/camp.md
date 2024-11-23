@@ -11,7 +11,7 @@
 ## Generating a random task
 
 ```nginx
-GET https://shadify.dev/api/camp/generator
+GET https://shadify.yurace.pro/api/camp/generator
 ```
 
 | Parameter  | Description                                                                                                                                           |
@@ -61,7 +61,7 @@ Returned response:
 ## Verifying a completed task
 
 ```nginx
-POST https://shadify.dev/api/camp/verifier
+POST https://shadify.yurace.pro/api/camp/verifier
 ```
 
 Example of JSON body:

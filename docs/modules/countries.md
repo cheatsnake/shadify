@@ -7,7 +7,7 @@ Countries module allows you to generate quizes such as guess the capital or gues
 <p align="center"><img src="../images/guess-capital.png" alt="Guess capital"/></p>
 
 ```nginx
-GET https://shadify.dev/api/countries/capital-quiz
+GET https://shadify.yurace.pro/api/countries/capital-quiz
 ```
 
 | Parameter  | Description                                                                                                                                                                                                                |
@@ -36,7 +36,7 @@ Returned response:
 <p align="center"><img src="../images/guess-country.png" alt="Guess country"/></p>
 
 ```nginx
-GET https://shadify.dev/api/countries/country-quiz
+GET https://shadify.yurace.pro/api/countries/country-quiz
 ```
 
 | Parameter  | Description                                                                                                                                                                                                                |

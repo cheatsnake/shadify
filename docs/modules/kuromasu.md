@@ -12,7 +12,7 @@
 ## Generating a random task
 
 ```nginx
-GET https://shadify.dev/api/kuromasu/generator
+GET https://shadify.yurace.pro/api/kuromasu/generator
 ```
 
 | Parameter | Description                                                                                                                                         |
@@ -52,7 +52,7 @@ Returned response:
 ## Verifying a completed task
 
 ```nginx
-POST https://shadify.dev/api/kuromasu/verifier
+POST https://shadify.yurace.pro/api/kuromasu/verifier
 ```
 
 Example of JSON body:

@@ -7,7 +7,7 @@
 ## Generating a random grid
 
 ```nginx
-GET https://shadify.dev/api/wordsearch/generator
+GET https://shadify.yurace.pro/api/wordsearch/generator
 ```
 
 | Parameter | Description                                                                                                                                                                  |

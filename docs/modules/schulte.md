@@ -7,7 +7,7 @@
 ## Generating a Random Table
 
 ```nginx
-GET https://shadify.dev/api/schulte/generator
+GET https://shadify.yurace.pro/api/schulte/generator
 ```
 
 | Parameter | Description                                                                                                                                                                                                                       |

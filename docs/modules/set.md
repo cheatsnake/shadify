@@ -9,7 +9,7 @@ To understand the rules, read Wikipedia or watch [this interesting video](https:
 ## Get all cards
 
 ```nginx
-GET https://shadify.dev/api/set/start
+GET https://shadify.yurace.pro/api/set/start
 ```
 
 Always returns the same array of 81 objects. Each object corresponds to one of the cards. An example of a card:
@@ -33,7 +33,7 @@ Always returns the same array of 81 objects. Each object corresponds to one of t
 ## Generating a new game
 
 ```nginx
-GET https://shadify.dev/api/set/start
+GET https://shadify.yurace.pro/api/set/start
 ```
 
 | Parameter       | Description                                                                                                                                                                                                                                                                               |
@@ -61,7 +61,7 @@ Returned response:
 ## Load state
 
 ```nginx
-GET https://shadify.dev/api/set/<:state>
+GET https://shadify.yurace.pro/api/set/<:state>
 ```
 
 | Parameter       | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
@@ -73,13 +73,13 @@ GET https://shadify.dev/api/set/<:state>
 Examples of requests with state loading:
 
 ```nginx
-https://shadify.dev/api/set/0-27-53-10-46-15-16-64-32-23-29-6?possible-sets=false
+https://shadify.yurace.pro/api/set/0-27-53-10-46-15-16-64-32-23-29-6?possible-sets=false
 ```
 
 ```nginx
-https://shadify.dev/api/set/41-47-7-53-13-46-25-36-72-60-15-80?action=add
+https://shadify.yurace.pro/api/set/41-47-7-53-13-46-25-36-72-60-15-80?action=add
 ```
 
 ```nginx
-https://shadify.dev/api/set/0-27-53-10-46-15-16-64-32-23-29-6?action=remove&cards=0-16-23
+https://shadify.yurace.pro/api/set/0-27-53-10-46-15-16-64-32-23-29-6?action=remove&cards=0-16-23
 ```

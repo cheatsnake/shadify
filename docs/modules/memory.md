@@ -7,7 +7,7 @@
 ## Generating a random grid
 
 ```nginx
-GET https://shadify.dev/api/memory/generator
+GET https://shadify.yurace.pro/api/memory/generator
 ```
 
 | Parameter        | Description                                                                                                                                                                                                                |
@@ -29,17 +29,73 @@ Returned response:
         ["e", "g", "f", "a", "h", "d"],
         ["c", "d", "e", "d", "g", "a"],
         ["c", "h", "e", "b", "c", "b"],
-        ["f", "a", "b", "h", "f", "g"],
+        ["f", "a", "b", "h", "f", "g"]
     ],
     "pairPositions": [
-        {"value": "a", "positions": [[1, 4], [2, 6], [4, 2]]},
-        {"value": "b", "positions": [[3, 4], [3, 6], [4, 3]]},
-        {"value": "c", "positions": [[2, 1], [3, 1], [3, 5]]},
-        {"value": "d", "positions": [[1, 6], [2, 2], [2, 4]]},
-        {"value": "e", "positions": [[1, 1], [2, 3], [3, 3]]},
-        {"value": "f", "positions": [[1, 3], [4, 1], [4, 5]]},
-        {"value": "g", "positions": [[1, 2], [2, 5], [4, 6]]},
-        {"value": "h", "positions": [[1, 5], [3, 2], [4, 4]]},
+        {
+            "value": "a",
+            "positions": [
+                [1, 4],
+                [2, 6],
+                [4, 2]
+            ]
+        },
+        {
+            "value": "b",
+            "positions": [
+                [3, 4],
+                [3, 6],
+                [4, 3]
+            ]
+        },
+        {
+            "value": "c",
+            "positions": [
+                [2, 1],
+                [3, 1],
+                [3, 5]
+            ]
+        },
+        {
+            "value": "d",
+            "positions": [
+                [1, 6],
+                [2, 2],
+                [2, 4]
+            ]
+        },
+        {
+            "value": "e",
+            "positions": [
+                [1, 1],
+                [2, 3],
+                [3, 3]
+            ]
+        },
+        {
+            "value": "f",
+            "positions": [
+                [1, 3],
+                [4, 1],
+                [4, 5]
+            ]
+        },
+        {
+            "value": "g",
+            "positions": [
+                [1, 2],
+                [2, 5],
+                [4, 6]
+            ]
+        },
+        {
+            "value": "h",
+            "positions": [
+                [1, 5],
+                [3, 2],
+                [4, 4]
+            ]
+        }
     ]
 }
 ```
